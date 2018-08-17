@@ -12,12 +12,17 @@ brick_game::point brick_game::simplExempl::BEGIN_POS() {
 
 brick_game::simplExempl::simplExempl(::QObject *parent)
     : abstractGame{parent}, cur_pos_{BEGIN_POS()} {
-}
-
-void brick_game::simplExempl::start_game() {
   field_.resize(brick_game::FIELD_SIZE.height(),
                 decltype(field_)::value_type(brick_game::FIELD_SIZE.width(),
                                              Value::NONE));
+}
+
+void brick_game::simplExempl::start_game() {
+  for (auto &i : field_) {
+    for (auto &j : i) {
+      j = Value::NONE;
+    }
+  }
   cur_pos_ = BEGIN_POS();
   changed(cur_pos_, ONE);
 }

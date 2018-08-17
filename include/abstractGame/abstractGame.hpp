@@ -6,6 +6,8 @@
 #include "brick_game.hpp"
 #include <QObject>
 #include <QMediaPlayer>
+#include <deque>
+#include <vector>
 
 namespace brick_game {
 class abstractGame : public ::QObject {
@@ -15,6 +17,7 @@ public:
   static brick_game::point RBEGIN_FIELD();
 
 protected:
+  std::deque<std::vector<Value>> field_;
   bool soundless_;
   ::QMediaPlayer player_;
 

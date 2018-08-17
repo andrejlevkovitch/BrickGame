@@ -34,6 +34,7 @@ brick_game::tetramino::tetramino(::QObject *parent)
     : brick_game::abstractGame{parent}, cur_brick_position_{BEG_POSITION()},
       time_interval_{BEGIN_TIME_DOWN()}, score_{}, level_{}, lines_{},
       active_{true}, is_avalibale_{false} {
+
   field_.resize(brick_game::FIELD_SIZE.height(),
                 decltype(field_)::value_type(brick_game::FIELD_SIZE.width(),
                                              Value::NONE));
@@ -178,7 +179,8 @@ void brick_game::tetramino::delete_solutions() {
     }
     score_ += PRICE_FOR_LINE(lines_counter - 1);
     emit send_score(score_);
-    if (!soundless_ && !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
+    if (!soundless_ &&
+        !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
       player_.setMedia(::QUrl{"qrc:/audio/score.mp3"});
       player_.play();
     }
@@ -273,7 +275,8 @@ begin:
 end:
   reverse_cur_brick();
 
-  if (is_turned && !soundless_ && !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
+  if (is_turned && !soundless_ &&
+      !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
     if (player_.media() != ::QUrl{"qrc:/audio/activity.mp3"}) {
       player_.setMedia(::QUrl{"qrc:/audio/activity.mp3"});
     }

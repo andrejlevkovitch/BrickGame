@@ -69,24 +69,32 @@ void brick_game::screen::clear_field(::QSize size, ::QPoint pos) const {
 
 void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
   switch (event->key()) {
+    case Qt::Key_W:
+    case Qt::Key_K:
   case Qt::Key_Up:
     if (cur_game_ != nullptr && is_running_) {
       directionEvent event{Direction::UP};
       ::QCoreApplication::sendEvent(cur_game_, &event);
     }
     break;
+  case Qt::Key_S:
+  case Qt::Key_J:
   case Qt::Key_Down:
     if (cur_game_ != nullptr && is_running_) {
       directionEvent event{Direction::DOWN};
       ::QCoreApplication::sendEvent(cur_game_, &event);
     }
     break;
+  case Qt::Key_D:
+  case Qt::Key_L:
   case Qt::Key_Right:
     if (cur_game_ != nullptr && is_running_) {
       directionEvent event{Direction::RIGHT};
       ::QCoreApplication::sendEvent(cur_game_, &event);
     }
     break;
+  case Qt::Key_A:
+  case Qt::Key_H:
   case Qt::Key_Left:
     if (cur_game_ != nullptr && is_running_) {
       directionEvent event{Direction::LEFT};
@@ -107,9 +115,8 @@ void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
       this->clear_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
     }
     break;
-  case Qt::Key_Execute:
-  case Qt::Key_Eject:
   case Qt::Key_Enter:
+  case Qt::Key_Return:
   case Qt::Key_E:
     if (cur_game_ != nullptr) {
       if (is_running_) {
