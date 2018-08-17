@@ -1,0 +1,11 @@
+brick_game--pix:enabled {
+  color : white;
+  background-color : black;
+  border : 3px solid darkgray;
+}
+
+brick_game--pix:disabled {
+  color : white;
+  background-color : white;
+  border : 3px solid darkgray;
+}
