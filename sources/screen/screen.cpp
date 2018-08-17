@@ -4,6 +4,7 @@
 #include "abstractGame/abstractGame.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
+#include "screen/pauseLog.hpp"
 #include "screen/pix.hpp"
 #include <QBoxLayout>
 #include <QCoreApplication>
@@ -12,7 +13,10 @@
 #include <QLabel>
 
 brick_game::screen::screen(::QWidget *parent)
-    : ::QWidget{parent}, cur_game_{nullptr}, is_running_{false} {
+    : ::QWidget{parent}, cur_game_{nullptr},
+      is_running_{false} {
+
+  pause_log_ = new brick_game::pauseLog{this};
   auto general_layout = new ::QHBoxLayout;
   {
     auto rhs_layout = new ::QVBoxLayout;
@@ -69,8 +73,8 @@ void brick_game::screen::clear_field(::QSize size, ::QPoint pos) const {
 
 void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
   switch (event->key()) {
-    case Qt::Key_W:
-    case Qt::Key_K:
+  case Qt::Key_W:
+  case Qt::Key_K:
   case Qt::Key_Up:
     if (cur_game_ != nullptr && is_running_) {
       directionEvent event{Direction::UP};
@@ -105,6 +109,9 @@ void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
     if (cur_game_ != nullptr && is_running_) {
       pauseEvent event;
       ::QCoreApplication::sendEvent(cur_game_, &event);
+      if (!pause_log_->isVisible()) {
+        pause_log_->open();
+      }
     }
     break;
   case Qt::Key_Escape:

@@ -1,5 +1,7 @@
 // directionEvent.hpp
 
+#pragma once
+
 #include "brick_game.hpp"
 #include <QEvent>
 

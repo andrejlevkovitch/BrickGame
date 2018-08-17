@@ -108,9 +108,15 @@ void brick_game::tetramino::pause() {
     if (timer_.isActive()) {
       active_ = false;
       timer_.stop();
+      if (player_.state() == ::QMediaPlayer::State::PlayingState) {
+        player_.pause();
+      }
     } else {
       active_ = true;
       timer_.start(time_interval_);
+      if (player_.state() == ::QMediaPlayer::State::PausedState) {
+        player_.play();
+      }
     }
   }
 }

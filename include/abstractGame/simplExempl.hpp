@@ -1,5 +1,7 @@
 // simplExempl.hpp
 
+#pragma once
+
 #include "abstractGame/abstractGame.hpp"
 #include "abstractGame/point.hpp"
 #include "brick_game.hpp"

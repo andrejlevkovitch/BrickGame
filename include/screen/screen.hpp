@@ -7,12 +7,14 @@
 
 namespace brick_game {
 class abstractGame;
+class pauseLog;
 
 class screen : public ::QWidget { // standart screen for brick game
   Q_OBJECT
 private:
   abstractGame *cur_game_;
   bool is_running_;
+  pauseLog *pause_log_;
 
 public:
   explicit screen(::QWidget *parent = nullptr);
