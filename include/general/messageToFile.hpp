@@ -1,5 +1,7 @@
 // messageToFile.hpp
 
+#pragma once
+
 #include "brick_game.hpp"
 #include <QMessageLogContext>
 #include <QString>

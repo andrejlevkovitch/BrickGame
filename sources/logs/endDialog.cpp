@@ -1,6 +1,6 @@
 // endDialog.cpp
 
-#include "screen/endDialog.hpp"
+#include "logs/endDialog.hpp"
 #include "recordTable/recordTable.hpp"
 #include <QBoxLayout>
 #include <QLabel>
@@ -18,24 +18,12 @@ brick_game::endDialog::endDialog(::QWidget *parent)
     name_edit_ = new ::QLineEdit;
     name_edit_->hide();
     name_edit_->setMaxLength(recordTable::NAME_SIZE());
-    {
-      connect(name_edit_, &::QLineEdit::returnPressed, this, [=]() {
-        auto rT = dynamic_cast<recordTable *>(record_table_view_->model());
-        if (rT) {
-          rT->set_record(name_edit_->text(), level_, score_);
-        }
-        name_edit_->clear();
-      });
-    }
+    { connect(name_edit_, SIGNAL(returnPressed()), this, SLOT(set_record())); }
     name_lbl->setBuddy(name_edit_);
     auto exit_button = new ::QPushButton{"&Exit"};
     {
       connect(exit_button, &::QPushButton::clicked, this, [=]() {
-        auto rT = dynamic_cast<recordTable *>(record_table_view_->model());
-        if (rT) {
-          rT->set_record(name_edit_->text(), level_, score_);
-        }
-        name_edit_->clear();
+        set_record();
         this->accept();
       });
     }
@@ -61,6 +49,14 @@ void brick_game::endDialog::setRecordTable(
   });
   connect(record_table, &brick_game::recordTable::norecord, name_edit_,
           [=]() { name_edit_->hide(); });
+}
+
+void brick_game::endDialog::set_record() {
+  auto rT = dynamic_cast<recordTable *>(record_table_view_->model());
+  if (rT) {
+    rT->set_record(name_edit_->text(), level_, score_);
+  }
+  name_edit_->clear();
 }
 
 void brick_game::endDialog::setDate(unsigned short level, unsigned score) {

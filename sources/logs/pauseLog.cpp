@@ -1,6 +1,6 @@
 // pauseLog.cpp
 
-#include "screen/pauseLog.hpp"
+#include "logs/pauseLog.hpp"
 #include <QBoxLayout>
 #include <QCloseEvent>
 #include <QCoreApplication>

@@ -3,7 +3,6 @@
 #include "abstractGame/simplExempl.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
-#include <QUrl>
 
 brick_game::point brick_game::simplExempl::BEGIN_POS() {
   static const brick_game::point retval{0, 0};
@@ -57,12 +56,8 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
     }
     if (!is_passible(cur_pos_)) {
       cur_pos_ = temp;
-    } else if (!soundless_) {
-      player_.stop();
-      if (player_.media() != ::QUrl{"qrc:/audio/activity.mp3"}) {
-        player_.setMedia(::QUrl{"qrc:/audio/activity.mp3"});
-      }
-      player_.play();
+    } else {
+      emit activity();
     }
     emit changed(cur_pos_, ONE);
     return;

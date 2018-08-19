@@ -57,18 +57,11 @@ void brick_game::tetramino::start_game_slot() {
   cur_brick_position_ = BEG_POSITION();
   reverse_cur_brick();
   send_next_brick();
-  score_ = 0;
-  level_ = 0;
-  lines_ = 0;
   emit send_level(level_);
   emit send_score(score_);
   active_ = true;
   is_avalibale_ = true;
   timer_.start(BEGIN_TIME_DOWN());
-  if (!soundless_) {
-    player_.setMedia(::QUrl{"qrc:/audio/tetramino_theme.mp3"});
-    player_.play();
-  }
 }
 
 void brick_game::tetramino::finish_game_slot() {
@@ -76,10 +69,12 @@ void brick_game::tetramino::finish_game_slot() {
     emit end_game_signal(level_, score_);
     return;
   }
+  level_ = 0;
+  score_ = 0;
+  lines_ = 0;
   active_ = false;
   is_avalibale_ = false;
   timer_.stop();
-  player_.stop();
 }
 
 ::QString brick_game::tetramino::game_name() const {
@@ -119,16 +114,11 @@ void brick_game::tetramino::pause() {
     if (timer_.isActive()) {
       active_ = false;
       timer_.stop();
-      if (player_.state() == ::QMediaPlayer::State::PlayingState) {
-        player_.pause();
-      }
-      emit pause_signal();
+      emit pause_signal(true);
     } else {
       active_ = true;
       timer_.start(time_interval_);
-      if (player_.state() == ::QMediaPlayer::State::PausedState) {
-        player_.play();
-      }
+      emit pause_signal(false);
     }
   }
 }
@@ -189,19 +179,10 @@ void brick_game::tetramino::delete_solutions() {
       lines_ = 0;
       ++level_;
       emit send_level(level_);
-      if (!soundless_) {
-        player_.setMedia(::QUrl{"qrc:/audio/level_up.mp3"});
-        player_.play();
-      }
       time_interval_ -= time_interval_ / TIME_DIVIDED();
     }
     score_ += PRICE_FOR_LINE(lines_counter - 1);
     emit send_score(score_);
-    if (!soundless_ &&
-        player_.state() != ::QMediaPlayer::State::PlayingState) {
-      player_.setMedia(::QUrl{"qrc:/audio/score.mp3"});
-      player_.play();
-    }
   }
   for (int i = 0; i < field_.size(); ++i) {
     for (int j = 0; j < field_[i].size(); ++j) {
@@ -241,38 +222,29 @@ begin:
   if (!is_passible()) {
     cur_brick_position_.right();
     if (!is_passible()) {
-      if (cur_brick_.type_ == brick::I_BRICK) {
-        cur_brick_position_.right();
-        if (!is_passible()) {
-          cur_brick_position_.left();
-        } else {
-          reverse_cur_brick();
-          goto end;
-        }
+      cur_brick_position_.right();
+      if (!is_passible()) {
+        cur_brick_position_.left();
+      } else {
+        goto end;
       }
       cur_brick_position_.left();
       cur_brick_position_.left();
       if (!is_passible()) {
-        if (cur_brick_.type_ == brick::I_BRICK) {
-          cur_brick_position_.left();
-          if (!is_passible()) {
-            cur_brick_position_.right();
-          } else {
-            reverse_cur_brick();
-            goto end;
-          }
+        cur_brick_position_.left();
+        if (!is_passible()) {
+          cur_brick_position_.right();
+        } else {
+          goto end;
         }
         cur_brick_position_.right();
         cur_brick_position_.down();
         if (!is_passible()) {
-          if (cur_brick_.type_ == brick::I_BRICK) {
-            cur_brick_position_.down();
-            if (!is_passible()) {
-              cur_brick_position_.up();
-            } else {
-              reverse_cur_brick();
-              goto end;
-            }
+          cur_brick_position_.down();
+          if (!is_passible()) {
+            cur_brick_position_.up();
+          } else {
+            goto end;
           }
           cur_brick_position_.up();
           if (first_time) {
@@ -293,12 +265,8 @@ begin:
 end:
   reverse_cur_brick();
 
-  if (is_turned && !soundless_ &&
-      player_.state() != ::QMediaPlayer::State::PlayingState) {
-    if (player_.media() != ::QUrl{"qrc:/audio/activity.mp3"}) {
-      player_.setMedia(::QUrl{"qrc:/audio/activity.mp3"});
-    }
-    player_.play();
+  if (is_turned) {
+    emit activity();
   }
 }
 

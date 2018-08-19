@@ -4,7 +4,6 @@
 
 #include "abstractGame/point.hpp"
 #include "brick_game.hpp"
-#include <QMediaPlayer>
 #include <QObject>
 #include <deque>
 #include <vector>
@@ -18,8 +17,6 @@ public:
 
 protected:
   std::deque<std::vector<Value>> field_;
-  bool soundless_;
-  ::QMediaPlayer player_;
 
 public:
   explicit abstractGame(::QObject *parent = nullptr);
@@ -32,13 +29,13 @@ protected:
 public slots:
   virtual void start_game_slot() = 0;
   virtual void finish_game_slot() = 0;
-  void remove_sound_slot();
 
 signals:
   void changed(::QPoint pos, Value value) const;
   void end_game_signal(unsigned short level = 0, unsigned score = 0) const;
   void send_level(int level) const;
   void send_score(int score) const;
-  void pause_signal() const;
+  void pause_signal(bool status) const;
+  void activity() const;
 };
 }; // namespace brick_game

@@ -17,7 +17,7 @@ brick_game::point brick_game::abstractGame::RBEGIN_FIELD() {
 }
 
 brick_game::abstractGame::abstractGame(::QObject *parent)
-    : ::QObject{parent}, soundless_{false} {
+    : ::QObject{parent} {
   ::qDebug() << "create abstractGame";
 }
 
@@ -28,14 +28,3 @@ bool brick_game::abstractGame::is_passible(const brick_game::point pos) const {
     return false;
   }
 }
-
-void brick_game::abstractGame::remove_sound_slot() {
-  if (soundless_) {
-    soundless_ = false;
-    ::qDebug() << "sound on";
-  } else {
-    soundless_ = true;
-    player_.stop();
-    ::qDebug() << "sound off";
-  }
-};

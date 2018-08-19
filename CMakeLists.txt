@@ -33,7 +33,6 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Multimedia REQUIRED)
 find_package(Qt5Xml REQUIRED)
-find_package(Boost REQUIRED)
 
 include_directories("./include")
 
@@ -41,19 +40,22 @@ set(MAIN_SRC sources/main.cpp)
 set(QRESOURCES "qresources.qrc")
 
 set(BRICKG_LBR "brickG")
-file(GLOB SCREEN_SRC "include/screen/*.hpp" "sources/screen/*.cpp")
-file(GLOB AGAME_SRC "include/abstractGame/*.hpp" "sources/abstractGame/*.cpp")
+file(GLOB LOGS_SRC "include/logs/*.hpp" "sources/logs/*.cpp")
 file(GLOB EVENT_SRC "include/events/*.hpp" "sources/events/*.cpp")
 file(GLOB RECORDT_SRC "include/recordTable/*.hpp" "sources/recordTable/*.cpp")
+file(GLOB PLAYER_SRC "include/player/*.hpp" "sources/player/*.cpp")
+file(GLOB SCREEN_SRC "include/screen/*.hpp" "sources/screen/*.cpp")
+file(GLOB AGAME_SRC "include/abstractGame/*.hpp" "sources/abstractGame/*.cpp")
 file(GLOB GWINDOW_SRC "include/general/*.hpp" "sources/general/*.cpp")
 
 set(TETRAMINO_LBR "tetramino")
 file(GLOB TETRAMINO_SRC "include/tetramino/*.hpp" "sources/tetramino/*.cpp")
 
 add_executable(${PROJECT_NAME} ${MAIN_SRC} ${QRESOURCES})
-add_library(${BRICKG_LBR} SHARED ${SCREEN_SRC} ${AGAME_SRC} ${EVENT_SRC} ${GWINDOW_SRC} ${RECORDT_SRC})
+add_library(${BRICKG_LBR} SHARED ${LOGS_SRC} ${EVENT_SRC} ${RECORDT_SRC}
+  ${PLAYER_SRC} ${SCREEN_SRC} ${AGAME_SRC} ${GWINDOW_SRC})
 add_library(${TETRAMINO_LBR} SHARED ${TETRAMINO_SRC})
 
 target_link_libraries(${PROJECT_NAME} ${BRICKG_LBR} ${TETRAMINO_LBR} Qt5::Widgets)
 target_link_libraries(${BRICKG_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)
-target_link_libraries(${TETRAMINO_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)
+target_link_libraries(${TETRAMINO_LBR} Qt5::Widgets)
