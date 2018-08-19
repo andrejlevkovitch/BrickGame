@@ -1,8 +1,11 @@
-// record_table.cpp
+// recordTable.cpp
 
-#include "screen/record_table.hpp"
+#include "recordTable/recordTable.hpp"
+#include "brick_game.hpp"
 #include <QDomNode>
 #include <QFile>
+
+#include <QDebug>
 
 unsigned short brick_game::recordTable::N_MEMBERS() {
   static const unsigned short retval{10};
@@ -43,38 +46,56 @@ const ::QString &brick_game::recordTable::THRID_TAG() {
   return retval;
 }
 
-brick_game::recordTable::recordTable(const ::QString &file, ::QObject *parent)
-    : ::QAbstractTableModel{parent}, file_{file},
-      record_list_{decltype(record_list_){N_MEMBERS(),
-                                          std::make_tuple("default", 0, 0)}} {
-  read_file();
+brick_game::recordTable::recordTable(::QObject *parent)
+    : ::QAbstractTableModel{parent}, record_list_{decltype(record_list_){
+                                         N_MEMBERS(),
+                                         std::make_tuple("default", 0, 0)}} {
+  ::qDebug() << "created recordTable";
 }
 
 brick_game::recordTable::~recordTable() {}
 
+void brick_game::recordTable::set_file_name(const ::QString &file_name) {
+  file_ = HOME + file_name;
+  ::qDebug() << "set file name for recordTable: " + file_;
+  read_file();
+}
+
 void brick_game::recordTable::read_file() {
-  ::QFile file(file_);
-  if (file.open(::QIODevice::ReadOnly)) {
-    ::QDomDocument dom_doc;
-    dom_doc.setContent(&file);
-    traverse_node(dom_doc.documentElement());
-    file.close();
+  if (!file_.isEmpty()) {
+    ::QFile file(file_);
+    if (file.open(::QIODevice::ReadOnly | ::QIODevice::Text)) {
+      ::QDomDocument dom_doc;
+      dom_doc.setContent(&file);
+      traverse_node(dom_doc.documentElement());
+      file.close();
+    } else {
+      ::qDebug() << "file with record table not open";
+    }
+  } else {
+    ::qDebug() << "file name is empty";
   }
 }
 
 void brick_game::recordTable::write_file() {
-  ::QFile file(file_);
-  if (file.open(::QIODevice::WriteOnly)) {
-    ::QDomDocument dom_doc{"record_table"};
-    ::QDomElement dom_elem{dom_doc.createElement(DOM_ROOT())};
-    dom_doc.appendChild(dom_elem);
-    for (int i{}; i < N_MEMBERS(); ++i) {
-      dom_elem.appendChild(record_holder(dom_doc, std::get<0>(record_list_[i]),
-                                         std::get<1>(record_list_[i]),
-                                         std::get<2>(record_list_[i]), i));
+  if (!file_.isEmpty()) {
+    ::QFile file(file_);
+    if (file.open(::QIODevice::WriteOnly | ::QIODevice::Text)) {
+      ::QDomDocument dom_doc{"record_table"};
+      ::QDomElement dom_elem{dom_doc.createElement(DOM_ROOT())};
+      dom_doc.appendChild(dom_elem);
+      for (int i{}; i < N_MEMBERS(); ++i) {
+        dom_elem.appendChild(record_holder(
+            dom_doc, std::get<0>(record_list_[i]), std::get<1>(record_list_[i]),
+            std::get<2>(record_list_[i]), i));
+      }
+      file.write(dom_doc.toByteArray());
+      file.close();
+    } else {
+      ::qDebug() << "file with record table not open";
     }
-    file.write(dom_doc.toByteArray());
-    file.close();
+  } else {
+    ::qDebug() << "file name is empty";
   }
 }
 
@@ -153,16 +174,21 @@ void brick_game::recordTable::traverse_node(const QDomNode &in_node) {
 
 void brick_game::recordTable::set_record(const ::QString &member,
                                          unsigned short level, unsigned score) {
-  for (auto i = record_list_.begin(); i != record_list_.end(); ++i) {
-    if (score > std::get<2>(*i)) {
-      record_list_.insert(i, std::make_tuple(member, level, score));
-      break;
+  if (!member.isEmpty() && score) {
+    for (auto i = record_list_.begin(); i != record_list_.end(); ++i) {
+      if (score > std::get<2>(*i)) {
+        record_list_.insert(i, std::make_tuple(member, level, score));
+        break;
+      }
     }
+    write_file();
   }
-  write_file();
 }
 
 bool brick_game::recordTable::is_record(unsigned score) {
+  if (file_.isEmpty()) {
+    return false;
+  }
   read_file();
   auto iter = record_list_.begin();
   std::advance(iter, N_MEMBERS() - 1);

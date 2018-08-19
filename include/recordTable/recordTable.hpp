@@ -1,4 +1,4 @@
-// record_table.hpp
+// recordTable.hpp
 
 #pragma once
 
@@ -9,12 +9,6 @@
 class QDomNode;
 class QDomElement;
 class QDomDocument;
-
-#ifdef __linux__
-const ::QString HOME{getenv("HOME")};
-#elif _WIN32
-const ::QString HOME{getenv("LOCALAPPDATA")};
-#endif
 
 namespace brick_game {
 class recordTable : public ::QAbstractTableModel {
@@ -34,9 +28,11 @@ private:
   std::vector<std::tuple<::QString, unsigned short, unsigned>> record_list_;
 
 public:
-  recordTable(const ::QString &file, ::QObject *parent = nullptr);
+  explicit recordTable(::QObject *parent = nullptr);
   ~recordTable();
-  void set_record(const ::QString &member, unsigned short level, unsigned size);
+  void set_file_name(const ::QString &file_name);
+  void set_record(const ::QString &member, unsigned short level,
+                  unsigned score);
 
 private:
   void read_file();
@@ -51,7 +47,11 @@ private:
   ::QVariant data(const QModelIndex &index,
                   int role = Qt::DisplayRole) const override;
   int rowCount(const ::QModelIndex &parent = ::QModelIndex{}) const override;
+
+public:
   int columnCount(const ::QModelIndex &parent = ::QModelIndex{}) const override;
+
+private:
   ::QVariant headerData(int section, Qt::Orientation orientation,
                         int role = Qt::DisplayRole) const override;
 

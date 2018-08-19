@@ -8,8 +8,7 @@
 #include <QLabel>
 
 brick_game::pauseLog::pauseLog(::QWidget *parent)
-    : ::QDialog{parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint},
-      parent_{parent} {
+    : ::QDialog{parent, Qt::FramelessWindowHint}, parent_{parent} {
   auto general_layout = new ::QVBoxLayout;
   {
     auto pause_lbl = new ::QLabel{"PAUSE"};

@@ -8,6 +8,8 @@
 namespace brick_game {
 class abstractGame;
 class pauseLog;
+class endDialog;
+class recordTable;
 
 class screen : public ::QWidget { // standart screen for brick game
   Q_OBJECT
@@ -15,10 +17,12 @@ private:
   abstractGame *cur_game_;
   bool is_running_;
   pauseLog *pause_log_;
+  endDialog *end_dialog_;
 
 public:
   explicit screen(::QWidget *parent = nullptr);
   void set_game(brick_game::abstractGame *game);
+  void set_record_table(brick_game::recordTable *record_table);
 
 public slots:
   void clear_field(::QSize size, ::QPoint pos = ::QPoint{}) const;

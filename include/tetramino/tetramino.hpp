@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "tetramino/brick.hpp"
 #include "abstractGame/abstractGame.hpp"
+#include "tetramino/brick.hpp"
 #include <QObject>
 #include <QTimer>
 #include <chrono>
@@ -33,9 +33,12 @@ private:
 public:
   explicit tetramino(::QObject *parent = nullptr);
 
+public slots:
+  void start_game_slot() override;
+  void finish_game_slot() override;
+
 private:
-  void start_game() override;
-  void finish_game() override;
+  ::QString game_name() const override;
   void customEvent(::QEvent *event) override;
 
   void pause();
@@ -53,4 +56,4 @@ private:
   void set_brick_right();
   void set_brick_left();
 };
-}; // namespace tetris
+}; // namespace brick_game

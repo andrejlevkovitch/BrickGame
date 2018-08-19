@@ -1,6 +1,7 @@
 <RCC>
-  <qresource prefix="">
+  <qresource prefix="/image">
     <file alias="sound.png">images/sound.png</file>
+    <file alias="list.png">images/list.png</file>
   </qresource>
   <qresource prefix="/audio">
     <file alias="tetramino_theme.mp3">audio/tetramino_begin_theme.mp3</file>

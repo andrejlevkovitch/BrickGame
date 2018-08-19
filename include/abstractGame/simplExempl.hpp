@@ -17,8 +17,9 @@ private:
 
 public:
   explicit simplExempl(::QObject *parent = nullptr);
-  void start_game() override;
-  void finish_game() override;
+  void start_game_slot() override;
+  void finish_game_slot() override;
+  ::QString game_name() const override;
 
 private:
   void customEvent(QEvent *event) override;

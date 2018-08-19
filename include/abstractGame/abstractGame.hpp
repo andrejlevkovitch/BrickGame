@@ -4,8 +4,8 @@
 
 #include "abstractGame/point.hpp"
 #include "brick_game.hpp"
-#include <QObject>
 #include <QMediaPlayer>
+#include <QObject>
 #include <deque>
 #include <vector>
 
@@ -23,24 +23,22 @@ protected:
 
 public:
   explicit abstractGame(::QObject *parent = nullptr);
-
-private:
-  virtual void start_game() = 0;
-  virtual void finish_game() = 0;
+  virtual ::QString game_name() const = 0;
 
 protected:
   virtual void customEvent(::QEvent *event) override = 0;
   bool is_passible(const brick_game::point pos) const;
 
 public slots:
-  void start_game_slot();
-  void finish_game_slot();
+  virtual void start_game_slot() = 0;
+  virtual void finish_game_slot() = 0;
   void remove_sound_slot();
 
 signals:
   void changed(::QPoint pos, Value value) const;
-  void end_game_signal() const;
+  void end_game_signal(unsigned short level = 0, unsigned score = 0) const;
   void send_level(int level) const;
   void send_score(int score) const;
+  void pause_signal() const;
 };
 }; // namespace brick_game

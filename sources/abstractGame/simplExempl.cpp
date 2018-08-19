@@ -17,7 +17,7 @@ brick_game::simplExempl::simplExempl(::QObject *parent)
                                              Value::NONE));
 }
 
-void brick_game::simplExempl::start_game() {
+void brick_game::simplExempl::start_game_slot() {
   for (auto &i : field_) {
     for (auto &j : i) {
       j = Value::NONE;
@@ -27,7 +27,11 @@ void brick_game::simplExempl::start_game() {
   changed(cur_pos_, ONE);
 }
 
-void brick_game::simplExempl::finish_game() {}
+void brick_game::simplExempl::finish_game_slot() {}
+
+::QString brick_game::simplExempl::game_name() const {
+  return ::QString{"simpleGame"};
+}
 
 void brick_game::simplExempl::customEvent(::QEvent *event) {
   if (event->type() == static_cast<::QEvent::Type>(Event::pauseEvent)) {

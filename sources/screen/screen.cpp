@@ -4,6 +4,8 @@
 #include "abstractGame/abstractGame.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
+#include "recordTable/recordTable.hpp"
+#include "screen/endDialog.hpp"
 #include "screen/pauseLog.hpp"
 #include "screen/pix.hpp"
 #include <QBoxLayout>
@@ -12,11 +14,14 @@
 #include <QLCDNumber>
 #include <QLabel>
 
-brick_game::screen::screen(::QWidget *parent)
-    : ::QWidget{parent}, cur_game_{nullptr},
-      is_running_{false} {
+#include <QDebug>
+#include <QtGlobal>
 
+brick_game::screen::screen(::QWidget *parent)
+    : ::QWidget{parent}, cur_game_{nullptr}, is_running_{false} {
   pause_log_ = new brick_game::pauseLog{this};
+  end_dialog_ = new brick_game::endDialog{this};
+
   auto general_layout = new ::QHBoxLayout;
   {
     auto rhs_layout = new ::QVBoxLayout;
@@ -43,24 +48,44 @@ brick_game::screen::screen(::QWidget *parent)
     general_layout->addLayout(rhs_layout);
   }
   this->setLayout(general_layout);
+  this->setSizePolicy(::QSizePolicy::Policy::Fixed,
+                      ::QSizePolicy::Policy::Fixed);
+  ::qDebug() << "created screen";
 }
 
 void brick_game::screen::set_game(brick_game::abstractGame *game) {
+  Q_CHECK_PTR(game);
+  is_running_ = false;
   cur_game_ = game;
   this->clear_field(FIELD_SIZE);
   this->clear_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
-  if (!cur_game_) {
-    return;
-  }
+
   connect(game, SIGNAL(changed(::QPoint, Value)), this,
           SIGNAL(reciver(::QPoint, Value)));
   connect(game, SIGNAL(send_level(int)), this, SIGNAL(set_level(int)));
   connect(game, SIGNAL(send_score(int)), this, SIGNAL(set_score(int)));
 
-  connect(game, SIGNAL(end_game_signal()), this, SLOT());
+  connect(game, &brick_game::abstractGame::pause_signal, pause_log_, [=]() {
+    ::qDebug() << "open pauseLog";
+    pause_log_->exec();
+  });
+  connect(game, &brick_game::abstractGame::end_game_signal, end_dialog_,
+          [=](unsigned short level, unsigned score) {
+            end_dialog_->setDate(level, score);
+            ::qDebug() << "open endDialog";
+            end_dialog_->exec();
+          });
 
   connect(this, SIGNAL(start_game_signal()), game, SLOT(start_game_slot()));
   connect(this, SIGNAL(finish_game_signal()), game, SLOT(finish_game_slot()));
+
+  ::qDebug() << "game connected with screen";
+}
+
+void brick_game::screen::set_record_table(
+    brick_game::recordTable *record_table) {
+  end_dialog_->setRecordTable(record_table);
+  ::qDebug() << "recordTable connected with screen";
 }
 
 void brick_game::screen::clear_field(::QSize size, ::QPoint pos) const {
@@ -109,14 +134,12 @@ void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
     if (cur_game_ != nullptr && is_running_) {
       pauseEvent event;
       ::QCoreApplication::sendEvent(cur_game_, &event);
-      if (!pause_log_->isVisible()) {
-        pause_log_->open();
-      }
     }
     break;
   case Qt::Key_Escape:
     if (cur_game_ != nullptr) {
       is_running_ = false;
+      ::qDebug() << "emit finish game signal";
       emit finish_game_signal();
       this->clear_field(FIELD_SIZE);
       this->clear_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
@@ -127,11 +150,13 @@ void brick_game::screen::keyPressEvent(::QKeyEvent *event) {
   case Qt::Key_E:
     if (cur_game_ != nullptr) {
       if (is_running_) {
+        ::qDebug() << "emit finish game signal";
         emit finish_game_signal();
       }
       is_running_ = true;
       this->clear_field(FIELD_SIZE);
       this->clear_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
+      ::qDebug() << "emit start game signal";
       emit start_game_signal();
     }
     break;

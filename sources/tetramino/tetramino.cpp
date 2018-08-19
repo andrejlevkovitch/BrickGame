@@ -44,10 +44,11 @@ brick_game::tetramino::tetramino(::QObject *parent)
     ::QCoreApplication::sendEvent(this, &event);
     timer_.start(time_interval_);
   });
-  connect(this, SIGNAL(end_game_signal()), SLOT(finish_game_slot()));
+  connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)),
+          SLOT(finish_game_slot()));
 };
 
-void brick_game::tetramino::start_game() {
+void brick_game::tetramino::start_game_slot() {
   for (auto &i : field_) {
     for (auto &j : i) {
       j = Value::NONE;
@@ -64,15 +65,25 @@ void brick_game::tetramino::start_game() {
   active_ = true;
   is_avalibale_ = true;
   timer_.start(BEGIN_TIME_DOWN());
-  player_.setMedia(::QUrl{"qrc:/audio/tetramino_theme.mp3"});
-  player_.play();
+  if (!soundless_) {
+    player_.setMedia(::QUrl{"qrc:/audio/tetramino_theme.mp3"});
+    player_.play();
+  }
 }
 
-void brick_game::tetramino::finish_game() {
+void brick_game::tetramino::finish_game_slot() {
+  if (sender() != this) {
+    emit end_game_signal(level_, score_);
+    return;
+  }
   active_ = false;
   is_avalibale_ = false;
   timer_.stop();
   player_.stop();
+}
+
+::QString brick_game::tetramino::game_name() const {
+  return ::QString{"tetramino"};
 }
 
 void brick_game::tetramino::customEvent(::QEvent *event) {
@@ -111,6 +122,7 @@ void brick_game::tetramino::pause() {
       if (player_.state() == ::QMediaPlayer::State::PlayingState) {
         player_.pause();
       }
+      emit pause_signal();
     } else {
       active_ = true;
       timer_.start(time_interval_);
@@ -186,7 +198,7 @@ void brick_game::tetramino::delete_solutions() {
     score_ += PRICE_FOR_LINE(lines_counter - 1);
     emit send_score(score_);
     if (!soundless_ &&
-        !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
+        player_.state() != ::QMediaPlayer::State::PlayingState) {
       player_.setMedia(::QUrl{"qrc:/audio/score.mp3"});
       player_.play();
     }
@@ -282,7 +294,7 @@ end:
   reverse_cur_brick();
 
   if (is_turned && !soundless_ &&
-      !(player_.state() == ::QMediaPlayer::State::PlayingState)) {
+      player_.state() != ::QMediaPlayer::State::PlayingState) {
     if (player_.media() != ::QUrl{"qrc:/audio/activity.mp3"}) {
       player_.setMedia(::QUrl{"qrc:/audio/activity.mp3"});
     }
@@ -297,7 +309,7 @@ void brick_game::tetramino::set_brick_down() {
     cur_brick_position_.up();
     reverse_cur_brick();
     if (left_up_brick_corner().getY() < 0) {
-      emit end_game_signal();
+      emit end_game_signal(level_, score_);
     } else {
       delete_solutions();
       cur_brick_position_ = BEG_POSITION();
