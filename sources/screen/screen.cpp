@@ -27,7 +27,11 @@ brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
       connect(this, SIGNAL(set_score(int)), score_display, SLOT(display(int)));
       score_lbl->setBuddy(score_display);
 
-      rhs_layout->addWidget(create_field(MINI_FIELD_SIZE, MINI_SCR_BGN));
+      auto mini_field = create_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
+      mini_field->setSizePolicy(::QSizePolicy::Policy::Fixed,
+                                ::QSizePolicy::Policy::Fixed);
+
+      rhs_layout->addWidget(mini_field);
       rhs_layout->addWidget(level_lbl);
       rhs_layout->addWidget(level_display);
       rhs_layout->addWidget(score_lbl);
@@ -37,8 +41,6 @@ brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
     general_layout->addLayout(rhs_layout);
   }
   this->setLayout(general_layout);
-  this->setSizePolicy(::QSizePolicy::Policy::Fixed,
-                      ::QSizePolicy::Policy::Fixed);
   ::qDebug() << "created screen";
 }
 

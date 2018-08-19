@@ -1,11 +1,30 @@
+brick_game--pix {
+  min-height : 20px;
+  min-width : 23px;
+}
+
 brick_game--pix:enabled {
   color : white;
   background-color : black;
-  border : 3px solid darkgray;
+  border-color : darkgray;
+  border-width : 3px;
+  border-style : outset;
+  outline-color : red;
 }
 
 brick_game--pix:disabled {
   color : white;
   background-color : white;
-  border : 3px solid darkgray;
+  border-color : darkgray;
+  border-width : 3px;
+  border-style : inset;
+}
+
+QLabel {
+  font : bold;
+  font-size : 20px;
+}
+
+QStatusBar {
+  font-size : 40px;
 }

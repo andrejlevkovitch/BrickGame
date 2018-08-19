@@ -12,7 +12,6 @@ private:
     ::QPoint position_;
 public:
   explicit pix(::QPoint pos, ::QWidget *parent = nullptr);
-  ::QSize sizeHint() const override;
 
 public slots:
   void change(::QPoint pos, Value value = Value::NONE);
