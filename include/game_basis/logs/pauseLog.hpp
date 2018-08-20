@@ -2,8 +2,6 @@
 
 #pragma once
 
-#pragma once
-
 #include <QDialog>
 
 namespace brick_game {

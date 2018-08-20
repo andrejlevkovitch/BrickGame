@@ -62,7 +62,7 @@ file(GLOB SNAKE_SRC "include/snake/*.hpp" "sources/snake/*.cpp")
 
 add_executable(${PROJECT_NAME} ${MAIN_SRC} ${QRESOURCES})
 add_library(${BRICKG_LBR} SHARED ${LOGS_SRC} ${EVENT_SRC} ${RECORDT_SRC}
-  ${PLAYER_SRC} ${SCREEN_SRC} ${AGAME_SRC} ${GWINDOW_SRC})
+  ${PLAYER_SRC} ${SCREEN_SRC} ${AGAME_SRC})
 add_library(${GWINDOW_LBR} SHARED ${GWINDOW_SRC})
 add_library(${TETRAMINO_LBR} SHARED ${TETRAMINO_SRC})
 add_library(${SNAKE_LBR} SHARED ${SNAKE_SRC})

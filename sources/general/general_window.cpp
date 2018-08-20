@@ -72,18 +72,19 @@ brick_game::general_window::general_window(::QWidget *parent)
             emit set_game_signal(new brick_game::tetramino);
           });
         }
-//      auto snake_action = new ::QAction{"snake", game_menu};
-//      {
-//        connect(snake_action, &::QAction::triggered, this, [=]() {
-//          player_->stop();
-//          player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
-//                              ::QUrl{}, ::QUrl{});
-//          emit set_game_signal(new brick_game::snake);
-//        });
-//      }
+        auto snake_action = new ::QAction{"snake", game_menu};
+        {
+          connect(snake_action, &::QAction::triggered, this, [=]() {
+            player_->stop();
+            player_->set_sounds(::QUrl{}, ::QUrl{},
+                                ::QUrl{"qrc:/audio/score.mp3"},
+                                ::QUrl{"qrc:/audio/level_up.mp3"});
+            emit set_game_signal(new brick_game::snake);
+          });
+        }
         game_menu->addAction(simpl_exempl_action);
         game_menu->addAction(tetramino_action);
-//      game_menu->addAction(snake_action);
+        game_menu->addAction(snake_action);
       }
       auto sound_action =
           new ::QAction{::QPixmap{":/image/sound.png"}, "sound", menu_bar};
