@@ -35,27 +35,40 @@ find_package(Qt5Multimedia REQUIRED)
 find_package(Qt5Xml REQUIRED)
 
 include_directories("./include")
+include_directories("./include/game_basis")
+include_directories("./include/general")
+include_directories("./include/tetramino")
+include_directories("./include/snake")
 
 set(MAIN_SRC sources/main.cpp)
 set(QRESOURCES "qresources.qrc")
 
 set(BRICKG_LBR "brickG")
-file(GLOB LOGS_SRC "include/logs/*.hpp" "sources/logs/*.cpp")
-file(GLOB EVENT_SRC "include/events/*.hpp" "sources/events/*.cpp")
-file(GLOB RECORDT_SRC "include/recordTable/*.hpp" "sources/recordTable/*.cpp")
-file(GLOB PLAYER_SRC "include/player/*.hpp" "sources/player/*.cpp")
-file(GLOB SCREEN_SRC "include/screen/*.hpp" "sources/screen/*.cpp")
-file(GLOB AGAME_SRC "include/abstractGame/*.hpp" "sources/abstractGame/*.cpp")
+file(GLOB LOGS_SRC "include/game_basis/logs/*.hpp" "sources/game_basis/logs/*.cpp")
+file(GLOB EVENT_SRC "include/game_basis/events/*.hpp" "sources/game_basis/events/*.cpp")
+file(GLOB RECORDT_SRC "include/game_basis/recordTable/*.hpp" "sources/game_basis/recordTable/*.cpp")
+file(GLOB PLAYER_SRC "include/game_basis/player/*.hpp" "sources/game_basis/player/*.cpp")
+file(GLOB SCREEN_SRC "include/game_basis/screen/*.hpp" "sources/game_basis/screen/*.cpp")
+file(GLOB AGAME_SRC "include/game_basis/abstractGame/*.hpp" "sources/game_basis/abstractGame/*.cpp")
+
+set(GWINDOW_LBR "generalWindow")
 file(GLOB GWINDOW_SRC "include/general/*.hpp" "sources/general/*.cpp")
 
 set(TETRAMINO_LBR "tetramino")
 file(GLOB TETRAMINO_SRC "include/tetramino/*.hpp" "sources/tetramino/*.cpp")
 
+set(SNAKE_LBR "snake")
+file(GLOB SNAKE_SRC "include/snake/*.hpp" "sources/snake/*.cpp")
+
 add_executable(${PROJECT_NAME} ${MAIN_SRC} ${QRESOURCES})
 add_library(${BRICKG_LBR} SHARED ${LOGS_SRC} ${EVENT_SRC} ${RECORDT_SRC}
   ${PLAYER_SRC} ${SCREEN_SRC} ${AGAME_SRC} ${GWINDOW_SRC})
+add_library(${GWINDOW_LBR} SHARED ${GWINDOW_SRC})
 add_library(${TETRAMINO_LBR} SHARED ${TETRAMINO_SRC})
+add_library(${SNAKE_LBR} SHARED ${SNAKE_SRC})
 
-target_link_libraries(${PROJECT_NAME} ${BRICKG_LBR} ${TETRAMINO_LBR} Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} ${BRICKG_LBR} ${GWINDOW_LBR} ${TETRAMINO_LBR} ${SNAKE_LBR} Qt5::Widgets)
 target_link_libraries(${BRICKG_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)
+target_link_libraries(${GWINDOW_LBR} Qt5::Widgets)
 target_link_libraries(${TETRAMINO_LBR} Qt5::Widgets)
+target_link_libraries(${SNAKE_LBR} Qt5::Widgets)

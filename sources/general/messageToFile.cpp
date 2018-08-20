@@ -1,6 +1,6 @@
 // messageToFile.cpp
 
-#include "general/messageToFile.hpp"
+#include "messageToFile.hpp"
 #include <QDebug>
 #include <QFile>
 

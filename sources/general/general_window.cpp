@@ -1,6 +1,6 @@
 // general_window.cpp
 
-#include "general/general_window.hpp"
+#include "general_window.hpp"
 #include "abstractGame/abstractGame.hpp"
 #include "abstractGame/simplExempl.hpp"
 #include "events/directionEvent.hpp"
@@ -10,6 +10,7 @@
 #include "player/player.hpp"
 #include "recordTable/recordTable.hpp"
 #include "screen/screen.hpp"
+#include "snake/snake.hpp"
 #include "tetramino/tetramino.hpp"
 #include <QAction>
 #include <QBoxLayout>
@@ -71,8 +72,18 @@ brick_game::general_window::general_window(::QWidget *parent)
             emit set_game_signal(new brick_game::tetramino);
           });
         }
+//      auto snake_action = new ::QAction{"snake", game_menu};
+//      {
+//        connect(snake_action, &::QAction::triggered, this, [=]() {
+//          player_->stop();
+//          player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
+//                              ::QUrl{}, ::QUrl{});
+//          emit set_game_signal(new brick_game::snake);
+//        });
+//      }
         game_menu->addAction(simpl_exempl_action);
         game_menu->addAction(tetramino_action);
+//      game_menu->addAction(snake_action);
       }
       auto sound_action =
           new ::QAction{::QPixmap{":/image/sound.png"}, "sound", menu_bar};

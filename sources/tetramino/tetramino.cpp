@@ -1,9 +1,11 @@
 // tetramino.cpp
 
-#include "tetramino/tetramino.hpp"
+#include "tetramino.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
 #include <QCoreApplication>
+#include <deque>
+#include <vector>
 
 std::chrono::milliseconds brick_game::tetramino::BEGIN_TIME_DOWN() {
   static const std::chrono::milliseconds retval{800};
@@ -31,18 +33,15 @@ const brick_game::point &brick_game::tetramino::BEG_POSITION() {
 }
 
 brick_game::tetramino::tetramino(::QObject *parent)
-    : brick_game::abstractGame{parent}, cur_brick_position_{BEG_POSITION()},
-      time_interval_{BEGIN_TIME_DOWN()}, score_{}, level_{}, lines_{},
-      active_{true}, is_avalibale_{false} {
-
-  field_.resize(brick_game::FIELD_SIZE.height(),
-                decltype(field_)::value_type(brick_game::FIELD_SIZE.width(),
-                                             Value::NONE));
+    : brick_game::abstractGame{parent},
+      field_(FIELD_SIZE.height(),
+             decltype(field_)::value_type(FIELD_SIZE.width(), Value::NONE)),
+      cur_brick_position_{BEG_POSITION()}, time_interval_{BEGIN_TIME_DOWN()},
+      score_{}, level_{}, lines_{}, active_{true}, is_avalibale_{false} {
 
   connect(&timer_, &::QTimer::timeout, this, [=]() {
     directionEvent event(Direction::DOWN);
     ::QCoreApplication::sendEvent(this, &event);
-    timer_.start(time_interval_);
   });
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)),
           SLOT(finish_game_slot()));
@@ -54,6 +53,10 @@ void brick_game::tetramino::start_game_slot() {
       j = Value::NONE;
     }
   }
+  level_ = 0;
+  score_ = 0;
+  lines_ = 0;
+
   cur_brick_position_ = BEG_POSITION();
   reverse_cur_brick();
   send_next_brick();
@@ -103,6 +106,8 @@ void brick_game::tetramino::customEvent(::QEvent *event) {
       break;
     case Direction::LEFT:
       set_brick_left();
+      break;
+    default:
       break;
     }
     return;
@@ -290,6 +295,7 @@ void brick_game::tetramino::set_brick_down() {
   } else {
     reverse_cur_brick();
   }
+  timer_.start(time_interval_);
 }
 
 void brick_game::tetramino::set_brick_left() {

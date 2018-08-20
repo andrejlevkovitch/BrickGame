@@ -13,13 +13,16 @@ public:
   static brick_game::point BEGIN_POS();
 
 private:
+  std::vector<std::vector<Value>> field_;
   brick_game::point cur_pos_;
 
 public:
   explicit simplExempl(::QObject *parent = nullptr);
+  ::QString game_name() const override;
+
+public slots:
   void start_game_slot() override;
   void finish_game_slot() override;
-  ::QString game_name() const override;
 
 private:
   void customEvent(QEvent *event) override;

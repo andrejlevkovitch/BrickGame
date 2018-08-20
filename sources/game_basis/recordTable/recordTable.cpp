@@ -70,6 +70,9 @@ void brick_game::recordTable::read_file() {
       traverse_node(dom_doc.documentElement());
       file.close();
     } else {
+      for (auto &i : record_list_) {
+        i = std::make_tuple("default", 0, 0);
+      }
       ::qDebug() << "file with record table not open";
     }
   } else {

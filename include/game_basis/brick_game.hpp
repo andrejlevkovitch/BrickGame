@@ -14,7 +14,7 @@ const ::QSize MINI_FIELD_SIZE{4, 4}; // size of mini field
 const ::QPoint MINI_SCR_BGN{FIELD_SIZE.width(), 0};
 
 enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };
-enum class Direction { UP, DOWN, RIGHT, LEFT };
+enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };
 enum class Event { pauseEvent = ::QEvent::User + 1, directionEvent };
 
 const int LEVEL_DIGIN_COUNT{2};

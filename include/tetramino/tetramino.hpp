@@ -3,10 +3,11 @@
 #pragma once
 
 #include "abstractGame/abstractGame.hpp"
-#include "tetramino/brick.hpp"
+#include "brick.hpp"
 #include <QObject>
 #include <QTimer>
 #include <chrono>
+#include <deque>
 
 namespace brick_game {
 class tetramino : public brick_game::abstractGame {
@@ -19,6 +20,7 @@ public:
   static const point &BEG_POSITION();
 
 private:
+  std::deque<std::vector<Value>> field_;
   brick cur_brick_;
   brick next_brick_;
   ::QTimer timer_;

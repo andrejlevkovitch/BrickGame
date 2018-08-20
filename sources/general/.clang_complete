@@ -1,3 +1,5 @@
+-I../../include/general
+-I../../include/game_basis
 -I../../include
 -fPIC
 -I/opt/qt510/include

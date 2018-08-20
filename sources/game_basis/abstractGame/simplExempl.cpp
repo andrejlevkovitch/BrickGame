@@ -3,6 +3,7 @@
 #include "abstractGame/simplExempl.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
+#include <vector>
 
 brick_game::point brick_game::simplExempl::BEGIN_POS() {
   static const brick_game::point retval{0, 0};
@@ -10,11 +11,10 @@ brick_game::point brick_game::simplExempl::BEGIN_POS() {
 }
 
 brick_game::simplExempl::simplExempl(::QObject *parent)
-    : abstractGame{parent}, cur_pos_{BEGIN_POS()} {
-  field_.resize(brick_game::FIELD_SIZE.height(),
-                decltype(field_)::value_type(brick_game::FIELD_SIZE.width(),
-                                             Value::NONE));
-}
+    : abstractGame{parent},
+      field_(FIELD_SIZE.height(),
+             decltype(field_)::value_type(FIELD_SIZE.width(), Value::NONE)),
+      cur_pos_{BEGIN_POS()} {}
 
 void brick_game::simplExempl::start_game_slot() {
   for (auto &i : field_) {
@@ -52,6 +52,8 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
       break;
     case Direction::LEFT:
       cur_pos_.left();
+      break;
+    default:
       break;
     }
     if (!is_passible(cur_pos_)) {

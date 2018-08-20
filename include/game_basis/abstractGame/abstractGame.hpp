@@ -5,8 +5,6 @@
 #include "abstractGame/point.hpp"
 #include "brick_game.hpp"
 #include <QObject>
-#include <deque>
-#include <vector>
 
 namespace brick_game {
 class abstractGame : public ::QObject {
@@ -14,9 +12,6 @@ class abstractGame : public ::QObject {
 public:
   static brick_game::point END_FIELD();
   static brick_game::point RBEGIN_FIELD();
-
-protected:
-  std::deque<std::vector<Value>> field_;
 
 public:
   explicit abstractGame(::QObject *parent = nullptr);
