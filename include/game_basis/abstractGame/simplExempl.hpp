@@ -13,7 +13,6 @@ public:
   static brick_game::point BEGIN_POS();
 
 private:
-  std::vector<std::vector<Value>> field_;
   brick_game::point cur_pos_;
 
 public:

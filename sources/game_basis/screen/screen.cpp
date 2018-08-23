@@ -10,7 +10,13 @@
 
 #include <QDebug>
 
-brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
+brick_game::screen::screen(::QWidget *parent)
+    : ::QWidget{parent}, general_pixarr_(FIELD_SIZE.height(),
+                                         decltype(general_pixarr_)::value_type(
+                                             FIELD_SIZE.width(), nullptr)),
+      dop_pixarr_(MINI_FIELD_SIZE.height(),
+                                         decltype(general_pixarr_)::value_type(
+                                             MINI_FIELD_SIZE.width(), nullptr)) {
   auto general_layout = new ::QHBoxLayout;
   {
     auto rhs_layout = new ::QVBoxLayout;
@@ -27,7 +33,7 @@ brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
       connect(this, SIGNAL(set_score(int)), score_display, SLOT(display(int)));
       score_lbl->setBuddy(score_display);
 
-      auto mini_field = create_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
+      auto mini_field = create_dop_field();
       mini_field->setSizePolicy(::QSizePolicy::Policy::Fixed,
                                 ::QSizePolicy::Policy::Fixed);
 
@@ -37,7 +43,7 @@ brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
       rhs_layout->addWidget(score_lbl);
       rhs_layout->addWidget(score_display);
     }
-    general_layout->addWidget(create_field(FIELD_SIZE));
+    general_layout->addWidget(create_general_field());
     general_layout->addLayout(rhs_layout);
   }
   this->setLayout(general_layout);
@@ -45,30 +51,35 @@ brick_game::screen::screen(::QWidget *parent) : ::QWidget{parent} {
 }
 
 void brick_game::screen::restore() {
-  this->clear_field(FIELD_SIZE);
-  this->clear_field(MINI_FIELD_SIZE, MINI_SCR_BGN);
-
+  emit clear_all();
   ::qDebug() << "screen restored";
 }
 
-void brick_game::screen::clear_field(::QSize size, ::QPoint pos) const {
-  for (int i = 0; i < size.height(); ++i) {
-    for (int j = 0; j < size.width(); ++j) {
-      emit reciver(pos + ::QPoint{j, i}, Value::NONE);
-    }
-  }
-}
-
-::QWidget *brick_game::screen::create_field(::QSize size, ::QPoint pos) const {
+::QWidget *brick_game::screen::create_general_field() {
   auto field_layout = new ::QGridLayout;
   field_layout->setSpacing(0);
   field_layout->setContentsMargins(0, 0, 0, 0);
-  for (int i = 0; i < size.height(); ++i) {
-    for (int j = 0; j < size.width(); ++j) {
-      auto pix = new brick_game::pix{pos + ::QPoint{j, i}};
-      connect(this, SIGNAL(reciver(::QPoint, Value)), pix,
-              SLOT(change(::QPoint, Value)));
-      field_layout->addWidget(pix, i, j);
+  for (int i = 0; i < FIELD_SIZE.height(); ++i) {
+    for (int j = 0; j < FIELD_SIZE.width(); ++j) {
+      general_pixarr_[i][j] = new brick_game::pix;
+      connect(this, &screen::clear_all, general_pixarr_[i][j], &pix::change);
+      field_layout->addWidget(general_pixarr_[i][j], i, j);
+    }
+  }
+  auto retval = new ::QWidget;
+  retval->setLayout(field_layout);
+  return retval;
+}
+
+::QWidget *brick_game::screen::create_dop_field() {
+  auto field_layout = new ::QGridLayout;
+  field_layout->setSpacing(0);
+  field_layout->setContentsMargins(0, 0, 0, 0);
+  for (int i = 0; i < MINI_FIELD_SIZE.height(); ++i) {
+    for (int j = 0; j < MINI_FIELD_SIZE.width(); ++j) {
+      dop_pixarr_[i][j] = new brick_game::pix;
+      connect(this, &screen::clear_all, dop_pixarr_[i][j], &pix::change);
+      field_layout->addWidget(dop_pixarr_[i][j], i, j);
     }
   }
   auto retval = new ::QWidget;

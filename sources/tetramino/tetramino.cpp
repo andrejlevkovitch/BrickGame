@@ -4,8 +4,6 @@
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
 #include <QCoreApplication>
-#include <deque>
-#include <vector>
 
 std::chrono::milliseconds brick_game::tetramino::BEGIN_TIME_DOWN() {
   static const std::chrono::milliseconds retval{800};
@@ -34,8 +32,6 @@ const brick_game::point &brick_game::tetramino::BEG_POSITION() {
 
 brick_game::tetramino::tetramino(::QObject *parent)
     : brick_game::abstractGame{parent},
-      field_(FIELD_SIZE.height(),
-             decltype(field_)::value_type(FIELD_SIZE.width(), Value::NONE)),
       cur_brick_position_{BEG_POSITION()}, time_interval_{BEGIN_TIME_DOWN()},
       score_{}, level_{}, lines_{}, active_{true}, is_avalibale_{false} {
 
@@ -48,18 +44,14 @@ brick_game::tetramino::tetramino(::QObject *parent)
 };
 
 void brick_game::tetramino::start_game_slot() {
-  for (auto &i : field_) {
-    for (auto &j : i) {
-      j = Value::NONE;
-    }
-  }
+  field_.clear_all();
   level_ = 0;
   score_ = 0;
   lines_ = 0;
 
   cur_brick_position_ = BEG_POSITION();
   reverse_cur_brick();
-  send_next_brick();
+  set_next_brick();
   emit send_level(level_);
   emit send_score(score_);
   active_ = true;
@@ -146,7 +138,7 @@ bool brick_game::tetramino::is_passible() const {
       auto temp = left_corner;
       for (auto &j : i) {
         if (j != Value::NONE && temp.getY() >= 0 &&
-            field_[temp.getY()][temp.getX()] != Value::NONE) {
+            field_(temp) != Value::NONE) {
           return false;
         }
         temp.right();
@@ -171,9 +163,7 @@ void brick_game::tetramino::delete_solutions() {
     }
     if (solution) {
       ++lines_counter;
-      field_.erase(field_.begin() + i);
-      field_.push_front(decltype(field_)::value_type(
-          brick_game::FIELD_SIZE.width(), Value::NONE));
+      field_.erase_row_shift_down(i);
       ++i;
     }
     solution = true;
@@ -189,13 +179,6 @@ void brick_game::tetramino::delete_solutions() {
     score_ += PRICE_FOR_LINE(lines_counter - 1);
     emit send_score(score_);
   }
-  for (int i = 0; i < field_.size(); ++i) {
-    for (int j = 0; j < field_[i].size(); ++j) {
-      if (temp_fild_copy[i][j] != field_[i][j]) {
-        emit changed(::QPoint{j, i}, field_[i][j]);
-      }
-    }
-  }
 }
 
 void brick_game::tetramino::reverse_cur_brick() {
@@ -206,8 +189,7 @@ void brick_game::tetramino::reverse_cur_brick() {
     for (const auto &j : i) {
       if (j != Value::NONE && temp.getY() >= 0) {
         field_[temp.getY()][temp.getX()] =
-            (field_[temp.getY()][temp.getX()] == Value::NONE) ? j : Value::NONE;
-        emit changed(temp, field_[temp.getY()][temp.getX()]);
+            (field_(temp) == Value::NONE) ? j : Value::NONE;
       }
       temp.right();
     }
@@ -290,7 +272,7 @@ void brick_game::tetramino::set_brick_down() {
       cur_brick_ = next_brick_;
       reverse_cur_brick();
       next_brick_ = brick{};
-      send_next_brick();
+      set_next_brick();
     }
   } else {
     reverse_cur_brick();
@@ -316,21 +298,21 @@ void brick_game::tetramino::set_brick_right() {
   reverse_cur_brick();
 }
 
-void brick_game::tetramino::send_next_brick() const {
+void brick_game::tetramino::set_next_brick() {
   for (int i = 0; i < next_brick_.field_.size(); ++i) {
     for (int j = 0; j < next_brick_.field_[i].size(); ++j) {
       if (next_brick_.field_[i][j] != Value::NONE) {
-        emit changed(MINI_SCR_BGN + point{j, i}, next_brick_.field_[i][j]);
+        mini_field_[i][j] = next_brick_.field_[i][j];
       }
     }
   }
 }
 
-void brick_game::tetramino::cleare_next_brick() const {
+void brick_game::tetramino::cleare_next_brick() {
   for (int i = 0; i < next_brick_.field_.size(); ++i) {
     for (int j = 0; j < next_brick_.field_[i].size(); ++j) {
       if (next_brick_.field_[i][j] != Value::NONE) {
-        emit changed(MINI_SCR_BGN + point{j, i}, Value::NONE);
+        mini_field_[i][j] = Value::NONE;
       }
     }
   }

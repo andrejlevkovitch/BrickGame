@@ -12,18 +12,12 @@ brick_game::point brick_game::simplExempl::BEGIN_POS() {
 
 brick_game::simplExempl::simplExempl(::QObject *parent)
     : abstractGame{parent},
-      field_(FIELD_SIZE.height(),
-             decltype(field_)::value_type(FIELD_SIZE.width(), Value::NONE)),
       cur_pos_{BEGIN_POS()} {}
 
 void brick_game::simplExempl::start_game_slot() {
-  for (auto &i : field_) {
-    for (auto &j : i) {
-      j = Value::NONE;
-    }
-  }
+  field_.clear_all();
   cur_pos_ = BEGIN_POS();
-  changed(cur_pos_, ONE);
+  field_(cur_pos_) = ONE;
 }
 
 void brick_game::simplExempl::finish_game_slot() {}
@@ -38,7 +32,7 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
   }
   if (event->type() == static_cast<::QEvent::Type>(Event::directionEvent)) {
     auto d_event = static_cast<directionEvent *>(event);
-    emit changed(cur_pos_, NONE);
+    field_(cur_pos_) = NONE;
     auto temp = cur_pos_;
     switch (d_event->direction()) {
     case Direction::UP:
@@ -61,7 +55,7 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
     } else {
       emit activity();
     }
-    emit changed(cur_pos_, ONE);
+    field_(cur_pos_) = ONE;
     return;
   }
 }

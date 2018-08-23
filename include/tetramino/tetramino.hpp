@@ -7,7 +7,6 @@
 #include <QObject>
 #include <QTimer>
 #include <chrono>
-#include <deque>
 
 namespace brick_game {
 class tetramino : public brick_game::abstractGame {
@@ -20,7 +19,6 @@ public:
   static const point &BEG_POSITION();
 
 private:
-  std::deque<std::vector<Value>> field_;
   brick cur_brick_;
   brick next_brick_;
   ::QTimer timer_;
@@ -50,8 +48,8 @@ private:
   bool is_passible() const;
   void delete_solutions();
   void reverse_cur_brick();
-  void send_next_brick() const;
-  void cleare_next_brick() const;
+  void set_next_brick();
+  void cleare_next_brick();
 
   void rotade_cur_brick();
   void set_brick_down();

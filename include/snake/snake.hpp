@@ -2,21 +2,20 @@
 
 #pragma once
 
-#include <QObject>
-#include <vector>
-#include "brick_game.hpp"
-#include "abstractGame/point.hpp"
 #include "abstractGame/abstractGame.hpp"
+#include "abstractGame/point.hpp"
+#include "brick_game.hpp"
+#include <QObject>
 #include <QTimer>
 #include <list>
 
 namespace brick_game {
 class snake : public brick_game::abstractGame {
   Q_OBJECT
-  public:
-    static std::chrono::milliseconds BEGIN_TIME_INTERVAL();
+public:
+  static std::chrono::milliseconds BEGIN_TIME_INTERVAL();
+
 private:
-  std::vector<std::vector<Value>> field_;
   std::list<point> snake_body_;
   Direction cur_direction_;
   ::QTimer timer_;
@@ -32,7 +31,6 @@ public:
 
 private:
   void customEvent(::QEvent *event) override;
-  Value &value_of(point);
   void pause();
   bool move_up();
   bool move_down();

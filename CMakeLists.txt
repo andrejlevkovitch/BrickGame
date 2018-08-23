@@ -8,6 +8,8 @@ IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 option(set_clang "set clang as default compiler" 0)
 
 if(set_clang)
@@ -67,7 +69,8 @@ add_library(${GWINDOW_LBR} SHARED ${GWINDOW_SRC})
 add_library(${TETRAMINO_LBR} SHARED ${TETRAMINO_SRC})
 add_library(${SNAKE_LBR} SHARED ${SNAKE_SRC})
 
-target_link_libraries(${PROJECT_NAME} ${BRICKG_LBR} ${GWINDOW_LBR} ${TETRAMINO_LBR} ${SNAKE_LBR} Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} ${BRICKG_LBR} ${GWINDOW_LBR}
+  ${TETRAMINO_LBR} ${SNAKE_LBR} Qt5::Widgets)
 target_link_libraries(${BRICKG_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)
 target_link_libraries(${GWINDOW_LBR} Qt5::Widgets)
 target_link_libraries(${TETRAMINO_LBR} Qt5::Widgets)

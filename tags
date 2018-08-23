@@ -1,0 +1,636 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	396;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	399;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	402;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	406;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	408;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	410;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	414;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	417;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	425;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	428;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	431;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	435;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	391;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	394;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	397;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	401;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	403;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	405;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	409;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	412;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	420;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	423;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	426;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	430;"	d	file:
+BEGIN_POS	sources/game_basis/abstractGame/simplExempl.cpp	/^brick_game::point brick_game::simplExempl::BEGIN_POS() {$/;"	f	class:brick_game::simplExempl
+BEGIN_TIME_DOWN	sources/tetramino/tetramino.cpp	/^std::chrono::milliseconds brick_game::tetramino::BEGIN_TIME_DOWN() {$/;"	f	class:brick_game::tetramino
+BEGIN_TIME_INTERVAL	sources/snake/snake.cpp	/^std::chrono::milliseconds brick_game::snake::BEGIN_TIME_INTERVAL() {$/;"	f	class:brick_game::snake
+BEG_POSITION	sources/tetramino/tetramino.cpp	/^const brick_game::point &brick_game::tetramino::BEG_POSITION() {$/;"	f	class:brick_game::tetramino
+BrickType	include/tetramino/brick.hpp	/^  enum BrickType {$/;"	g	class:brick_game::brick
+CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/andrej\/Public\/git\/BrickGame\/build$/;"	m
+CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
+CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/andrej\/Public\/git\/BrickGame$/;"	m
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	103;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	110;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	117;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	124;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	132;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	137;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	144;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	147;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	14;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	150;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	153;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	168;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	182;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	192;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	210;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	219;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	222;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	237;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	244;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	262;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	265;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	268;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	37;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	45;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	51;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	57;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	66;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	75;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	89;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	96;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	101;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	108;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	115;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	122;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	129;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	137;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	13;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	142;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	149;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	152;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	155;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	170;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	184;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	194;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	19;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	212;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	221;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	224;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	239;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	257;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	260;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	263;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	42;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	50;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	56;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	62;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	71;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	80;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	94;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	105;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	112;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	119;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	125;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	133;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	139;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	157;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	172;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	183;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	194;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	19;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	213;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	225;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	230;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	239;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	247;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	252;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	38;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	46;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	53;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	59;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	68;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	78;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	83;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	91;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	98;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	103;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	110;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	117;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	124;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	130;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	138;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	144;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	159;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	15;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	174;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	185;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	196;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	215;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	227;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	232;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	242;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	247;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	24;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	43;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	51;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	58;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	64;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	73;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	83;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	88;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	96;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	106;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	113;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	120;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	126;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	134;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	140;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	158;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	173;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	185;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	195;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	20;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	214;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	226;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	231;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	240;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	248;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	253;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	39;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	47;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	54;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	60;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	69;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	79;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	84;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	92;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	99;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	104;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	111;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	118;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	125;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	131;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	139;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	145;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	160;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	16;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	175;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	187;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	197;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	216;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	228;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	233;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	243;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	248;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	25;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	44;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	52;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	59;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	65;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	74;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	84;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	89;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	97;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	100;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	107;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	114;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	121;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	128;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	141;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	159;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	174;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	188;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	199;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	202;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	215;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	227;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	22;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	232;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	241;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	249;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	24;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	254;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	41;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	48;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	62;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	71;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	80;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	85;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	93;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	105;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	112;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	119;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	126;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	133;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	146;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	161;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	176;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	190;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	201;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	204;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	217;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	229;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	234;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	244;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	249;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	27;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	29;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	46;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	53;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	67;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	76;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	85;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	90;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	98;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	165;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	206;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	28;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	167;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	208;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	33;"	d	file:
+DEC	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	439;"	d	file:
+DEC	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	434;"	d	file:
+DEF_CENTER	sources/tetramino/brick.cpp	/^brick_game::point brick_game::brick::DEF_CENTER() {$/;"	f	class:brick_game::brick
+DOM_ROOT	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::DOM_ROOT() {$/;"	f	class:brick_game::recordTable
+DOWN	include/game_basis/brick_game.hpp	/^enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };$/;"	m	class:brick_game::Direction
+Direction	include/game_basis/brick_game.hpp	/^enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };$/;"	c	namespace:brick_game
+END_FIELD	sources/game_basis/abstractGame/abstractGame.cpp	/^brick_game::point brick_game::abstractGame::END_FIELD() {$/;"	f	class:brick_game::abstractGame
+EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+Event	include/game_basis/brick_game.hpp	/^enum class Event { pauseEvent = ::QEvent::User + 1, directionEvent };$/;"	c	namespace:brick_game
+FIRST_TAG	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::FIRST_TAG() {$/;"	f	class:brick_game::recordTable
+FIVE	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+FOUR	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+HEAD_TAG	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::HEAD_TAG() {$/;"	f	class:brick_game::recordTable
+HEAD_TAG_ATTR	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::HEAD_TAG_ATTR() {$/;"	f	class:brick_game::recordTable
+HEX	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	450;"	d	file:
+HEX	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	445;"	d	file:
+ID_VOID_MAIN	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
+I_BRICK	include/tetramino/brick.hpp	/^    I_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+J_BRICK	include/tetramino/brick.hpp	/^    J_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+LEFT	include/game_basis/brick_game.hpp	/^enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };$/;"	m	class:brick_game::Direction
+LINES_TO_NEXT_LEVEL	sources/tetramino/tetramino.cpp	/^unsigned short brick_game::tetramino::LINES_TO_NEXT_LEVEL() {$/;"	f	class:brick_game::tetramino
+L_BRICK	include/tetramino/brick.hpp	/^    L_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+NAME_SIZE	sources/game_basis/recordTable/recordTable.cpp	/^unsigned short brick_game::recordTable::NAME_SIZE() {$/;"	f	class:brick_game::recordTable
+NONE	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+N_MEMBERS	sources/game_basis/recordTable/recordTable.cpp	/^unsigned short brick_game::recordTable::N_MEMBERS() {$/;"	f	class:brick_game::recordTable
+ONE	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+O_BRICK	include/tetramino/brick.hpp	/^    O_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	293;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	296;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	299;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	302;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	305;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	308;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	311;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	314;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	317;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	320;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	323;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	326;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	329;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	332;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	335;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	338;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	341;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	344;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	347;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	350;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	353;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	356;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	359;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	362;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	365;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	369;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	372;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	375;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	378;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	381;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	385;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	288;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	291;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	294;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	297;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	300;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	303;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	306;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	309;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	312;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	315;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	318;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	321;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	324;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	327;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	330;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	333;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	336;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	339;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	342;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	345;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	348;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	351;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	354;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	357;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	360;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	364;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	367;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	370;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	373;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	376;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	380;"	d	file:
+PRICE_FOR_LINE	sources/tetramino/tetramino.cpp	/^unsigned short brick_game::tetramino::PRICE_FOR_LINE(unsigned short n_line) {$/;"	f	class:brick_game::tetramino
+QPoint	sources/game_basis/abstractGame/point.cpp	/^brick_game::point::operator ::QPoint() const {$/;"	f	class:brick_game::point::operator
+RBEGIN_FIELD	sources/game_basis/abstractGame/abstractGame.cpp	/^brick_game::point brick_game::abstractGame::RBEGIN_FIELD() {$/;"	f	class:brick_game::abstractGame
+RIGHT	include/game_basis/brick_game.hpp	/^enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };$/;"	m	class:brick_game::Direction
+RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+SECOND_TAG	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::SECOND_TAG() {$/;"	f	class:brick_game::recordTable
+SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	155;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	16;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	170;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	157;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	172;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	21;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	162;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	177;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	32;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	164;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	179;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	37;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	163;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	178;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	33;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	165;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	180;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	38;"	d	file:
+SIX	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+SIZE	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+SIZE_BRICKS	include/tetramino/brick.hpp	/^    SIZE_BRICKS$/;"	e	enum:brick_game::brick::BrickType
+STRINGIFY	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	289;"	d	file:
+STRINGIFY	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	284;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	288;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	283;"	d	file:
+SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
+S_BRICK	include/tetramino/brick.hpp	/^    S_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+THREE	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+THRID_TAG	sources/game_basis/recordTable/recordTable.cpp	/^const ::QString &brick_game::recordTable::THRID_TAG() {$/;"	f	class:brick_game::recordTable
+TIME_DIVIDED	sources/tetramino/tetramino.cpp	/^unsigned short brick_game::tetramino::TIME_DIVIDED() {$/;"	f	class:brick_game::tetramino
+TWO	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	e	enum:brick_game::Value
+T_BRICK	include/tetramino/brick.hpp	/^    T_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+UP	include/game_basis/brick_game.hpp	/^enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };$/;"	m	class:brick_game::Direction
+Value	include/game_basis/brick_game.hpp	/^enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };$/;"	g	namespace:brick_game
+Z_BRICK	include/tetramino/brick.hpp	/^    Z_BRICK,$/;"	e	enum:brick_game::brick::BrickType
+abstractGame	include/game_basis/abstractGame/abstractGame.hpp	/^class abstractGame : public ::QObject {$/;"	c	namespace:brick_game
+abstractGame	sources/game_basis/abstractGame/abstractGame.cpp	/^brick_game::abstractGame::abstractGame(::QObject *parent)$/;"	f	class:brick_game::abstractGame
+active_	include/tetramino/tetramino.hpp	/^  bool active_;$/;"	m	class:brick_game::tetramino
+activity	sources/game_basis/player/player.cpp	/^void brick_game::player::activity() {$/;"	f	class:brick_game::player
+activity_	include/game_basis/player/player.hpp	/^  ::QUrl activity_;$/;"	m	class:brick_game::player
+begin_theme	sources/game_basis/player/player.cpp	/^void brick_game::player::begin_theme() {$/;"	f	class:brick_game::player
+begin_theme_	include/game_basis/player/player.hpp	/^  ::QUrl begin_theme_;$/;"	m	class:brick_game::player
+brick	include/tetramino/brick.hpp	/^class brick : public ::QObject {$/;"	c	namespace:brick_game
+brick	sources/tetramino/brick.cpp	/^brick_game::brick::brick(::QObject *parent)$/;"	f	class:brick_game::brick
+brick_game	include/game_basis/abstractGame/abstractGame.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/abstractGame/field.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/abstractGame/point.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/abstractGame/simplExempl.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/abstractGame/value.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/brick_game.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/events/directionEvent.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/events/pauseEvent.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/logs/endDialog.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/logs/pauseLog.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/player/player.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/recordTable/recordTable.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/screen/pix.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/game_basis/screen/screen.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/general/general_window.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/snake/snake.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/tetramino/brick.hpp	/^namespace brick_game {$/;"	n
+brick_game	include/tetramino/tetramino.hpp	/^namespace brick_game {$/;"	n
+center_	include/tetramino/brick.hpp	/^  point center_;$/;"	m	class:brick_game::brick
+change	sources/game_basis/screen/pix.cpp	/^void brick_game::pix::change(Value value) {$/;"	f	class:brick_game::pix
+clear_all	sources/game_basis/abstractGame/field.cpp	/^void brick_game::field::clear_all() {$/;"	f	class:brick_game::field
+cleare_next_brick	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::cleare_next_brick() {$/;"	f	class:brick_game::tetramino
+columnCount	sources/game_basis/recordTable/recordTable.cpp	/^int brick_game::recordTable::columnCount(const ::QModelIndex &parent) const {$/;"	f	class:brick_game::recordTable
+create_dop_field	sources/game_basis/screen/screen.cpp	/^::QWidget *brick_game::screen::create_dop_field() {$/;"	f	class:brick_game::screen
+create_general_field	sources/game_basis/screen/screen.cpp	/^::QWidget *brick_game::screen::create_general_field() {$/;"	f	class:brick_game::screen
+cur_brick_	include/tetramino/tetramino.hpp	/^  brick cur_brick_;$/;"	m	class:brick_game::tetramino
+cur_brick_position_	include/tetramino/tetramino.hpp	/^  point cur_brick_position_;$/;"	m	class:brick_game::tetramino
+cur_direction_	include/snake/snake.hpp	/^  Direction cur_direction_;$/;"	m	class:brick_game::snake
+cur_game_	include/general/general_window.hpp	/^  abstractGame *cur_game_;$/;"	m	class:brick_game::general_window
+cur_pos_	include/game_basis/abstractGame/simplExempl.hpp	/^  brick_game::point cur_pos_;$/;"	m	class:brick_game::simplExempl
+customEvent	sources/game_basis/abstractGame/simplExempl.cpp	/^void brick_game::simplExempl::customEvent(::QEvent *event) {$/;"	f	class:brick_game::simplExempl
+customEvent	sources/snake/snake.cpp	/^void brick_game::snake::customEvent(::QEvent *event) {$/;"	f	class:brick_game::snake
+customEvent	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::customEvent(::QEvent *event) {$/;"	f	class:brick_game::tetramino
+data	sources/game_basis/recordTable/recordTable.cpp	/^::QVariant brick_game::recordTable::data(const QModelIndex &index,$/;"	f	class:brick_game::recordTable
+delete_solutions	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::delete_solutions() {$/;"	f	class:brick_game::tetramino
+direction	sources/game_basis/events/directionEvent.cpp	/^brick_game::Direction brick_game::directionEvent::direction() const {$/;"	f	class:brick_game::directionEvent
+directionEvent	include/game_basis/events/directionEvent.hpp	/^class directionEvent : public ::QEvent {$/;"	c	namespace:brick_game
+directionEvent	sources/game_basis/events/directionEvent.cpp	/^brick_game::directionEvent::directionEvent(Direction direction)$/;"	f	class:brick_game::directionEvent
+direction_	include/game_basis/events/directionEvent.hpp	/^  Direction direction_;$/;"	m	class:brick_game::directionEvent
+dop_pixarr_	include/game_basis/screen/screen.hpp	/^  std::vector<std::vector<pix *>> dop_pixarr_;$/;"	m	class:brick_game::screen
+dop_pixarr_	sources/game_basis/screen/screen.cpp	/^      dop_pixarr_(MINI_FIELD_SIZE.height(),$/;"	f
+down	sources/game_basis/abstractGame/point.cpp	/^void brick_game::point::down() { ++y_; }$/;"	f	class:brick_game::point
+empty	sources/game_basis/abstractGame/field.cpp	/^bool brick_game::field::empty() const { return field_.empty(); }$/;"	f	class:brick_game::field
+endDialog	include/game_basis/logs/endDialog.hpp	/^class endDialog : public ::QDialog {$/;"	c	namespace:brick_game
+endDialog	sources/game_basis/logs/endDialog.cpp	/^brick_game::endDialog::endDialog(::QWidget *parent)$/;"	f	class:brick_game::endDialog
+end_dialog_	include/general/general_window.hpp	/^  endDialog *end_dialog_;$/;"	m	class:brick_game::general_window
+erase_row_shift_down	sources/game_basis/abstractGame/field.cpp	/^void brick_game::field::erase_row_shift_down(size_t row) {$/;"	f	class:brick_game::field
+erase_row_shift_up	sources/game_basis/abstractGame/field.cpp	/^void brick_game::field::erase_row_shift_up(size_t row) {$/;"	f	class:brick_game::field
+features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
+features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
+field	include/game_basis/abstractGame/field.hpp	/^class field {$/;"	c	namespace:brick_game
+field	sources/game_basis/abstractGame/field.cpp	/^brick_game::field::field(int rows, int cols, ::QObject *parent)$/;"	f	class:brick_game::field
+field_	include/game_basis/abstractGame/abstractGame.hpp	/^  field field_;$/;"	m	class:brick_game::abstractGame
+field_	include/game_basis/abstractGame/field.hpp	/^  std::deque<std::vector<brick_game::value>> field_;$/;"	m	class:brick_game::field
+field_	include/tetramino/brick.hpp	/^  std::vector<std::vector<brick_game::Value>> field_;$/;"	m	class:brick_game::brick
+file_	include/game_basis/recordTable/recordTable.hpp	/^  ::QString file_;$/;"	m	class:brick_game::recordTable
+finish_game_slot	sources/game_basis/abstractGame/simplExempl.cpp	/^void brick_game::simplExempl::finish_game_slot() {}$/;"	f	class:brick_game::simplExempl
+finish_game_slot	sources/snake/snake.cpp	/^void brick_game::snake::finish_game_slot() {$/;"	f	class:brick_game::snake
+finish_game_slot	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::finish_game_slot() {$/;"	f	class:brick_game::tetramino
+game_name	sources/game_basis/abstractGame/simplExempl.cpp	/^::QString brick_game::simplExempl::game_name() const {$/;"	f	class:brick_game::simplExempl
+game_name	sources/snake/snake.cpp	/^::QString brick_game::snake::game_name() const { return ::QString{"snake"}; }$/;"	f	class:brick_game::snake
+game_name	sources/tetramino/tetramino.cpp	/^::QString brick_game::tetramino::game_name() const {$/;"	f	class:brick_game::tetramino
+general_pixarr_	include/game_basis/screen/screen.hpp	/^  std::vector<std::vector<pix *>> general_pixarr_;$/;"	m	class:brick_game::screen
+general_window	include/general/general_window.hpp	/^class general_window : public ::QWidget {$/;"	c	namespace:brick_game
+general_window	sources/general/general_window.cpp	/^brick_game::general_window::general_window(::QWidget *parent)$/;"	f	class:brick_game::general_window
+getX	sources/game_basis/abstractGame/point.cpp	/^int brick_game::point::getX() const { return x_; }$/;"	f	class:brick_game::point
+getY	sources/game_basis/abstractGame/point.cpp	/^int brick_game::point::getY() const { return y_; }$/;"	f	class:brick_game::point
+headerData	sources/game_basis/recordTable/recordTable.cpp	/^::QVariant brick_game::recordTable::headerData(int section,$/;"	f	class:brick_game::recordTable
+info_arch	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_arch	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_compiler	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_compiler	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_cray	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v
+info_cray	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v
+info_language_dialect_default	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_dialect_default = "INFO" ":" "dialect_default["$/;"	v
+info_language_dialect_default	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_dialect_default = "INFO" ":" "dialect_default["$/;"	v
+info_platform	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_platform	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_simulate	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v
+info_simulate	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v
+info_simulate_version	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v
+info_simulate_version	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v
+info_version	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
+info_version	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+is_active_	include/snake/snake.hpp	/^  bool is_active_;$/;"	m	class:brick_game::snake
+is_avalibale_	include/tetramino/tetramino.hpp	/^  bool is_avalibale_;$/;"	m	class:brick_game::tetramino
+is_avalible_	include/snake/snake.hpp	/^  bool is_avalible_;$/;"	m	class:brick_game::snake
+is_passible	sources/game_basis/abstractGame/abstractGame.cpp	/^bool brick_game::abstractGame::is_passible(const brick_game::point pos) const {$/;"	f	class:brick_game::abstractGame
+is_passible	sources/tetramino/tetramino.cpp	/^bool brick_game::tetramino::is_passible() const {$/;"	f	class:brick_game::tetramino
+is_record	sources/game_basis/recordTable/recordTable.cpp	/^bool brick_game::recordTable::is_record(unsigned score) {$/;"	f	class:brick_game::recordTable
+keyPressEvent	sources/game_basis/logs/pauseLog.cpp	/^void brick_game::pauseLog::keyPressEvent(::QKeyEvent *event) {$/;"	f	class:brick_game::pauseLog
+keyPressEvent	sources/general/general_window.cpp	/^void brick_game::general_window::keyPressEvent(::QKeyEvent *event) {$/;"	f	class:brick_game::general_window
+left	sources/game_basis/abstractGame/point.cpp	/^void brick_game::point::left() { --x_; }$/;"	f	class:brick_game::point
+left_up_brick_corner	sources/tetramino/tetramino.cpp	/^brick_game::point brick_game::tetramino::left_up_brick_corner() const {$/;"	f	class:brick_game::tetramino
+level_	include/game_basis/logs/endDialog.hpp	/^  unsigned short level_;$/;"	m	class:brick_game::endDialog
+level_	include/snake/snake.hpp	/^  unsigned short level_;$/;"	m	class:brick_game::snake
+level_	include/tetramino/tetramino.hpp	/^  unsigned short level_;$/;"	m	class:brick_game::tetramino
+level_up	sources/game_basis/player/player.cpp	/^void brick_game::player::level_up() {$/;"	f	class:brick_game::player
+level_up_	include/game_basis/player/player.hpp	/^  ::QUrl level_up_;$/;"	m	class:brick_game::player
+lines_	include/tetramino/tetramino.hpp	/^  unsigned short lines_;$/;"	m	class:brick_game::tetramino
+main	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f
+main	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
+main	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
+main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
+main	sources/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+make_dom_element	sources/game_basis/recordTable/recordTable.cpp	/^::QDomElement brick_game::recordTable::make_dom_element($/;"	f	class:brick_game::recordTable
+messageToFile	sources/general/messageToFile.cpp	/^void messageToFile(::QtMsgType type, const ::QMessageLogContext &context,$/;"	f
+mini_field_	include/game_basis/abstractGame/abstractGame.hpp	/^  field mini_field_;$/;"	m	class:brick_game::abstractGame
+move_down	sources/snake/snake.cpp	/^bool brick_game::snake::move_down() {$/;"	f	class:brick_game::snake
+move_left	sources/snake/snake.cpp	/^bool brick_game::snake::move_left() {$/;"	f	class:brick_game::snake
+move_right	sources/snake/snake.cpp	/^bool brick_game::snake::move_right() {$/;"	f	class:brick_game::snake
+move_up	sources/snake/snake.cpp	/^bool brick_game::snake::move_up() {$/;"	f	class:brick_game::snake
+name_edit_	include/game_basis/logs/endDialog.hpp	/^  ::QLineEdit *name_edit_;$/;"	m	class:brick_game::endDialog
+new_feed	sources/snake/snake.cpp	/^void brick_game::snake::new_feed() {$/;"	f	class:brick_game::snake
+next_brick_	include/tetramino/tetramino.hpp	/^  brick next_brick_;$/;"	m	class:brick_game::tetramino
+operator !=	sources/game_basis/abstractGame/value.cpp	/^bool brick_game::value::operator!=(const Value value) const {$/;"	f	class:brick_game::value
+operator ()	sources/game_basis/abstractGame/field.cpp	/^brick_game::value &brick_game::field::operator()(::QPoint pos) {$/;"	f	class:brick_game::field
+operator ()	sources/game_basis/abstractGame/field.cpp	/^const brick_game::value &brick_game::field::operator()(::QPoint pos) const {$/;"	f	class:brick_game::field
+operator +	sources/game_basis/abstractGame/point.cpp	/^brick_game::point brick_game::point::operator+(const point &rhs) const {$/;"	f	class:brick_game::point
+operator -	sources/game_basis/abstractGame/point.cpp	/^brick_game::point brick_game::point::operator-(const point &rhs) const {$/;"	f	class:brick_game::point
+operator <	sources/game_basis/abstractGame/point.cpp	/^bool brick_game::point::operator<(const point &rhs) const {$/;"	f	class:brick_game::point
+operator =	sources/game_basis/abstractGame/value.cpp	/^brick_game::value &brick_game::value::operator=(Value value) {$/;"	f	class:brick_game::value
+operator =	sources/game_basis/abstractGame/value.cpp	/^brick_game::value &brick_game::value::operator=(const value &value) {$/;"	f	class:brick_game::value
+operator =	sources/tetramino/brick.cpp	/^brick_game::brick &brick_game::brick::operator=(brick &&rhs) {$/;"	f	class:brick_game::brick
+operator =	sources/tetramino/brick.cpp	/^brick_game::brick &brick_game::brick::operator=(const brick &rhs) {$/;"	f	class:brick_game::brick
+operator ==	sources/game_basis/abstractGame/point.cpp	/^bool brick_game::point::operator==(const point &rhs) const {$/;"	f	class:brick_game::point
+operator ==	sources/game_basis/abstractGame/value.cpp	/^bool brick_game::value::operator==(const Value value) const {$/;"	f	class:brick_game::value
+operator >	sources/game_basis/abstractGame/point.cpp	/^bool brick_game::point::operator>(const point &rhs) const {$/;"	f	class:brick_game::point
+operator []	sources/game_basis/abstractGame/field.cpp	/^operator[](int row) const {$/;"	f	class:brick_game::field
+operator []	sources/game_basis/abstractGame/field.cpp	/^std::vector<brick_game::value> &brick_game::field::operator[](int row) {$/;"	f	class:brick_game::field
+operator brick_game::Value	sources/game_basis/abstractGame/value.cpp	/^brick_game::value::operator brick_game::Value() const {$/;"	f	class:brick_game::value
+override	include/game_basis/abstractGame/abstractGame.hpp	/^  virtual void customEvent(::QEvent *event) override = 0;$/;"	m	class:brick_game::abstractGame
+override	include/game_basis/abstractGame/simplExempl.hpp	/^  ::QString game_name() const override;$/;"	m	class:brick_game::simplExempl
+override	include/game_basis/abstractGame/simplExempl.hpp	/^  void customEvent(QEvent *event) override;$/;"	m	class:brick_game::simplExempl
+override	include/game_basis/abstractGame/simplExempl.hpp	/^  void finish_game_slot() override;$/;"	m	class:brick_game::simplExempl
+override	include/game_basis/abstractGame/simplExempl.hpp	/^  void start_game_slot() override;$/;"	m	class:brick_game::simplExempl
+override	include/game_basis/logs/pauseLog.hpp	/^  void keyPressEvent(::QKeyEvent *event) override;$/;"	m	class:brick_game::pauseLog
+override	include/game_basis/recordTable/recordTable.hpp	/^                        int role = Qt::DisplayRole) const override;$/;"	m	class:brick_game::recordTable
+override	include/game_basis/recordTable/recordTable.hpp	/^                  int role = Qt::DisplayRole) const override;$/;"	m	class:brick_game::recordTable
+override	include/game_basis/recordTable/recordTable.hpp	/^  int columnCount(const ::QModelIndex &parent = ::QModelIndex{}) const override;$/;"	m	class:brick_game::recordTable
+override	include/game_basis/recordTable/recordTable.hpp	/^  int rowCount(const ::QModelIndex &parent = ::QModelIndex{}) const override;$/;"	m	class:brick_game::recordTable
+override	include/general/general_window.hpp	/^  void keyPressEvent(::QKeyEvent *event) override;$/;"	m	class:brick_game::general_window
+override	include/snake/snake.hpp	/^  ::QString game_name() const override;$/;"	m	class:brick_game::snake
+override	include/snake/snake.hpp	/^  void customEvent(::QEvent *event) override;$/;"	m	class:brick_game::snake
+override	include/snake/snake.hpp	/^  void finish_game_slot() override;$/;"	m	class:brick_game::snake
+override	include/snake/snake.hpp	/^  void start_game_slot() override;$/;"	m	class:brick_game::snake
+override	include/tetramino/tetramino.hpp	/^  ::QString game_name() const override;$/;"	m	class:brick_game::tetramino
+override	include/tetramino/tetramino.hpp	/^  void customEvent(::QEvent *event) override;$/;"	m	class:brick_game::tetramino
+override	include/tetramino/tetramino.hpp	/^  void finish_game_slot() override;$/;"	m	class:brick_game::tetramino
+override	include/tetramino/tetramino.hpp	/^  void start_game_slot() override;$/;"	m	class:brick_game::tetramino
+parent_	include/game_basis/logs/pauseLog.hpp	/^  ::QWidget *parent_;$/;"	m	class:brick_game::pauseLog
+pause	sources/game_basis/player/player.cpp	/^void brick_game::player::pause(bool status) {$/;"	f	class:brick_game::player
+pause	sources/snake/snake.cpp	/^void brick_game::snake::pause() {$/;"	f	class:brick_game::snake
+pause	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::pause() {$/;"	f	class:brick_game::tetramino
+pauseEvent	include/game_basis/brick_game.hpp	/^enum class Event { pauseEvent = ::QEvent::User + 1, directionEvent };$/;"	m	class:brick_game::Event
+pauseEvent	include/game_basis/events/pauseEvent.hpp	/^class pauseEvent : public ::QEvent {$/;"	c	namespace:brick_game
+pauseEvent	sources/game_basis/events/pauseEvent.cpp	/^brick_game::pauseEvent::pauseEvent()$/;"	f	class:brick_game::pauseEvent
+pauseLog	include/game_basis/logs/pauseLog.hpp	/^class pauseLog : public ::QDialog {$/;"	c	namespace:brick_game
+pauseLog	sources/game_basis/logs/pauseLog.cpp	/^brick_game::pauseLog::pauseLog(::QWidget *parent)$/;"	f	class:brick_game::pauseLog
+pause_log_	include/general/general_window.hpp	/^  pauseLog *pause_log_;$/;"	m	class:brick_game::general_window
+pix	include/game_basis/screen/pix.hpp	/^class pix : public ::QLabel {$/;"	c	namespace:brick_game
+pix	sources/game_basis/screen/pix.cpp	/^brick_game::pix::pix(::QWidget *parent) : ::QLabel{parent} {$/;"	f	class:brick_game::pix
+player	include/game_basis/player/player.hpp	/^class player : public ::QObject {$/;"	c	namespace:brick_game
+player	sources/game_basis/player/player.cpp	/^brick_game::player::player(::QObject *parent)$/;"	f	class:brick_game::player
+player_	include/game_basis/player/player.hpp	/^  ::QMediaPlayer *player_;$/;"	m	class:brick_game::player
+player_	include/general/general_window.hpp	/^  player *player_;$/;"	m	class:brick_game::general_window
+point	include/game_basis/abstractGame/point.hpp	/^class point {$/;"	c	namespace:brick_game
+point	sources/game_basis/abstractGame/point.cpp	/^brick_game::point::point(int x, int y) : y_{y}, x_{x} {}$/;"	f	class:brick_game::point
+qnxnto	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+qnxnto	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+rd	sources/snake/snake.cpp	/^static std::random_device rd;$/;"	v	file:
+read_file	sources/game_basis/recordTable/recordTable.cpp	/^void brick_game::recordTable::read_file() {$/;"	f	class:brick_game::recordTable
+recordTable	include/game_basis/recordTable/recordTable.hpp	/^class recordTable : public ::QAbstractTableModel {$/;"	c	namespace:brick_game
+recordTable	sources/game_basis/recordTable/recordTable.cpp	/^brick_game::recordTable::recordTable(::QObject *parent)$/;"	f	class:brick_game::recordTable
+record_holder	sources/game_basis/recordTable/recordTable.cpp	/^::QDomElement brick_game::recordTable::record_holder(::QDomDocument &dom_doc,$/;"	f	class:brick_game::recordTable
+record_list_	include/game_basis/recordTable/recordTable.hpp	/^  std::vector<std::tuple<::QString, unsigned short, unsigned>> record_list_;$/;"	m	class:brick_game::recordTable
+record_table_	include/general/general_window.hpp	/^  recordTable *record_table_;$/;"	m	class:brick_game::general_window
+record_table_view_	include/game_basis/logs/endDialog.hpp	/^  ::QTreeView *record_table_view_;$/;"	m	class:brick_game::endDialog
+remove_sound	sources/game_basis/player/player.cpp	/^void brick_game::player::remove_sound() {$/;"	f	class:brick_game::player
+restore	sources/game_basis/screen/screen.cpp	/^void brick_game::screen::restore() {$/;"	f	class:brick_game::screen
+reverse_cur_brick	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::reverse_cur_brick() {$/;"	f	class:brick_game::tetramino
+right	sources/game_basis/abstractGame/point.cpp	/^void brick_game::point::right() { ++x_; }$/;"	f	class:brick_game::point
+right_down_brick_corner	sources/tetramino/tetramino.cpp	/^brick_game::point brick_game::tetramino::right_down_brick_corner() const {$/;"	f	class:brick_game::tetramino
+rotade_cur_brick	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::rotade_cur_brick() {$/;"	f	class:brick_game::tetramino
+rowCount	sources/game_basis/recordTable/recordTable.cpp	/^int brick_game::recordTable::rowCount(const ::QModelIndex &parent) const {$/;"	f	class:brick_game::recordTable
+score_	include/game_basis/logs/endDialog.hpp	/^  unsigned score_;$/;"	m	class:brick_game::endDialog
+score_	include/game_basis/player/player.hpp	/^  ::QUrl score_;$/;"	m	class:brick_game::player
+score_	include/snake/snake.hpp	/^  unsigned score_;$/;"	m	class:brick_game::snake
+score_	include/tetramino/tetramino.hpp	/^  unsigned score_;$/;"	m	class:brick_game::tetramino
+score_changed	sources/game_basis/player/player.cpp	/^void brick_game::player::score_changed() {$/;"	f	class:brick_game::player
+screen	include/game_basis/screen/screen.hpp	/^class screen : public ::QWidget { \/\/ standart screen for brick game$/;"	c	namespace:brick_game
+screen	sources/game_basis/screen/screen.cpp	/^brick_game::screen::screen(::QWidget *parent)$/;"	f	class:brick_game::screen
+screen_	include/general/general_window.hpp	/^  screen *screen_;$/;"	m	class:brick_game::general_window
+setDate	sources/game_basis/logs/endDialog.cpp	/^void brick_game::endDialog::setDate(unsigned short level, unsigned score) {$/;"	f	class:brick_game::endDialog
+setRecordTable	sources/game_basis/logs/endDialog.cpp	/^void brick_game::endDialog::setRecordTable($/;"	f	class:brick_game::endDialog
+set_brick_down	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::set_brick_down() {$/;"	f	class:brick_game::tetramino
+set_brick_left	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::set_brick_left() {$/;"	f	class:brick_game::tetramino
+set_brick_right	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::set_brick_right() {$/;"	f	class:brick_game::tetramino
+set_file_name	sources/game_basis/recordTable/recordTable.cpp	/^void brick_game::recordTable::set_file_name(const ::QString &file_name) {$/;"	f	class:brick_game::recordTable
+set_game_slot	sources/general/general_window.cpp	/^void brick_game::general_window::set_game_slot(abstractGame *game) {$/;"	f	class:brick_game::general_window
+set_next_brick	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::set_next_brick() {$/;"	f	class:brick_game::tetramino
+set_record	sources/game_basis/logs/endDialog.cpp	/^void brick_game::endDialog::set_record() {$/;"	f	class:brick_game::endDialog
+set_record	sources/game_basis/recordTable/recordTable.cpp	/^void brick_game::recordTable::set_record(const ::QString &member,$/;"	f	class:brick_game::recordTable
+set_sounds	sources/game_basis/player/player.cpp	/^void brick_game::player::set_sounds(const ::QUrl &begin_theme,$/;"	f	class:brick_game::player
+simplExempl	include/game_basis/abstractGame/simplExempl.hpp	/^class simplExempl : public brick_game::abstractGame {$/;"	c	namespace:brick_game
+simplExempl	sources/game_basis/abstractGame/simplExempl.cpp	/^brick_game::simplExempl::simplExempl(::QObject *parent)$/;"	f	class:brick_game::simplExempl
+size	sources/game_basis/abstractGame/field.cpp	/^size_t brick_game::field::size() const { return field_.size(); }$/;"	f	class:brick_game::field
+snake	include/snake/snake.hpp	/^class snake : public brick_game::abstractGame {$/;"	c	namespace:brick_game
+snake	sources/snake/snake.cpp	/^brick_game::snake::snake(::QObject *parent)$/;"	f	class:brick_game::snake
+snake_body_	include/snake/snake.hpp	/^  std::list<point> snake_body_;$/;"	m	class:brick_game::snake
+soundless_	include/game_basis/player/player.hpp	/^  bool soundless_;$/;"	m	class:brick_game::player
+start_game_slot	sources/game_basis/abstractGame/simplExempl.cpp	/^void brick_game::simplExempl::start_game_slot() {$/;"	f	class:brick_game::simplExempl
+start_game_slot	sources/snake/snake.cpp	/^void brick_game::snake::start_game_slot() {$/;"	f	class:brick_game::snake
+start_game_slot	sources/tetramino/tetramino.cpp	/^void brick_game::tetramino::start_game_slot() {$/;"	f	class:brick_game::tetramino
+stop	sources/game_basis/player/player.cpp	/^void brick_game::player::stop() { player_->stop(); }$/;"	f	class:brick_game::player
+tetramino	include/tetramino/tetramino.hpp	/^class tetramino : public brick_game::abstractGame {$/;"	c	namespace:brick_game
+tetramino	sources/tetramino/tetramino.cpp	/^brick_game::tetramino::tetramino(::QObject *parent)$/;"	f	class:brick_game::tetramino
+time_interval_	include/snake/snake.hpp	/^  std::chrono::milliseconds time_interval_;$/;"	m	class:brick_game::snake
+time_interval_	include/tetramino/tetramino.hpp	/^  std::chrono::milliseconds time_interval_;$/;"	m	class:brick_game::tetramino
+timer_	include/snake/snake.hpp	/^  ::QTimer timer_;$/;"	m	class:brick_game::snake
+timer_	include/tetramino/tetramino.hpp	/^  ::QTimer timer_;$/;"	m	class:brick_game::tetramino
+traverse_node	sources/game_basis/recordTable/recordTable.cpp	/^void brick_game::recordTable::traverse_node(const QDomNode &in_node) {$/;"	f	class:brick_game::recordTable
+turn	sources/tetramino/brick.cpp	/^bool brick_game::brick::turn() {$/;"	f	class:brick_game::brick
+type_	include/tetramino/brick.hpp	/^  BrickType type_;$/;"	m	class:brick_game::brick
+up	sources/game_basis/abstractGame/point.cpp	/^void brick_game::point::up() { --y_; }$/;"	f	class:brick_game::point
+val_	include/game_basis/abstractGame/value.hpp	/^  Value val_;$/;"	m	class:brick_game::value
+value	include/game_basis/abstractGame/value.hpp	/^  value &operator=(value &&value) = delete;$/;"	m	class:brick_game::value
+value	include/game_basis/abstractGame/value.hpp	/^class value : public ::QObject {$/;"	c	namespace:brick_game
+value	sources/game_basis/abstractGame/value.cpp	/^brick_game::value::value(Value value) : ::QObject{}, val_{value} {}$/;"	f	class:brick_game::value
+value	sources/game_basis/abstractGame/value.cpp	/^brick_game::value::value(const value &val) {$/;"	f	class:brick_game::value
+write_file	sources/game_basis/recordTable/recordTable.cpp	/^void brick_game::recordTable::write_file() {$/;"	f	class:brick_game::recordTable
+x_	include/game_basis/abstractGame/point.hpp	/^  int x_;$/;"	m	class:brick_game::point
+y_	include/game_basis/abstractGame/point.hpp	/^  int y_;$/;"	m	class:brick_game::point
+~general_window	sources/general/general_window.cpp	/^brick_game::general_window::~general_window() {$/;"	f	class:brick_game::general_window
+~recordTable	sources/game_basis/recordTable/recordTable.cpp	/^brick_game::recordTable::~recordTable() {}$/;"	f	class:brick_game::recordTable

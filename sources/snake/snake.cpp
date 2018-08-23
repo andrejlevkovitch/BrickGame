@@ -7,7 +7,6 @@
 #include <QCoreApplication>
 #include <QEvent>
 #include <random>
-#include <vector>
 
 #ifdef __linux__
 static std::random_device rd;
@@ -23,11 +22,8 @@ std::chrono::milliseconds brick_game::snake::BEGIN_TIME_INTERVAL() {
 }
 
 brick_game::snake::snake(::QObject *parent)
-    : brick_game::abstractGame{parent},
-      field_(FIELD_SIZE.height(),
-             decltype(field_)::value_type(FIELD_SIZE.width(), Value::NONE)),
-      time_interval_{}, level_{}, score_{}, is_avalible_{false}, is_active_{
-                                                                     false} {
+    : brick_game::abstractGame{parent}, time_interval_{}, level_{}, score_{},
+      is_avalible_{false}, is_active_{false} {
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)), this,
           SLOT(finish_game_slot()));
   connect(&timer_, &::QTimer::timeout, this, [=]() {
@@ -50,7 +46,6 @@ void brick_game::snake::customEvent(::QEvent *event) {
         switch (temp_ev->direction()) {
         case Direction::UP:
           if (cur_direction_ == Direction::DOWN) {
-            emit changed(snake_body_.back(), Value::ONE);
             return;
           }
           if (!move_up()) {
@@ -59,7 +54,6 @@ void brick_game::snake::customEvent(::QEvent *event) {
           break;
         case Direction::DOWN:
           if (cur_direction_ == Direction::UP) {
-            emit changed(snake_body_.back(), Value::ONE);
             return;
           }
           if (!move_down()) {
@@ -68,7 +62,6 @@ void brick_game::snake::customEvent(::QEvent *event) {
           break;
         case Direction::RIGHT:
           if (cur_direction_ == Direction::LEFT) {
-            emit changed(snake_body_.back(), Value::ONE);
             return;
           }
           if (!move_right()) {
@@ -77,7 +70,6 @@ void brick_game::snake::customEvent(::QEvent *event) {
           break;
         case Direction::LEFT:
           if (cur_direction_ == Direction::RIGHT) {
-            emit changed(snake_body_.back(), Value::ONE);
             return;
           }
           if (!move_left()) {
@@ -92,10 +84,6 @@ void brick_game::snake::customEvent(::QEvent *event) {
     }
     return;
   }
-}
-
-brick_game::Value &brick_game::snake::value_of(point pos) {
-  return field_[pos.getY()][pos.getX()];
 }
 
 void brick_game::snake::pause() {
@@ -119,7 +107,7 @@ bool brick_game::snake::move_up() {
     temp_pos = point{temp_pos.getX(), END_FIELD().getY() - 1};
   }
   snake_body_.push_front(temp_pos);
-  switch (value_of(temp_pos)) {
+  switch (field_(temp_pos)) {
   case ONE:
     return false;
     break;
@@ -127,13 +115,11 @@ bool brick_game::snake::move_up() {
     new_feed();
     break;
   default:
-    value_of(snake_body_.back()) = Value::NONE;
-    emit changed(snake_body_.back(), value_of(snake_body_.back()));
+    field_(snake_body_.back()) = Value::NONE;
     snake_body_.pop_back();
     break;
   }
-  value_of(temp_pos) = Value::ONE;
-  emit changed(temp_pos, value_of(temp_pos));
+  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::UP;
   return true;
 }
@@ -145,7 +131,7 @@ bool brick_game::snake::move_down() {
     temp_pos = point{temp_pos.getX(), RBEGIN_FIELD().getY() + 1};
   }
   snake_body_.push_front(temp_pos);
-  switch (value_of(temp_pos)) {
+  switch (field_(temp_pos)) {
   case ONE:
     return false;
     break;
@@ -153,13 +139,11 @@ bool brick_game::snake::move_down() {
     new_feed();
     break;
   default:
-    value_of(snake_body_.back()) = Value::NONE;
-    emit changed(snake_body_.back(), value_of(snake_body_.back()));
+    field_(snake_body_.back()) = Value::NONE;
     snake_body_.pop_back();
     break;
   }
-  value_of(temp_pos) = Value::ONE;
-  emit changed(temp_pos, value_of(temp_pos));
+  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::DOWN;
   return true;
 }
@@ -171,7 +155,7 @@ bool brick_game::snake::move_right() {
     temp_pos = point{RBEGIN_FIELD().getX() + 1, temp_pos.getY()};
   }
   snake_body_.push_front(temp_pos);
-  switch (value_of(temp_pos)) {
+  switch (field_(temp_pos)) {
   case ONE:
     return false;
     break;
@@ -179,13 +163,11 @@ bool brick_game::snake::move_right() {
     new_feed();
     break;
   default:
-    value_of(snake_body_.back()) = Value::NONE;
-    emit changed(snake_body_.back(), value_of(snake_body_.back()));
+    field_(snake_body_.back()) = Value::NONE;
     snake_body_.pop_back();
     break;
   }
-  value_of(temp_pos) = Value::ONE;
-  emit changed(temp_pos, value_of(temp_pos));
+  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::RIGHT;
   return true;
 }
@@ -197,7 +179,7 @@ bool brick_game::snake::move_left() {
     temp_pos = point{END_FIELD().getX() - 1, temp_pos.getY()};
   }
   snake_body_.push_front(temp_pos);
-  switch (value_of(temp_pos)) {
+  switch (field_(temp_pos)) {
   case ONE:
     return false;
     break;
@@ -205,13 +187,11 @@ bool brick_game::snake::move_left() {
     new_feed();
     break;
   default:
-    value_of(snake_body_.back()) = Value::NONE;
-    emit changed(snake_body_.back(), value_of(snake_body_.back()));
+    field_(snake_body_.back()) = Value::NONE;
     snake_body_.pop_back();
     break;
   }
-  value_of(temp_pos) = Value::ONE;
-  emit changed(temp_pos, value_of(temp_pos));
+  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::LEFT;
   return true;
 }
@@ -222,17 +202,12 @@ void brick_game::snake::new_feed() {
     std::uniform_int_distribution<int> distY(0, END_FIELD().getY() - 1);
     std::uniform_int_distribution<int> distX(0, END_FIELD().getX() - 1);
     temp = point{distX(engine), distY(engine)};
-  } while (value_of(temp) != Value::NONE);
-  value_of(temp) = TWO;
-  changed(temp, value_of(temp));
+  } while (field_(temp) != Value::NONE);
+  field_(temp) = TWO;
 }
 
 void brick_game::snake::start_game_slot() {
-  for (auto &i : field_) {
-    for (auto &j : i) {
-      j = Value::NONE;
-    }
-  }
+  field_.clear_all();
   snake_body_.clear();
   time_interval_ = BEGIN_TIME_INTERVAL();
   level_ = 0;
@@ -250,7 +225,6 @@ void brick_game::snake::start_game_slot() {
 
     auto temp = point{distX(engine), distY(engine)};
     snake_body_.push_front(temp);
-    changed(temp, Value::ONE);
   }
 
   new_feed();

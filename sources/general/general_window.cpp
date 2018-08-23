@@ -9,6 +9,7 @@
 #include "logs/pauseLog.hpp"
 #include "player/player.hpp"
 #include "recordTable/recordTable.hpp"
+#include "screen/pix.hpp"
 #include "screen/screen.hpp"
 #include "snake.hpp"
 #include "tetramino.hpp"
@@ -21,7 +22,6 @@
 #include <QStatusBar>
 
 #include <QDebug>
-#include <QtGlobal>
 
 brick_game::general_window::general_window(::QWidget *parent)
     : ::QWidget{parent}, screen_{nullptr}, cur_game_{nullptr},
@@ -183,9 +183,15 @@ void brick_game::general_window::keyPressEvent(::QKeyEvent *event) {
 }
 
 void brick_game::general_window::set_game_slot(abstractGame *game) {
-  Q_CHECK_PTR(game);
   ::qDebug() << "begin connecting game";
   if (cur_game_) {
+    for (int i = 0; i < screen_->general_pixarr_.size(); ++i) {
+      for (int j = 0; j < screen_->general_pixarr_[i].size(); ++j) {
+        disconnect(&cur_game_->field_[i][j], &value::changed,
+                   screen_->general_pixarr_[i][j], &pix::change);
+      }
+    }
+
     delete cur_game_;
     cur_game_ = nullptr;
   }
@@ -226,6 +232,19 @@ void brick_game::general_window::set_game_slot(abstractGame *game) {
             ::qDebug() << "open endDialog";
             end_dialog_->exec();
           });
+
+  for (int i = 0; i < screen_->general_pixarr_.size(); ++i) {
+    for (int j = 0; j < screen_->general_pixarr_[i].size(); ++j) {
+      connect(&cur_game_->field_[i][j], &value::changed,
+              screen_->general_pixarr_[i][j], &pix::change);
+    }
+  }
+  for (int i = 0; i < screen_->dop_pixarr_.size(); ++i) {
+    for (int j = 0; j < screen_->dop_pixarr_[i].size(); ++j) {
+      connect(&cur_game_->mini_field_[i][j], &value::changed,
+              screen_->dop_pixarr_[i][j], &pix::change);
+    }
+  }
 
   ::qDebug() << "end connecting game";
 }

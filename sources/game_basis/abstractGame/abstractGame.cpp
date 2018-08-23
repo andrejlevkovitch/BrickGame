@@ -17,7 +17,8 @@ brick_game::point brick_game::abstractGame::RBEGIN_FIELD() {
 }
 
 brick_game::abstractGame::abstractGame(::QObject *parent)
-    : ::QObject{parent} {
+    : ::QObject{parent}, field_{FIELD_SIZE.height(), FIELD_SIZE.width()},
+      mini_field_{MINI_FIELD_SIZE.height(), MINI_FIELD_SIZE.width()} {
   ::qDebug() << "create abstractGame";
 }
 
