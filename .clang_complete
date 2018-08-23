@@ -1,5 +1,8 @@
--I../../include/game_basis
--I../../include/tetramino
+-Iinclude/game_basis
+-Iinclude/general
+-Iinclude/snake
+-Iinclude/tetramino
+
 -fPIC
 -I/opt/qt510/include
 -I/opt/qt510/include/QtWidgets

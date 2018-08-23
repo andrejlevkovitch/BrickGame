@@ -1,6 +1,6 @@
 // brick.cpp
 
-#include "tetramino/brick.hpp"
+#include "brick.hpp"
 #include <chrono>
 #include <random>
 

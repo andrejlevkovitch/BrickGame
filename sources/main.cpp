@@ -1,7 +1,7 @@
 // main.cpp
 
 #include "brick_game.hpp"
-#include "general/general_window.hpp"
+#include "general_window.hpp"
 #include <QApplication>
 #include <QFile>
 #include <QLatin1String>
@@ -13,7 +13,7 @@
 #include <sys/stat.h>
 #endif
 
-#include "general/messageToFile.hpp"
+#include "messageToFile.hpp"
 #include <QDebug>
 
 int main(int argc, char *argv[]) {

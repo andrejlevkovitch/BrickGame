@@ -10,8 +10,8 @@
 #include "player/player.hpp"
 #include "recordTable/recordTable.hpp"
 #include "screen/screen.hpp"
-#include "snake/snake.hpp"
-#include "tetramino/tetramino.hpp"
+#include "snake.hpp"
+#include "tetramino.hpp"
 #include <QAction>
 #include <QBoxLayout>
 #include <QCoreApplication>
