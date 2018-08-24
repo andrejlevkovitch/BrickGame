@@ -34,7 +34,7 @@ public:
   void set_record(const ::QString &member, unsigned short level,
                   unsigned score);
 
-private:
+protected:
   void read_file();
   void write_file();
   void traverse_node(const QDomNode &);
@@ -51,7 +51,7 @@ private:
 public:
   int columnCount(const ::QModelIndex &parent = ::QModelIndex{}) const override;
 
-private:
+protected:
   ::QVariant headerData(int section, Qt::Orientation orientation,
                         int role = Qt::DisplayRole) const override;
 

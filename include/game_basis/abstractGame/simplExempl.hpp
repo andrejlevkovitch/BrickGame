@@ -29,7 +29,7 @@ public slots:
   /**\brief override slot, which finish the game if signal in*/
   void finish_game_slot() override;
 
-private:
+protected:
   /**\brief override method, which handle custor events*/
   void customEvent(QEvent *event) override;
 };

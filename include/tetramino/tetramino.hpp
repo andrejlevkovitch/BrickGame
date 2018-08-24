@@ -37,7 +37,7 @@ public slots:
   void start_game_slot() override;
   void finish_game_slot() override;
 
-private:
+protected:
   ::QString game_name() const override;
   void customEvent(::QEvent *event) override;
 

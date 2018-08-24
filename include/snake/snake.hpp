@@ -29,7 +29,7 @@ public:
   snake(::QObject *parent = nullptr);
   ::QString game_name() const override;
 
-private:
+protected:
   void customEvent(::QEvent *event) override;
   void pause();
   bool move_up();

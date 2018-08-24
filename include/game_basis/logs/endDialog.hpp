@@ -22,7 +22,7 @@ public:
   endDialog(::QWidget *parent = nullptr);
   void setRecordTable(brick_game::recordTable *record_table);
 
-private slots:
+protected slots:
   void set_record();
 
 public slots:

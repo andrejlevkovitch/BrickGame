@@ -28,7 +28,7 @@ public:
   explicit general_window(::QWidget *parent = nullptr);
   ~general_window();
 
-private:
+protected:
   /**\brief handle event and send them to game*/
   void keyPressEvent(::QKeyEvent *event) override;
 

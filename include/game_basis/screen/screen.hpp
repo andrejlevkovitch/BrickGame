@@ -29,7 +29,7 @@ private:
 public:
   explicit screen(::QWidget *parent = nullptr);
 
-private:
+protected:
   /**\return ::QWidget with general field*/
   ::QWidget *create_general_field();
   /**\return ::QWidget with mini field*/
@@ -37,7 +37,7 @@ private:
 
 signals:
   /// send if necessary clear all fields
-  void clear_all(Value value = Value::NONE) const;
+  void clear_all() const;
   /**\brief set level on lcd display*/
   void set_level(int level) const;
   /**\brief set score on lcd display*/

@@ -56,7 +56,7 @@ void brick_game::field::erase_row_shift_up(size_t row) {
   if (row >= field_.size()) {
     return;
   }
-  while (row < field_.size()) {
+  while (row < field_.size() - 1) {
     for (int i = 0; i < field_[row].size(); ++i) {
       field_[row][i] = field_[row + 1][i];
     }

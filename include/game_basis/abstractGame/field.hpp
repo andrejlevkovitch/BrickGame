@@ -20,15 +20,19 @@ public:
   /**\brief clear all field (Value::NONE)*/
   void clear_all();
   /**\param row number of row of field
+   * \warning don't check input value!
    * \return row of field with this number*/
   std::vector<brick_game::value> &operator[](int row);
-  /**\brief const version of operator[]*/
+  /**\brief const version of operator[]
+   * \warning don't check input value!*/
   const std::vector<brick_game::value> &operator[](int row) const;
   /**\brief analogue of operator[] for points
+   * \warning don't check input value!
    * \param pos point of elemnt on the field
    * \return reference to value*/
   brick_game::value &operator()(::QPoint pos);
-  /**\brief const version of operator()(::QPoint)*/
+  /**\brief const version of operator()(::QPoint)
+   * \warning don't check input value!*/
   const brick_game::value &operator()(::QPoint pos) const;
   /**\return number of rows in this field*/
   size_t size() const;

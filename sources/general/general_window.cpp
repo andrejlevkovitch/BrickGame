@@ -165,14 +165,14 @@ void brick_game::general_window::keyPressEvent(::QKeyEvent *event) {
     if (cur_game_ != nullptr) {
       ::qDebug() << "emit finish game signal";
       emit finish_game_signal();
-      screen_->restore();
+      emit screen_->clear_all();
     }
     break;
   case Qt::Key_Enter:
   case Qt::Key_Return:
   case Qt::Key_E:
     if (cur_game_ != nullptr) {
-      screen_->restore();
+      emit screen_->clear_all();
       ::qDebug() << "emit start game signal";
       emit start_game_signal();
     }
@@ -196,7 +196,7 @@ void brick_game::general_window::set_game_slot(abstractGame *game) {
     cur_game_ = nullptr;
   }
   cur_game_ = game;
-  screen_->restore();
+  emit screen_->clear_all();
   if (record_table_) {
     record_table_->set_file_name(::QString{"/."} + cur_game_->game_name() +
                                  ::QString{"_record_table.xml"});

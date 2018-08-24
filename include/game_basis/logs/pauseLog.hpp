@@ -13,7 +13,7 @@ private:
 public:
   pauseLog(QWidget *parent);
 
-private:
+protected:
   void keyPressEvent(::QKeyEvent *event) override;
 };
 }; // namespace brick_game
