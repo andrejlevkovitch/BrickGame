@@ -25,7 +25,7 @@
 
 brick_game::general_window::general_window(::QWidget *parent)
     : ::QWidget{parent}, screen_{nullptr}, cur_game_{nullptr},
-      record_table_{nullptr}, player_{nullptr} {
+      record_table_{nullptr}, player_{nullptr}, status_bar_{nullptr} {
   player_ = new brick_game::player{this};
   screen_ = new brick_game::screen;
   record_table_ = new brick_game::recordTable{this};
@@ -34,20 +34,9 @@ brick_game::general_window::general_window(::QWidget *parent)
   end_dialog_ = new brick_game::endDialog{this};
   end_dialog_->setRecordTable(record_table_);
 
-  connect(this, SIGNAL(set_game_signal(brick_game::abstractGame *)), this,
-          SLOT(set_game_slot(brick_game::abstractGame *)));
-
   auto general_layout = new ::QVBoxLayout;
   {
-    auto status_bar = new ::QStatusBar;
-    {
-      connect(this, &brick_game::general_window::set_game_signal, status_bar,
-              [=](abstractGame *game) {
-                Q_CHECK_PTR(game);
-                status_bar->showMessage(game->game_name());
-                ::qDebug() << "game name: " + game->game_name();
-              });
-    }
+    status_bar_ = new ::QStatusBar;
     auto menu_bar = new ::QMenuBar;
     {
       auto game_menu = new ::QMenu{"Games"};
@@ -58,7 +47,7 @@ brick_game::general_window::general_window(::QWidget *parent)
             player_->stop();
             player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
                                 ::QUrl{}, ::QUrl{});
-            emit set_game_signal(new brick_game::simplExempl);
+            set_game(new brick_game::simplExempl);
           });
         }
         auto tetramino_action = new ::QAction{"tetramino", game_menu};
@@ -69,7 +58,7 @@ brick_game::general_window::general_window(::QWidget *parent)
                                 ::QUrl{"qrc:/audio/activity.mp3"},
                                 ::QUrl{"qrc:/audio/score.mp3"},
                                 ::QUrl{"qrc:/audio/level_up.mp3"});
-            emit set_game_signal(new brick_game::tetramino);
+            set_game(new brick_game::tetramino);
           });
         }
         auto snake_action = new ::QAction{"snake", game_menu};
@@ -79,7 +68,7 @@ brick_game::general_window::general_window(::QWidget *parent)
             player_->set_sounds(::QUrl{}, ::QUrl{},
                                 ::QUrl{"qrc:/audio/score.mp3"},
                                 ::QUrl{"qrc:/audio/level_up.mp3"});
-            emit set_game_signal(new brick_game::snake);
+            set_game(new brick_game::snake);
           });
         }
         game_menu->addAction(simpl_exempl_action);
@@ -108,7 +97,7 @@ brick_game::general_window::general_window(::QWidget *parent)
     }
     general_layout->addWidget(menu_bar);
     general_layout->addWidget(screen_);
-    general_layout->addWidget(status_bar);
+    general_layout->addWidget(status_bar_);
   }
   this->setLayout(general_layout);
 
@@ -182,7 +171,7 @@ void brick_game::general_window::keyPressEvent(::QKeyEvent *event) {
   }
 }
 
-void brick_game::general_window::set_game_slot(abstractGame *game) {
+void brick_game::general_window::set_game(abstractGame *game) {
   ::qDebug() << "begin connecting game";
   if (cur_game_) {
     for (int i = 0; i < screen_->general_pixarr_.size(); ++i) {
@@ -245,6 +234,8 @@ void brick_game::general_window::set_game_slot(abstractGame *game) {
               screen_->dop_pixarr_[i][j], &pix::change);
     }
   }
+
+  status_bar_->showMessage(cur_game_->game_name());
 
   ::qDebug() << "end connecting game";
 }

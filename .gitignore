@@ -1,2 +1,4 @@
 build/
 doxygen/
+compile_commands.json
+tags

@@ -36,8 +36,10 @@ protected:
   ::QWidget *create_dop_field();
 
 signals:
-  /// send if necessary clear all fields
-  void clear_all() const;
+  /**\brief send if necessary clear all fields
+   * \warning if you input in value some value, then all pix-s will have this
+   * value*/
+  void clear_all(Value value = Value::NONE) const;
   /**\brief set level on lcd display*/
   void set_level(int level) const;
   /**\brief set score on lcd display*/
