@@ -8,21 +8,41 @@
 #include <QString>
 
 namespace brick_game {
-const ::QSize FIELD_SIZE{10, 20};    // size of general field
-const ::QSize MINI_FIELD_SIZE{4, 4}; // size of mini field
+/// size of general field of BrickGame*/
+const ::QSize FIELD_SIZE{10, 20};
+/// size of mini scrien of BrickGame*/
+const ::QSize MINI_FIELD_SIZE{4, 4};
 
-const ::QPoint MINI_SCR_BGN{FIELD_SIZE.width(), 0};
-
-enum Value { NONE, ONE, TWO, THREE, FOUR, FIVE, SIX, SIZE };
-enum class Direction { UP, DOWN, RIGHT, LEFT, SIZE };
-enum class Event { pauseEvent = ::QEvent::User + 1, directionEvent };
-
-const int LEVEL_DIGIN_COUNT{2};
-const int SCORE_DIGIN_COUNT{6};
+/// valid values for class value*/
+enum class Value {
+  NONE,  ///< nothing, 0
+  ONE,   ///< first value
+  TWO,   ///< second value
+  THREE, ///< thrird value
+  FOUR,  ///< fourd value
+  FIVE,  ///< fived value
+  SIX,   ///< sixed value
+  SIZE   ///< number of valid values
+};
+/// valid directions for event directionEvent*/
+enum class Direction {
+  UP,    ///< up direction
+  DOWN,  ///< down direction
+  RIGHT, ///< right direction
+  LEFT,  ///< left direction
+  SIZE   ///< number of valid values
+};
+/// types of events*/
+enum class Event {
+  pauseEvent = ::QEvent::User + 1, ///< type of pauseEvent
+  directionEvent                   ///< type of directionEvent
+};
 
 #ifdef __linux__
+/// path for game files (record tables etc.) linux*/
 const ::QString HOME{::QString{getenv("HOME")} + ::QString{"/.brickgame"}};
 #elif _WIN32
+/// path for game files (record tables etc.) windows*/
 const ::QString HOME{::QString{getenv("LOCALAPPDATA")} +
                      ::QString{"/.brickgame"}};
 #endif

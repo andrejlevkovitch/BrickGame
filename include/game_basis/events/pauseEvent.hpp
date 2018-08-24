@@ -5,6 +5,7 @@
 #include <QEvent>
 
 namespace brick_game {
+/**\brief event of pause*/
 class pauseEvent : public ::QEvent {
 public:
   pauseEvent();

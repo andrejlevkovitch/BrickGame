@@ -19,8 +19,9 @@ brick_game::brick::brick(::QObject *parent)
       std::chrono::system_clock::to_time_t(std::chrono::system_clock::now())};
 #endif
 
-  std::uniform_int_distribution<int> value_dist(1, Value::SIZE - 1);
-  auto value= static_cast<Value>(value_dist(engine));
+  std::uniform_int_distribution<int> value_dist(
+      1, static_cast<int>(Value::SIZE) - 1);
+  auto value = static_cast<Value>(value_dist(engine));
 
   std::uniform_int_distribution<int> type_dist(0, SIZE_BRICKS - 1);
 
@@ -28,29 +29,29 @@ brick_game::brick::brick(::QObject *parent)
 
   switch (type_) {
   case O_BRICK:
-    field_.resize(2, decltype(field_)::value_type(2,value));
+    field_.resize(2, decltype(field_)::value_type(2, value));
     break;
   case T_BRICK:
-    field_.resize(2, decltype(field_)::value_type(3,value));
+    field_.resize(2, decltype(field_)::value_type(3, value));
     field_[0][0] = field_[0][2] = Value::NONE;
     break;
   case L_BRICK:
-    field_.resize(2, decltype(field_)::value_type(3,value));
+    field_.resize(2, decltype(field_)::value_type(3, value));
     field_[0][0] = field_[0][1] = Value::NONE;
     break;
   case J_BRICK:
-    field_.resize(2, decltype(field_)::value_type(3,value));
+    field_.resize(2, decltype(field_)::value_type(3, value));
     field_[0][2] = field_[0][1] = Value::NONE;
     break;
   case I_BRICK:
-    field_.resize(1, decltype(field_)::value_type(4,value));
+    field_.resize(1, decltype(field_)::value_type(4, value));
     break;
   case S_BRICK:
-    field_.resize(2, decltype(field_)::value_type(3,value));
+    field_.resize(2, decltype(field_)::value_type(3, value));
     field_[0][0] = field_[1][2] = Value::NONE;
     break;
   case Z_BRICK:
-    field_.resize(2, decltype(field_)::value_type(3,value));
+    field_.resize(2, decltype(field_)::value_type(3, value));
     field_[1][0] = field_[0][2] = Value::NONE;
     break;
   default:

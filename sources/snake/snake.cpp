@@ -108,10 +108,10 @@ bool brick_game::snake::move_up() {
   }
   snake_body_.push_front(temp_pos);
   switch (field_(temp_pos)) {
-  case ONE:
+    case Value::ONE:
     return false;
     break;
-  case TWO:
+    case Value::TWO:
     new_feed();
     break;
   default:
@@ -128,14 +128,14 @@ bool brick_game::snake::move_down() {
   auto temp_pos = snake_body_.front();
   temp_pos.down();
   if (!is_passible(temp_pos)) {
-    temp_pos = point{temp_pos.getX(), RBEGIN_FIELD().getY() + 1};
+    temp_pos = point{temp_pos.getX(), REND_FIELD().getY() + 1};
   }
   snake_body_.push_front(temp_pos);
   switch (field_(temp_pos)) {
-  case ONE:
+    case Value::ONE:
     return false;
     break;
-  case TWO:
+    case Value::TWO:
     new_feed();
     break;
   default:
@@ -152,14 +152,14 @@ bool brick_game::snake::move_right() {
   auto temp_pos = snake_body_.front();
   temp_pos.right();
   if (!is_passible(temp_pos)) {
-    temp_pos = point{RBEGIN_FIELD().getX() + 1, temp_pos.getY()};
+    temp_pos = point{REND_FIELD().getX() + 1, temp_pos.getY()};
   }
   snake_body_.push_front(temp_pos);
   switch (field_(temp_pos)) {
-  case ONE:
+    case Value::ONE:
     return false;
     break;
-  case TWO:
+    case Value::TWO:
     new_feed();
     break;
   default:
@@ -180,10 +180,10 @@ bool brick_game::snake::move_left() {
   }
   snake_body_.push_front(temp_pos);
   switch (field_(temp_pos)) {
-  case ONE:
+    case Value::ONE:
     return false;
     break;
-  case TWO:
+    case Value::TWO:
     new_feed();
     break;
   default:
@@ -203,7 +203,7 @@ void brick_game::snake::new_feed() {
     std::uniform_int_distribution<int> distX(0, END_FIELD().getX() - 1);
     temp = point{distX(engine), distY(engine)};
   } while (field_(temp) != Value::NONE);
-  field_(temp) = TWO;
+  field_(temp) = Value::TWO;
 }
 
 void brick_game::snake::start_game_slot() {

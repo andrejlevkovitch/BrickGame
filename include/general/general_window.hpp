@@ -12,6 +12,8 @@ class player;
 class pauseLog;
 class endDialog;
 
+/**\brief general class for BrickGame
+ * \contains screen, game, recordTable, palyer end dialogs*/
 class general_window : public ::QWidget {
   Q_OBJECT
 private:
@@ -27,14 +29,18 @@ public:
   ~general_window();
 
 private:
+  /**\brief handle event and send them to game*/
   void keyPressEvent(::QKeyEvent *event) override;
 
 signals:
+  /**\param game pointer to new game (in dynamic memory only!)*/
   void set_game_signal(brick_game::abstractGame *game);
   void start_game_signal();
   void finish_game_signal();
 
 public slots:
+  /**\brief slot, where set new game, and set new connects with element of the
+   * BrickGame \param game pointer to new game (in dynamic memory only!)*/
   void set_game_slot(brick_game::abstractGame *game);
 };
 }; // namespace brick_game

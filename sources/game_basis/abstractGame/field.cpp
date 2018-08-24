@@ -37,21 +37,6 @@ size_t brick_game::field::size() const { return field_.size(); }
 
 bool brick_game::field::empty() const { return field_.empty(); }
 
-void brick_game::field::erase_row_shift_up(size_t row) {
-  if (row >= field_.size()) {
-    return;
-  }
-  while (row < field_.size()) {
-    for (int i = 0; i < field_[row].size(); ++i) {
-      field_[row][i] = field_[row + 1][i];
-    }
-    ++row;
-  }
-  for (auto &i : *field_.rbegin()) {
-    i = Value::NONE;
-  }
-}
-
 void brick_game::field::erase_row_shift_down(size_t row) {
   if (row >= field_.size()) {
     return;
@@ -63,6 +48,21 @@ void brick_game::field::erase_row_shift_down(size_t row) {
     --row;
   }
   for (auto &i : *field_.begin()) {
+    i = Value::NONE;
+  }
+}
+
+void brick_game::field::erase_row_shift_up(size_t row) {
+  if (row >= field_.size()) {
+    return;
+  }
+  while (row < field_.size()) {
+    for (int i = 0; i < field_[row].size(); ++i) {
+      field_[row][i] = field_[row + 1][i];
+    }
+    ++row;
+  }
+  for (auto &i : *field_.rbegin()) {
     i = Value::NONE;
   }
 }

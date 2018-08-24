@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classbrick__game_1_1abstractGame.html" title="abstract class &#45; basis for some game " alt="" coords="124,56,303,83"/>
+<area shape="rect" id="node6" href="$classbrick__game_1_1brick.html" title="brick_game::brick" alt="" coords="151,107,276,133"/>
+<area shape="rect" id="node7" href="$classbrick__game_1_1player.html" title="sond player for the game " alt="" coords="147,157,279,184"/>
+<area shape="rect" id="node8" href="$classbrick__game_1_1value.html" title="element of class brick_game::field " alt="" coords="149,208,277,235"/>
+<area shape="rect" id="node3" href="$classbrick__game_1_1simplExempl.html" title="simple exemple of game " alt="" coords="351,5,523,32"/>
+<area shape="rect" id="node4" href="$classbrick__game_1_1snake.html" title="brick_game::snake" alt="" coords="371,56,503,83"/>
+<area shape="rect" id="node5" href="$classbrick__game_1_1tetramino.html" title="brick_game::tetramino" alt="" coords="361,107,512,133"/>
+</map>

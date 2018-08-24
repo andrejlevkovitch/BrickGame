@@ -17,7 +17,7 @@ brick_game::simplExempl::simplExempl(::QObject *parent)
 void brick_game::simplExempl::start_game_slot() {
   field_.clear_all();
   cur_pos_ = BEGIN_POS();
-  field_(cur_pos_) = ONE;
+  field_(cur_pos_) = Value::ONE;
 }
 
 void brick_game::simplExempl::finish_game_slot() {}
@@ -32,7 +32,7 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
   }
   if (event->type() == static_cast<::QEvent::Type>(Event::directionEvent)) {
     auto d_event = static_cast<directionEvent *>(event);
-    field_(cur_pos_) = NONE;
+    field_(cur_pos_) = Value::NONE;
     auto temp = cur_pos_;
     switch (d_event->direction()) {
     case Direction::UP:
@@ -55,7 +55,7 @@ void brick_game::simplExempl::customEvent(::QEvent *event) {
     } else {
       emit activity();
     }
-    field_(cur_pos_) = ONE;
+    field_(cur_pos_) = Value::ONE;
     return;
   }
 }

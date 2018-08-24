@@ -8,3 +8,5 @@
 -I/opt/qt510/include/QtWidgets
 -I/opt/qt510/include/QtCore
 -I/opt/qt510/include/QtGui
+-I/opt/qt510/include/QtXml
+-I/opt/qt510/include/QtMultimedia

@@ -11,7 +11,7 @@ brick_game::point brick_game::abstractGame::END_FIELD() {
   return retval;
 }
 
-brick_game::point brick_game::abstractGame::RBEGIN_FIELD() {
+brick_game::point brick_game::abstractGame::REND_FIELD() {
   static const brick_game::point retval{-1, -1};
   return retval;
 }
@@ -23,7 +23,7 @@ brick_game::abstractGame::abstractGame(::QObject *parent)
 }
 
 bool brick_game::abstractGame::is_passible(const brick_game::point pos) const {
-  if (pos < abstractGame::END_FIELD() && pos > RBEGIN_FIELD()) {
+  if (pos < abstractGame::END_FIELD() && pos > REND_FIELD()) {
     return true;
   } else {
     return false;

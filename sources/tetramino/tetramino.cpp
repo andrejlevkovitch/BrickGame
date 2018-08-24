@@ -133,7 +133,7 @@ bool brick_game::tetramino::is_passible() const {
   auto left_corner = left_up_brick_corner();
   auto right_corner = right_down_brick_corner();
   if (right_corner < END_FIELD() &&
-      left_corner.getX() > RBEGIN_FIELD().getX()) {
+      left_corner.getX() > REND_FIELD().getX()) {
     for (auto &i : cur_brick_.field_) {
       auto temp = left_corner;
       for (auto &j : i) {
@@ -188,7 +188,7 @@ void brick_game::tetramino::reverse_cur_brick() {
     temp = pos;
     for (const auto &j : i) {
       if (j != Value::NONE && temp.getY() >= 0) {
-        field_[temp.getY()][temp.getX()] =
+        field_(temp) =
             (field_(temp) == Value::NONE) ? j : Value::NONE;
       }
       temp.right();

@@ -5,10 +5,11 @@
 brick_game::point::point(int x, int y) : y_{y}, x_{x} {}
 
 bool brick_game::point::operator==(const point &rhs) const {
-  if (this->y_ == rhs.y_ && this->x_ == rhs.x_) {
-    return true;
-  }
-  return false;
+  return (this->y_ == rhs.y_ && this->x_ == rhs.x_) ? true : false;
+}
+
+bool brick_game::point::operator!=(const point &rhs) const {
+  return (this->y_ != rhs.y_ || this->x_ != rhs.x_) ? true : false;
 }
 
 brick_game::point brick_game::point::operator-(const point &rhs) const {

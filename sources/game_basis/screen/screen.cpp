@@ -10,26 +10,30 @@
 
 #include <QDebug>
 
+int brick_game::screen::LEVEL_DIGIN_COUNT() { return 2; }
+
+int brick_game::screen::SCORE_DIGIN_COUNT() { return 6; }
+
 brick_game::screen::screen(::QWidget *parent)
     : ::QWidget{parent}, general_pixarr_(FIELD_SIZE.height(),
                                          decltype(general_pixarr_)::value_type(
                                              FIELD_SIZE.width(), nullptr)),
       dop_pixarr_(MINI_FIELD_SIZE.height(),
-                                         decltype(general_pixarr_)::value_type(
-                                             MINI_FIELD_SIZE.width(), nullptr)) {
+                  decltype(general_pixarr_)::value_type(MINI_FIELD_SIZE.width(),
+                                                        nullptr)) {
   auto general_layout = new ::QHBoxLayout;
   {
     auto rhs_layout = new ::QVBoxLayout;
     {
       auto level_lbl = new ::QLabel{"LEVEL"};
       auto level_display = new ::QLCDNumber;
-      level_display->setDigitCount(LEVEL_DIGIN_COUNT);
+      level_display->setDigitCount(LEVEL_DIGIN_COUNT());
       connect(this, SIGNAL(set_level(int)), level_display, SLOT(display(int)));
       level_lbl->setBuddy(level_display);
 
       auto score_lbl = new ::QLabel{"SCORE"};
       auto score_display = new ::QLCDNumber;
-      score_display->setDigitCount(SCORE_DIGIN_COUNT);
+      score_display->setDigitCount(SCORE_DIGIN_COUNT());
       connect(this, SIGNAL(set_score(int)), score_display, SLOT(display(int)));
       score_lbl->setBuddy(score_display);
 
@@ -48,11 +52,6 @@ brick_game::screen::screen(::QWidget *parent)
   }
   this->setLayout(general_layout);
   ::qDebug() << "created screen";
-}
-
-void brick_game::screen::restore() {
-  emit clear_all();
-  ::qDebug() << "screen restored";
 }
 
 ::QWidget *brick_game::screen::create_general_field() {

@@ -6,12 +6,15 @@
 #include <QLabel>
 
 namespace brick_game {
+  /**\brief element of brick_game::screen*/
 class pix : public ::QLabel {
   Q_OBJECT
 public:
   explicit pix(::QWidget *parent = nullptr);
 
 public slots:
-  void change(Value value = Value::NONE);
+  /**\brief change color and some else
+   * \param value changed value*/
+  void change(Value value);
 };
 }; // namespace brick_game
