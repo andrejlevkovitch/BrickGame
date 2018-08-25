@@ -225,6 +225,7 @@ void brick_game::snake::start_game_slot() {
 
     auto temp = point{distX(engine), distY(engine)};
     snake_body_.push_front(temp);
+    field_(temp) = Value::ONE;
   }
 
   new_feed();

@@ -1,7 +1,7 @@
--Iinclude/game_basis
--Iinclude/general
--Iinclude/snake
--Iinclude/tetramino
+-Igame_basis/include
+-Igeneral/include
+-Isnake/include
+-Itetramino/include
 
 -fPIC
 -I/opt/qt510/include

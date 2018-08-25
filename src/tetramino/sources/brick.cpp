@@ -11,12 +11,12 @@ brick_game::point brick_game::brick::DEF_CENTER() {
 
 brick_game::brick::brick(::QObject *parent)
     : ::QObject{parent}, center_{DEF_CENTER()} {
-#ifdef __linux__
-  static std::random_device rd;
-  static std::default_random_engine engine{rd()};
-#elif _WIN32
+#ifdef _WIN32
   static std::default_random_engine engine{
       std::chrono::system_clock::to_time_t(std::chrono::system_clock::now())};
+#else
+  static std::random_device rd;
+  static std::default_random_engine engine{rd()};
 #endif
 
   std::uniform_int_distribution<int> value_dist(

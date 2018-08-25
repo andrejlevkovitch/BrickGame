@@ -31,7 +31,10 @@ public:
   explicit general_window(::QWidget *parent = nullptr);
   ~general_window();
   /**\brief method, where set new game, and set new connects with element of the
-   * BrickGame \param game pointer to new game (in dynamic memory only!)*/
+   * BrickGame \param game pointer to new game
+   * \warning only dynamic pointer to game
+   * \warning set ownership of game to general_window and free memory after set
+   * new game and in destructor*/
   void set_game(brick_game::abstractGame *game);
 
 protected:

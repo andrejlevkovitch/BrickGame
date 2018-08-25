@@ -5,13 +5,8 @@
 #include <QApplication>
 #include <QFile>
 #include <QLatin1String>
+#include <boost/filesystem.hpp>
 #include <exception>
-
-#ifdef _WIN32
-#include <direct.h>
-#elif __linux__
-#include <sys/stat.h>
-#endif
 
 #include "messageToFile.hpp"
 #include <QDebug>
@@ -19,11 +14,16 @@
 int main(int argc, char *argv[]) {
   ::QApplication app(argc, argv);
   {
-#ifdef _WIN32
-    ::mkdir(brick_game::HOME.toStdString().c_str());
-#elif __linux__
-    ::mkdir(brick_game::HOME.toStdString().c_str(), 0777);
-#endif
+    if (!boost::filesystem::is_directory(
+            brick_game::HOME.toStdString().c_str())) {
+      ::qDebug() << "Directory with game files dosn't exists";
+      if (boost::filesystem::create_directory(
+              brick_game::HOME.toStdString().c_str())) {
+        ::qDebug() << "Directory created";
+      } else {
+        ::qWarning() << "Directry dosn't created";
+      }
+    }
     ::QFile file(file_protocol_name);
     if (file.open(::QIODevice::WriteOnly)) {
       file.close();

@@ -3,11 +3,11 @@
 #pragma once
 
 #include "brick_game.hpp"
-#include "general_window.hpp"
 #include <QWidget>
 
 namespace brick_game {
 class pix;
+class general_window;
 
 class screen : public ::QWidget { // standart screen for brick game
   Q_OBJECT

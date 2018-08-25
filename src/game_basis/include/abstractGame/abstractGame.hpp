@@ -5,10 +5,10 @@
 #include "abstractGame/field.hpp"
 #include "abstractGame/point.hpp"
 #include "brick_game.hpp"
-#include "general_window.hpp"
 #include <QObject>
 
 namespace brick_game {
+class general_window;
 /**\brief abstract class - basis for some game*/
 class abstractGame : public ::QObject {
   Q_OBJECT
