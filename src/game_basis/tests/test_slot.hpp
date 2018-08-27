@@ -26,4 +26,5 @@ public slots:
   };
 signals:
   void test_signal();
+  void test_date_signal(unsigned short a, unsigned b);
 };

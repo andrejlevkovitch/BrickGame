@@ -175,31 +175,44 @@ void brick_game::recordTable::traverse_node(const QDomNode &in_node) {
   return d_element;
 }
 
-void brick_game::recordTable::set_record(const ::QString &member,
+bool brick_game::recordTable::set_record(::QString member,
                                          unsigned short level, unsigned score) {
+  if (file_.isEmpty()) {
+    return false;
+  }
   if (!member.isEmpty() && score) {
+    if (member.size() > NAME_SIZE()) {
+      member.resize(NAME_SIZE());
+    }
+    bool is_record{false};
     for (auto i = record_list_.begin(); i != record_list_.end(); ++i) {
       if (score > std::get<2>(*i)) {
         record_list_.insert(i, std::make_tuple(member, level, score));
+        is_record = true;
         break;
       }
     }
-    write_file();
+    if (is_record) {
+      write_file();
+      return true;
+    }
   }
+  return false;
 }
 
 bool brick_game::recordTable::is_record(unsigned score) {
   if (file_.isEmpty()) {
+    emit record(false);
     return false;
   }
   read_file();
   auto iter = record_list_.begin();
   std::advance(iter, N_MEMBERS() - 1);
   if (score > std::get<2>(*iter)) {
-    emit record();
+    emit record(true);
     return true;
   }
-  emit norecord();
+  emit record(false);
   return false;
 }
 

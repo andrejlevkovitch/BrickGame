@@ -203,8 +203,6 @@ void brick_game::general_window::set_game(abstractGame *game) {
   connect(cur_game_, SIGNAL(pause_signal(bool)), player_, SLOT(pause(bool)));
   connect(cur_game_, SIGNAL(activity()), player_, SLOT(activity()));
 
-  connect(cur_game_, SIGNAL(changed(::QPoint, Value)), screen_,
-          SIGNAL(reciver(::QPoint, Value)));
   connect(cur_game_, SIGNAL(send_level(int)), screen_, SIGNAL(set_level(int)));
   connect(cur_game_, SIGNAL(send_score(int)), screen_, SIGNAL(set_score(int)));
 

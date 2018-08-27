@@ -9,15 +9,14 @@ brick_game--pix:enabled {
   border-color : darkgray;
   border-width : 3px;
   border-style : outset;
-  outline-color : red;
 }
 
 brick_game--pix:disabled {
   color : white;
   background-color : white;
-  border-color : darkgray;
+/*border-color : darkgray;
   border-width : 3px;
-  border-style : inset;
+  border-style : inset;*/
 }
 
 QLabel {

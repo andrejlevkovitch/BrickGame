@@ -12,7 +12,7 @@ class general_window;
 /**\brief abstract class - basis for some game*/
 class abstractGame : public ::QObject {
   Q_OBJECT
-    /**\brief have friend brick_game::general_window*/
+  /**\brief have friend brick_game::general_window*/
   friend general_window;
 
 public:

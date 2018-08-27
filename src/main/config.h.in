@@ -1,0 +1,4 @@
+// config.h.in
+
+#cmakedefine Boost_FOUND @Boost_FOUND@
+#cmakedefine DEBUG_IN_FILE @DEBUG_IN_FILE@

@@ -1,6 +1,6 @@
-// boost_test_game_basis.cpp
+// boost_test_abstractGame.cpp
 
-#define BOOST_TEST_MODULE test
+#define BOOST_TEST_MODULE test_module_abstracGame
 #include <boost/test/included/unit_test.hpp>
 
 #include "abstractGame/field.hpp"
@@ -10,7 +10,7 @@
 #include "test_slot.hpp"
 
 /// test point
-BOOST_AUTO_TEST_SUITE(test_suite1)
+BOOST_AUTO_TEST_SUITE(test_point)
 
 const int i{9}, j{15};
 brick_game::point charli{j, i};
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(test_case4) {
 BOOST_AUTO_TEST_SUITE_END()
 
 /// test value
-BOOST_AUTO_TEST_SUITE(test_suite2)
+BOOST_AUTO_TEST_SUITE(test_value)
 
 BOOST_AUTO_TEST_CASE(test_case1) {
   brick_game::value alfa;
@@ -104,13 +104,15 @@ BOOST_AUTO_TEST_CASE(test_case3) {
 BOOST_AUTO_TEST_SUITE_END()
 
 /// test field
-BOOST_AUTO_TEST_SUITE(test_suite3)
+BOOST_AUTO_TEST_SUITE(test_field)
 
-const int n = 9, m = 9;
-
-BOOST_AUTO_TEST_CASE(test_check1) {
+struct fixture_field {
+  const int n = 9;
+  const int m = 9;
   brick_game::field field{n, m};
+};
 
+BOOST_FIXTURE_TEST_CASE(test_check1, fixture_field) {
   BOOST_REQUIRE(field.size() == n);
   for (int i = 0; i < field.size(); ++i) {
     BOOST_REQUIRE(field[i].size() == m);
@@ -120,8 +122,7 @@ BOOST_AUTO_TEST_CASE(test_check1) {
   }
 }
 
-BOOST_AUTO_TEST_CASE(test_check2) {
-  brick_game::field field{n, m};
+BOOST_FIXTURE_TEST_CASE(test_check2, fixture_field) {
   for (int i = 0; i < field.size(); ++i) {
     for (int j = 0; j < field[i].size(); ++j) {
       field[i][j] = brick_game::Value::ONE;
@@ -134,8 +135,7 @@ BOOST_AUTO_TEST_CASE(test_check2) {
   }
 }
 
-BOOST_AUTO_TEST_CASE(test_check3) {
-  brick_game::field field{n, m};
+BOOST_FIXTURE_TEST_CASE(test_check3, fixture_field) {
   for (int i = 0; i < field.size(); ++i) {
     for (int j = 0; j < field[i].size(); ++j) {
       field[i][j] = brick_game::Value::ONE;
@@ -147,8 +147,7 @@ BOOST_AUTO_TEST_CASE(test_check3) {
   }
 }
 
-BOOST_AUTO_TEST_CASE(test_check4) {
-  brick_game::field field{n, m};
+BOOST_FIXTURE_TEST_CASE(test_check4, fixture_field) {
   for (int i = 0; i < field.size(); ++i) {
     for (int j = 0; j < field[i].size(); ++j) {
       field[i][j] = brick_game::Value::ONE;
@@ -160,8 +159,7 @@ BOOST_AUTO_TEST_CASE(test_check4) {
   }
 }
 
-BOOST_AUTO_TEST_CASE(test_check5) {
-  brick_game::field field{n, m};
+BOOST_FIXTURE_TEST_CASE(test_check5, fixture_field) {
   for (int i = 0; i < field.size(); ++i) {
     for (int j = 0; j < field[i].size(); ++j) {
       field[i][j] = brick_game::Value::ONE;
@@ -178,31 +176,26 @@ BOOST_AUTO_TEST_CASE(test_check5) {
 BOOST_AUTO_TEST_SUITE_END()
 
 /// test simplExempl
-BOOST_AUTO_TEST_SUITE(test_suite4)
-class test_simplExempl : public brick_game::simplExempl {
-public:
-  test_simplExempl(){};
-  bool is_passible(const brick_game::point in) {
-    return simplExempl::is_passible(in);
-  }
-} test_simplExempl;
+BOOST_AUTO_TEST_SUITE(test_simplExempl)
+struct test_simplExempl : public brick_game::simplExempl {
+};
 
-BOOST_AUTO_TEST_CASE(test_case1) {
-  BOOST_CHECK(test_simplExempl.is_passible(test_simplExempl::REND_FIELD()) !=
+BOOST_FIXTURE_TEST_CASE(test_case1, test_simplExempl) {
+  BOOST_CHECK(is_passible(test_simplExempl::REND_FIELD()) !=
               true);
-  BOOST_CHECK(test_simplExempl.is_passible(test_simplExempl::END_FIELD()) !=
+  BOOST_CHECK(is_passible(test_simplExempl::END_FIELD()) !=
               true);
 }
 
-BOOST_AUTO_TEST_CASE(test_case2) {
-  BOOST_CHECK(test_simplExempl.is_passible(test_simplExempl::REND_FIELD() +
+BOOST_FIXTURE_TEST_CASE(test_case2, test_simplExempl) {
+  BOOST_CHECK(is_passible(test_simplExempl::REND_FIELD() +
                                            brick_game::point{1, 1}) == true);
-  BOOST_CHECK(test_simplExempl.is_passible(test_simplExempl::END_FIELD() -
+  BOOST_CHECK(is_passible(test_simplExempl::END_FIELD() -
                                            brick_game::point{1, 1}) == true);
 }
 
-BOOST_AUTO_TEST_CASE(test_case3) {
-  BOOST_CHECK(!test_simplExempl.game_name().isNull());
+BOOST_FIXTURE_TEST_CASE(test_game_name, test_simplExempl) {
+  BOOST_CHECK(!game_name().isNull());
 }
 
 BOOST_AUTO_TEST_SUITE_END()

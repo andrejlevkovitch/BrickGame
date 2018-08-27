@@ -20,12 +20,16 @@ private:
 
 public:
   endDialog(::QWidget *parent = nullptr);
+  /**\brief set model for view
+   * \warning don't set ownership of record_table*/
   void setRecordTable(brick_game::recordTable *record_table);
 
 protected slots:
+  /// set record on the record table
   void set_record();
 
 public slots:
+  /// save values level and score and emit passible_record signal
   void setDate(unsigned short level, unsigned score);
 };
 }; // namespace brick_game

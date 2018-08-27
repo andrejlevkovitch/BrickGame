@@ -25,6 +25,7 @@ message(STATUS "Project      " ${PROJECT_NAME})
 message(STATUS "c compiler   " ${CMAKE_C_COMPILER})
 message(STATUS "cxx compiler " ${CMAKE_CXX_COMPILER})
 message(STATUS "build tests  " ${BUILD_TESTING})
+message(STATUS "build shared " ${BUILD_SHARED_LIBS})
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")

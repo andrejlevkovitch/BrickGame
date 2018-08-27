@@ -43,27 +43,36 @@ void brick_game::endDialog::setRecordTable(
     record_table_view_->resizeColumnToContents(i);
   }
 
-  connect(record_table, &brick_game::recordTable::record, name_edit_, [=]() {
-    name_edit_->show();
-    name_edit_->setFocus();
-  });
-  connect(record_table, &brick_game::recordTable::norecord, name_edit_,
-          [=]() { name_edit_->hide(); });
+  connect(record_table, &brick_game::recordTable::record, name_edit_,
+          [=](bool is_record) {
+            if (is_record) {
+              name_edit_->show();
+              name_edit_->setFocus();
+            } else {
+              name_edit_->hide();
+            }
+          });
 }
 
 void brick_game::endDialog::set_record() {
-  auto rT = dynamic_cast<recordTable *>(record_table_view_->model());
-  if (rT) {
-    rT->set_record(name_edit_->text(), level_, score_);
+  auto model = record_table_view_->model();
+  if (model) {
+    auto rT = dynamic_cast<recordTable *>(model);
+    if (rT) {
+      rT->set_record(name_edit_->text(), level_, score_);
+    }
+    name_edit_->clear();
   }
-  name_edit_->clear();
 }
 
 void brick_game::endDialog::setDate(unsigned short level, unsigned score) {
   level_ = level;
   score_ = score;
-  auto rT = dynamic_cast<recordTable *>(record_table_view_->model());
-  if (rT) {
-    rT->is_record(score_);
+  auto model = record_table_view_->model();
+  if (model) {
+    auto rT = dynamic_cast<recordTable *>(model);
+    if (rT) {
+      rT->is_record(score_);
+    }
   }
 }
