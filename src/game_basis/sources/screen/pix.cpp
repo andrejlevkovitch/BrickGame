@@ -9,7 +9,7 @@ brick_game::pix::pix(::QWidget *parent) : ::QLabel{parent} {
 void brick_game::pix::change(Value value) {
   switch (value) {
   case Value::NONE:
-    this->setStyleSheet("background : white");
+    this->setStyleSheet("background-color : rgba(255, 255, 255, 0)");
     if (this->isEnabled()) {
       this->setDisabled(true);
     }

@@ -21,9 +21,19 @@ std::chrono::milliseconds brick_game::snake::BEGIN_TIME_INTERVAL() {
   return retval;
 }
 
+int brick_game::snake::SCORE_FOR_FEED() {
+  static const int retval{100};
+  return retval;
+}
+
+int brick_game::snake::BEGIN_LEVEL_FOR_SCORE() {
+  static const int retval{500};
+  return retval;
+}
+
 brick_game::snake::snake(::QObject *parent)
-    : brick_game::abstractGame{parent}, time_interval_{}, level_{}, score_{},
-      is_avalible_{false}, is_active_{false} {
+    : brick_game::abstractGame{parent}, time_interval_{}, is_avalible_{false},
+      is_active_{false}, last_level_score_{} {
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)), this,
           SLOT(finish_game_slot()));
   connect(&timer_, &::QTimer::timeout, this, [=]() {
@@ -43,41 +53,42 @@ void brick_game::snake::customEvent(::QEvent *event) {
     if (event->type() == static_cast<::QEvent::Type>(Event::directionEvent)) {
       if (is_active_) {
         auto temp_ev = reinterpret_cast<brick_game::directionEvent *>(event);
+        bool rezult = false;
+        auto temp_direction = cur_direction_;
         switch (temp_ev->direction()) {
         case Direction::UP:
           if (cur_direction_ == Direction::DOWN) {
             return;
           }
-          if (!move_up()) {
-            emit end_game_signal(level_, score_);
-          }
+          rezult = move_up();
           break;
         case Direction::DOWN:
           if (cur_direction_ == Direction::UP) {
             return;
           }
-          if (!move_down()) {
-            emit end_game_signal(level_, score_);
-          }
+          rezult = move_down();
           break;
         case Direction::RIGHT:
           if (cur_direction_ == Direction::LEFT) {
             return;
           }
-          if (!move_right()) {
-            emit end_game_signal(level_, score_);
-          }
+          rezult = move_right();
           break;
         case Direction::LEFT:
           if (cur_direction_ == Direction::RIGHT) {
             return;
           }
-          if (!move_left()) {
-            emit end_game_signal(level_, score_);
-          }
+          rezult = move_left();
           break;
         default:
           break;
+        }
+        if (!rezult) {
+          emit end_game_signal(level_, score_);
+        } else {
+          if (temp_direction != cur_direction_) {
+            emit activity();
+          }
         }
         timer_.start(time_interval_);
       }
@@ -100,28 +111,36 @@ void brick_game::snake::pause() {
   }
 }
 
-bool brick_game::snake::move_up() {
-  auto temp_pos = snake_body_.front();
-  temp_pos.up();
-  if (!is_passible(temp_pos)) {
-    temp_pos = point{temp_pos.getX(), END_FIELD().getY() - 1};
-  }
-  snake_body_.push_front(temp_pos);
-  switch (field_(temp_pos)) {
-    case Value::ONE:
+bool brick_game::snake::motion(brick_game::point pos) {
+  snake_body_.push_front(pos);
+  switch (field_(pos)) {
+  case Value::ONE:
     return false;
     break;
-    case Value::TWO:
+  case Value::TWO:
     new_feed();
+    score_ += SCORE_FOR_FEED();
+    if ((score_ - last_level_score_) == BEGIN_LEVEL_FOR_SCORE()) {
+      level_up();
+    }
     break;
   default:
     field_(snake_body_.back()) = Value::NONE;
     snake_body_.pop_back();
     break;
   }
-  field_(temp_pos) = Value::ONE;
-  cur_direction_ = Direction::UP;
+  field_(pos) = Value::ONE;
   return true;
+}
+
+bool brick_game::snake::move_up() {
+  auto temp_pos = snake_body_.front();
+  temp_pos.up();
+  if (!is_passible(temp_pos)) {
+    temp_pos = point{temp_pos.getX(), END_FIELD().getY() - 1};
+  }
+  cur_direction_ = Direction::UP;
+  return motion(temp_pos);
 }
 
 bool brick_game::snake::move_down() {
@@ -130,22 +149,8 @@ bool brick_game::snake::move_down() {
   if (!is_passible(temp_pos)) {
     temp_pos = point{temp_pos.getX(), REND_FIELD().getY() + 1};
   }
-  snake_body_.push_front(temp_pos);
-  switch (field_(temp_pos)) {
-    case Value::ONE:
-    return false;
-    break;
-    case Value::TWO:
-    new_feed();
-    break;
-  default:
-    field_(snake_body_.back()) = Value::NONE;
-    snake_body_.pop_back();
-    break;
-  }
-  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::DOWN;
-  return true;
+  return motion(temp_pos);
 }
 
 bool brick_game::snake::move_right() {
@@ -154,22 +159,8 @@ bool brick_game::snake::move_right() {
   if (!is_passible(temp_pos)) {
     temp_pos = point{REND_FIELD().getX() + 1, temp_pos.getY()};
   }
-  snake_body_.push_front(temp_pos);
-  switch (field_(temp_pos)) {
-    case Value::ONE:
-    return false;
-    break;
-    case Value::TWO:
-    new_feed();
-    break;
-  default:
-    field_(snake_body_.back()) = Value::NONE;
-    snake_body_.pop_back();
-    break;
-  }
-  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::RIGHT;
-  return true;
+  return motion(temp_pos);
 }
 
 bool brick_game::snake::move_left() {
@@ -178,22 +169,8 @@ bool brick_game::snake::move_left() {
   if (!is_passible(temp_pos)) {
     temp_pos = point{END_FIELD().getX() - 1, temp_pos.getY()};
   }
-  snake_body_.push_front(temp_pos);
-  switch (field_(temp_pos)) {
-    case Value::ONE:
-    return false;
-    break;
-    case Value::TWO:
-    new_feed();
-    break;
-  default:
-    field_(snake_body_.back()) = Value::NONE;
-    snake_body_.pop_back();
-    break;
-  }
-  field_(temp_pos) = Value::ONE;
   cur_direction_ = Direction::LEFT;
-  return true;
+  return motion(temp_pos);
 }
 
 void brick_game::snake::new_feed() {
@@ -206,12 +183,23 @@ void brick_game::snake::new_feed() {
   field_(temp) = Value::TWO;
 }
 
+void brick_game::snake::level_up() {
+  ++level_;
+  last_level_score_ = score_ + level_ * SCORE_FOR_FEED();
+  time_interval_ -= time_interval_ / 10;
+  for (auto &i : snake_body_) {
+    field_(i) = brick_game::Value::NONE;
+  }
+  auto temp = *snake_body_.begin();
+  snake_body_.clear();
+  snake_body_.push_back(temp);
+  field_(temp) = Value::ONE;
+}
+
 void brick_game::snake::start_game_slot() {
   field_.clear_all();
   snake_body_.clear();
   time_interval_ = BEGIN_TIME_INTERVAL();
-  level_ = 0;
-  score_ = 0;
 
   {
     std::uniform_int_distribution<int> dist{
@@ -243,6 +231,4 @@ void brick_game::snake::finish_game_slot() {
   timer_.stop();
   is_avalible_ = false;
   is_active_ = false;
-  level_ = 0;
-  score_ = 0;
 }

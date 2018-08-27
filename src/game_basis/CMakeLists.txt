@@ -1,7 +1,5 @@
 #cmake
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Multimedia REQUIRED)
 find_package(Qt5Xml REQUIRED)
@@ -26,6 +24,8 @@ target_link_libraries(${BRICKG_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)
 target_include_directories(${BRICKG_LBR} PUBLIC "./include")
 
 if(BUILD_TESTING)
+  find_package(Boost COMPONENTS unit_test_framework)
+  find_package(Boost COMPONENTS filesystem)
   if (Boost_FOUND)
     set(BOOST_TEST_ABS "test_abstractGame")
     set(BOOST_TEST_ABS_SRC "tests/boost_test_abstractGame.cpp" "tests/test_slot.hpp")
@@ -36,7 +36,7 @@ if(BUILD_TESTING)
     set(BOOST_TEST_RT "test_rt")
     set(BOOST_TEST_RT_SRC "tests/boost_test_recordTable.cpp" "tests/test_slot.hpp")
     add_executable(${BOOST_TEST_RT} ${BOOST_TEST_RT_SRC})
-    target_link_libraries(${BOOST_TEST_RT} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
+    target_link_libraries(${BOOST_TEST_RT} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
     add_test(NAME ${BOOST_TEST_RT} COMMAND ${BOOST_TEST_RT})
   else()
     message(WARNING "For build tests Boost necessary!")

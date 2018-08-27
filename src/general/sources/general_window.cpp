@@ -65,7 +65,7 @@ brick_game::general_window::general_window(::QWidget *parent)
         {
           connect(snake_action, &::QAction::triggered, this, [=]() {
             player_->stop();
-            player_->set_sounds(::QUrl{}, ::QUrl{},
+            player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
                                 ::QUrl{"qrc:/audio/score.mp3"},
                                 ::QUrl{"qrc:/audio/level_up.mp3"});
             set_game(new brick_game::snake);
@@ -187,7 +187,7 @@ void brick_game::general_window::set_game(abstractGame *game) {
   cur_game_ = game;
   emit screen_->clear_all();
   if (record_table_) {
-    record_table_->set_file_name(::QString{"/."} + cur_game_->game_name() +
+    record_table_->set_file_name(::QString{"."} + cur_game_->game_name() +
                                  ::QString{"_record_table.xml"});
   }
 
@@ -198,13 +198,17 @@ void brick_game::general_window::set_game(abstractGame *game) {
 
   connect(this, SIGNAL(start_game_signal()), player_, SLOT(begin_theme()));
   connect(cur_game_, SIGNAL(end_game_signal()), player_, SLOT(stop()));
-  connect(cur_game_, SIGNAL(send_level(int)), player_, SLOT(level_up()));
-  connect(cur_game_, SIGNAL(send_score(int)), player_, SLOT(score_changed()));
+  connect(&cur_game_->score_, &brick_game::score::send_score, player_,
+          &brick_game::player::score_changed);
+  connect(&cur_game_->level_, &brick_game::level::send_level, player_,
+          &brick_game::player::level_up);
   connect(cur_game_, SIGNAL(pause_signal(bool)), player_, SLOT(pause(bool)));
   connect(cur_game_, SIGNAL(activity()), player_, SLOT(activity()));
 
-  connect(cur_game_, SIGNAL(send_level(int)), screen_, SIGNAL(set_level(int)));
-  connect(cur_game_, SIGNAL(send_score(int)), screen_, SIGNAL(set_score(int)));
+  connect(&cur_game_->score_, &brick_game::score::send_score, screen_,
+          &brick_game::screen::set_score);
+  connect(&cur_game_->level_, &brick_game::level::send_level, screen_,
+          &brick_game::screen::set_level);
 
   connect(cur_game_, &brick_game::abstractGame::pause_signal, pause_log_,
           [=](bool status) {

@@ -8,7 +8,7 @@ set(CMAKE_AUTOMOC ON)
 
 include_directories("../game_basis/include")
 
-set(SNAKE_LBR "snake" CACHE STRING "library name" FORCE)
+set(SNAKE_LBR "snake")
 file(GLOB SNAKE_SRC "include/*.hpp" "sources/*.cpp")
 
 set(LIST_TARGETS "${LIST_TARGETS};${SNAKE_LBR}" CACHE STRING "append datas" FORCE)

@@ -24,8 +24,6 @@ private:
   ::QTimer timer_;
   point cur_brick_position_;
   std::chrono::milliseconds time_interval_;
-  unsigned score_;
-  unsigned short level_;
   unsigned short lines_;
   bool active_;
   bool is_avalibale_;

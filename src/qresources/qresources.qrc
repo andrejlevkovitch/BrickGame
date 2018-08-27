@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="/image">
+    <file alias="sound.png">images/sound.png</file>
+    <file alias="list.png">images/list.png</file>
+    <file alias="paper.png">images/paper.png</file>
+  </qresource>
+  <qresource prefix="/audio">
+    <file alias="tetramino_theme.mp3">audio/tetramino_begin_theme.mp3</file>
+    <file alias="activity.mp3">audio/default_activity_sound.mp3</file>
+    <file alias="score.mp3">audio/score_sound.mp3</file>
+    <file alias="level_up.mp3">audio/level_up_sound.mp3</file>
+  </qresource>
+  <qresource prefix="/style">
+    <file alias="default.qss">styles/default_style.qss</file>
+  </qresource>
+</RCC>

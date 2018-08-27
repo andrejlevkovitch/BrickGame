@@ -16,7 +16,7 @@ unsigned short brick_game::tetramino::LINES_TO_NEXT_LEVEL() {
 }
 
 unsigned short brick_game::tetramino::PRICE_FOR_LINE(unsigned short n_line) {
-  static const std::vector<unsigned short> prices{100, 300, 700, 1500};
+  static const std::vector<unsigned short> prices{0, 100, 300, 700, 1500};
   return prices[n_line];
 }
 
@@ -31,9 +31,9 @@ const brick_game::point &brick_game::tetramino::BEG_POSITION() {
 }
 
 brick_game::tetramino::tetramino(::QObject *parent)
-    : brick_game::abstractGame{parent},
-      cur_brick_position_{BEG_POSITION()}, time_interval_{BEGIN_TIME_DOWN()},
-      score_{}, level_{}, lines_{}, active_{true}, is_avalibale_{false} {
+    : brick_game::abstractGame{parent}, cur_brick_position_{BEG_POSITION()},
+      time_interval_{BEGIN_TIME_DOWN()}, lines_{}, active_{true}, is_avalibale_{
+                                                                      false} {
 
   connect(&timer_, &::QTimer::timeout, this, [=]() {
     directionEvent event(Direction::DOWN);
@@ -45,15 +45,11 @@ brick_game::tetramino::tetramino(::QObject *parent)
 
 void brick_game::tetramino::start_game_slot() {
   field_.clear_all();
-  level_ = 0;
-  score_ = 0;
   lines_ = 0;
 
   cur_brick_position_ = BEG_POSITION();
   reverse_cur_brick();
   set_next_brick();
-  emit send_level(level_);
-  emit send_score(score_);
   active_ = true;
   is_avalibale_ = true;
   timer_.start(BEGIN_TIME_DOWN());
@@ -64,8 +60,6 @@ void brick_game::tetramino::finish_game_slot() {
     emit end_game_signal(level_, score_);
     return;
   }
-  level_ = 0;
-  score_ = 0;
   lines_ = 0;
   active_ = false;
   is_avalibale_ = false;
@@ -132,8 +126,7 @@ brick_game::point brick_game::tetramino::right_down_brick_corner() const {
 bool brick_game::tetramino::is_passible() const {
   auto left_corner = left_up_brick_corner();
   auto right_corner = right_down_brick_corner();
-  if (right_corner < END_FIELD() &&
-      left_corner.getX() > REND_FIELD().getX()) {
+  if (right_corner < END_FIELD() && left_corner.getX() > REND_FIELD().getX()) {
     for (auto &i : cur_brick_.field_) {
       auto temp = left_corner;
       for (auto &j : i) {
@@ -151,7 +144,6 @@ bool brick_game::tetramino::is_passible() const {
 }
 
 void brick_game::tetramino::delete_solutions() {
-  auto temp_fild_copy{field_};
   bool solution{true};
   unsigned short lines_counter{};
   for (int i = field_.size() - 1; i >= lines_counter; --i) {
@@ -173,11 +165,9 @@ void brick_game::tetramino::delete_solutions() {
     if (lines_ >= LINES_TO_NEXT_LEVEL()) {
       lines_ = 0;
       ++level_;
-      emit send_level(level_);
       time_interval_ -= time_interval_ / TIME_DIVIDED();
     }
-    score_ += PRICE_FOR_LINE(lines_counter - 1);
-    emit send_score(score_);
+    score_ += PRICE_FOR_LINE(lines_counter);
   }
 }
 
@@ -188,8 +178,7 @@ void brick_game::tetramino::reverse_cur_brick() {
     temp = pos;
     for (const auto &j : i) {
       if (j != Value::NONE && temp.getY() >= 0) {
-        field_(temp) =
-            (field_(temp) == Value::NONE) ? j : Value::NONE;
+        field_(temp) = (field_(temp) == Value::NONE) ? j : Value::NONE;
       }
       temp.right();
     }

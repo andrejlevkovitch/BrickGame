@@ -40,10 +40,10 @@ enum class Event {
 
 #ifdef __linux__
 /// path for game files (record tables etc.) linux*/
-const ::QString HOME{::QString{getenv("HOME")} + ::QString{"/.brickgame"}};
+const ::QString HOME{::QString{getenv("HOME")} + ::QString{"/.brickgame/"}};
 #elif _WIN32
 /// path for game files (record tables etc.) windows*/
 const ::QString HOME{::QString{getenv("LOCALAPPDATA")} +
-                     ::QString{"/.brickgame"}};
+                     ::QString{"/.brickgame/"}};
 #endif
 }; // namespace brick_game

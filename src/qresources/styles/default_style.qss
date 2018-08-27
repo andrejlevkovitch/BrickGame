@@ -5,7 +5,7 @@ brick_game--pix {
 
 brick_game--pix:enabled {
   color : white;
-  background-color : black;
+  background-color : rgba(255, 255, 255, 0);
   border-color : darkgray;
   border-width : 3px;
   border-style : outset;
@@ -13,7 +13,7 @@ brick_game--pix:enabled {
 
 brick_game--pix:disabled {
   color : white;
-  background-color : white;
+  background-color : rgba(255, 255, 255, 0);
 /*border-color : darkgray;
   border-width : 3px;
   border-style : inset;*/

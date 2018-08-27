@@ -3,7 +3,9 @@
 #pragma once
 
 #include "abstractGame/field.hpp"
+#include "abstractGame/level.hpp"
 #include "abstractGame/point.hpp"
+#include "abstractGame/score.hpp"
 #include "brick_game.hpp"
 #include <QObject>
 
@@ -26,10 +28,17 @@ public:
   static brick_game::point REND_FIELD();
 
 protected:
-  /**\brief general field of BrickGame*/
+  /**\brief general field of BrickGame
+   * When you changed any value in this object emited signal end this value changed on the screen*/
   field field_;
   /**\brief mini field of BrickGame*/
   field mini_field_;
+  /**\brief score of BrickGame
+   * When you changed this value changed the value on the screen*/
+  score score_;
+  /**\brief level of BrickGame
+   * When you changed this value changed the value on the screen*/
+  level level_;
 
 public:
   /**\param parent pointer to parent*/
@@ -57,14 +66,11 @@ signals:
   /**\brief signal, which talk, what game finished.
    * Send level and score for record table
    * \param level current level
-   * \param score current score*/
+   * \param score current score
+   * \warning if you send signal without parameters rezult not include in record
+   * \warning after emited the signal level_ and score_ will be set zero
+   * table (if it was a record)*/
   void end_game_signal(unsigned short level = 0, unsigned score = 0) const;
-  /**\brief set level on the screen
-   * \param level current level*/
-  void send_level(int level) const;
-  /**\brief set score on the screen
-   * \param score current score */
-  void send_score(int score) const;
   /**\brief signal, which talk pause is active or not
    * \param status if pause active set true, if not - false*/
   void pause_signal(bool status) const;

@@ -3,14 +3,13 @@
 #pragma once
 
 #include "abstractGame/value.hpp"
-#include <deque>
 #include <vector>
 
 namespace brick_game {
 /**\brief game field of BrickGame*/
 class field {
 private:
-  std::deque<std::vector<brick_game::value>> field_;
+  std::vector<std::vector<brick_game::value>> field_;
 
 public:
   /**\param rows height of field
