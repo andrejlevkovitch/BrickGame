@@ -10,8 +10,11 @@ namespace brick_game {
 /**\brief simple exemple of game*/
 class simplExempl : public brick_game::abstractGame {
   Q_OBJECT
+  Q_INTERFACES(brick_game::abstractGame)
+  Q_PLUGIN_METADATA(IID abstractGame_ident FILE "abstractGame.json")
+
 public:
-    /**\return begin position of active element of general field*/
+  /**\return begin position of active element of general field*/
   static brick_game::point BEGIN_POS();
 
 private:

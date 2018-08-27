@@ -11,7 +11,7 @@
 
 namespace brick_game {
 class general_window;
-/**\brief abstract class - basis for some game*/
+/**\brief abstract class - interface for some game*/
 class abstractGame : public ::QObject {
   Q_OBJECT
   /**\brief have friend brick_game::general_window*/
@@ -29,7 +29,8 @@ public:
 
 protected:
   /**\brief general field of BrickGame
-   * When you changed any value in this object emited signal end this value changed on the screen*/
+   * When you changed any value in this object emited signal end this value
+   * changed on the screen*/
   field field_;
   /**\brief mini field of BrickGame*/
   field mini_field_;
@@ -43,6 +44,7 @@ protected:
 public:
   /**\param parent pointer to parent*/
   explicit abstractGame(::QObject *parent = nullptr);
+  virtual ~abstractGame();
   /**\brief abstract method, name of custom game
    * \return string with name of game*/
   virtual ::QString game_name() const = 0;
@@ -78,3 +80,6 @@ signals:
   void activity() const;
 };
 }; // namespace brick_game
+
+#define abstractGame_ident "by.brick_game.game_interface.abstractGame"
+Q_DECLARE_INTERFACE(brick_game::abstractGame, abstractGame_ident)

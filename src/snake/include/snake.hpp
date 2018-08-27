@@ -12,6 +12,9 @@
 namespace brick_game {
 class snake : public brick_game::abstractGame {
   Q_OBJECT
+  Q_INTERFACES(brick_game::abstractGame)
+  Q_PLUGIN_METADATA(IID abstractGame_ident FILE "abstractGame.json")
+
 public:
   static std::chrono::milliseconds BEGIN_TIME_INTERVAL();
   static int SCORE_FOR_FEED();

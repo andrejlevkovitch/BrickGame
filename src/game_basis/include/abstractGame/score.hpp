@@ -12,7 +12,7 @@ private:
   unsigned score_;
 
 public:
-  score(::QObject *parent = nullptr);
+  explicit score(::QObject *parent = nullptr);
   operator unsigned() const;
   score &operator=(int number);
   score &operator+=(int number);

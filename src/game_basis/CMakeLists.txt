@@ -16,7 +16,7 @@ file(GLOB AGAME_SRC "include/abstractGame/*.hpp" "sources/abstractGame/*.cpp")
 
 set(LIST_TARGETS "${LIST_TARGETS};${BRICKG_LBR}" CACHE STRING "append datas" FORCE)
 
-add_library(${BRICKG_LBR} ${LOGS_SRC} ${EVENT_SRC} ${RECORDT_SRC}
+add_library(${BRICKG_LBR} SHARED ${LOGS_SRC} ${EVENT_SRC} ${RECORDT_SRC}
   ${PLAYER_SRC} ${SCREEN_SRC} ${AGAME_SRC})
 
 target_link_libraries(${BRICKG_LBR} Qt5::Widgets Qt5::Xml Qt5::Multimedia)

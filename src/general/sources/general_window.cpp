@@ -2,7 +2,6 @@
 
 #include "general_window.hpp"
 #include "abstractGame/abstractGame.hpp"
-#include "abstractGame/simplExempl.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
 #include "logs/endDialog.hpp"
@@ -11,15 +10,17 @@
 #include "recordTable/recordTable.hpp"
 #include "screen/pix.hpp"
 #include "screen/screen.hpp"
-#include "snake.hpp"
-#include "tetramino.hpp"
 #include <QAction>
 #include <QBoxLayout>
 #include <QCoreApplication>
+#include <QDir>
 #include <QKeyEvent>
 #include <QMenu>
 #include <QMenuBar>
+#include <QPluginLoader>
 #include <QStatusBar>
+
+#include <config.h>
 
 #include <QDebug>
 
@@ -39,50 +40,18 @@ brick_game::general_window::general_window(::QWidget *parent)
     status_bar_ = new ::QStatusBar;
     auto menu_bar = new ::QMenuBar;
     {
-      auto game_menu = new ::QMenu{"Games"};
-      {
-        auto simpl_exempl_action = new ::QAction{"simplExempl", game_menu};
-        {
-          connect(simpl_exempl_action, &::QAction::triggered, this, [=]() {
-            player_->stop();
-            player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
-                                ::QUrl{}, ::QUrl{});
-            set_game(new brick_game::simplExempl);
-          });
-        }
-        auto tetramino_action = new ::QAction{"tetramino", game_menu};
-        {
-          connect(tetramino_action, &::QAction::triggered, this, [=]() {
-            player_->stop();
-            player_->set_sounds(::QUrl{"qrc:/audio/tetramino_theme.mp3"},
-                                ::QUrl{"qrc:/audio/activity.mp3"},
-                                ::QUrl{"qrc:/audio/score.mp3"},
-                                ::QUrl{"qrc:/audio/level_up.mp3"});
-            set_game(new brick_game::tetramino);
-          });
-        }
-        auto snake_action = new ::QAction{"snake", game_menu};
-        {
-          connect(snake_action, &::QAction::triggered, this, [=]() {
-            player_->stop();
-            player_->set_sounds(::QUrl{}, ::QUrl{"qrc:/audio/activity.mp3"},
-                                ::QUrl{"qrc:/audio/score.mp3"},
-                                ::QUrl{"qrc:/audio/level_up.mp3"});
-            set_game(new brick_game::snake);
-          });
-        }
-        game_menu->addAction(simpl_exempl_action);
-        game_menu->addAction(tetramino_action);
-        game_menu->addAction(snake_action);
-      }
+      game_menu_ = new ::QMenu{"Games"};
+
       auto sound_action =
           new ::QAction{::QPixmap{":/image/sound.png"}, "sound", menu_bar};
+      sound_action->setWhatsThis("switch sound");
       {
         connect(sound_action, SIGNAL(triggered()), player_,
                 SLOT(remove_sound()));
       }
       auto record_table_action = new ::QAction{::QPixmap{":/image/list.png"},
                                                "Record Table", menu_bar};
+      record_table_action->setWhatsThis("Record Table");
       {
         connect(record_table_action, &::QAction::triggered, this, [=]() {
           endDialog end_dialog;
@@ -91,7 +60,7 @@ brick_game::general_window::general_window(::QWidget *parent)
           end_dialog.exec();
         });
       }
-      menu_bar->addMenu(game_menu);
+      menu_bar->addMenu(game_menu_);
       menu_bar->addAction(sound_action);
       menu_bar->addAction(record_table_action);
     }
@@ -100,6 +69,8 @@ brick_game::general_window::general_window(::QWidget *parent)
     general_layout->addWidget(status_bar_);
   }
   this->setLayout(general_layout);
+
+  loadPlugins();
 
   ::qDebug() << "created general_window";
 }
@@ -171,6 +142,36 @@ void brick_game::general_window::keyPressEvent(::QKeyEvent *event) {
   }
 }
 
+void brick_game::general_window::loadPlugins() {
+  ::qDebug() << "start loading plugins";
+  ::QDir dir{CMAKE_LIBRARY_OUTPUT_DIRECTORY};
+  if (!dir.isEmpty()) {
+    for (auto &i : dir.entryList(::QDir::Files)) {
+      ::QPluginLoader loader(dir.absoluteFilePath(i));
+      addToMenu(qobject_cast<::QObject *>(loader.instance()));
+    }
+  }
+  ::qDebug() << "finish loading plugins";
+}
+
+void brick_game::general_window::addToMenu(::QObject *plugin) {
+  if (plugin) {
+    auto game = qobject_cast<brick_game::abstractGame *>(plugin);
+    if (game) {
+      auto game_action = new ::QAction{game->game_name(), plugin};
+      game_menu_->addAction(game_action);
+      connect(game_action, &::QAction::triggered, this, [=]() {
+        player_->stop();
+        player_->set_sounds(::QUrl{"qrc:/audio/tetramino_theme.mp3"},
+                            ::QUrl{"qrc:/audio/activity.mp3"},
+                            ::QUrl{"qrc:/audio/score.mp3"},
+                            ::QUrl{"qrc:/audio/level_up.mp3"});
+        set_game(game);
+      });
+    }
+  }
+}
+
 void brick_game::general_window::set_game(abstractGame *game) {
   ::qDebug() << "begin connecting game";
   if (cur_game_) {
@@ -180,9 +181,6 @@ void brick_game::general_window::set_game(abstractGame *game) {
                    screen_->general_pixarr_[i][j], &pix::change);
       }
     }
-
-    delete cur_game_;
-    cur_game_ = nullptr;
   }
   cur_game_ = game;
   emit screen_->clear_all();

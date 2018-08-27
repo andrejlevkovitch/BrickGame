@@ -12,7 +12,7 @@ else()
   set(DEBUG_IN_FILE ON)
 endif()
 
-configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+configure_file(config.h.in "${CMAKE_CURRENT_SOURCE_DIR}/config.h")
 
 set(MAIN_SRC main.cpp)
 
@@ -27,5 +27,3 @@ target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
 if(Boost_FOUND)
   target_link_libraries(${PROJECT_NAME} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
 endif()
-
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})

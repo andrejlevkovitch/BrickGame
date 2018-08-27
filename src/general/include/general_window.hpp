@@ -5,6 +5,7 @@
 #include <QWidget>
 
 class QStatusBar;
+class QMenu;
 
 namespace brick_game {
 class screen;
@@ -26,20 +27,23 @@ private:
   pauseLog *pause_log_;
   endDialog *end_dialog_;
   ::QStatusBar *status_bar_;
+  ::QMenu *game_menu_;
 
 public:
   explicit general_window(::QWidget *parent = nullptr);
   ~general_window();
   /**\brief method, where set new game, and set new connects with element of the
-   * BrickGame \param game pointer to new game
-   * \warning only dynamic pointer to game
-   * \warning set ownership of game to general_window and free memory after set
-   * new game and in destructor*/
+   * BrickGame \param game pointer to new game*/
   void set_game(brick_game::abstractGame *game);
 
 protected:
   /**\brief handle event and send them to game*/
   void keyPressEvent(::QKeyEvent *event) override;
+  /**\brief load all plugins from directory*/
+  void loadPlugins();
+  /**\brief add to menu new action starts the game
+   * \param plugin input plugin*/
+  void addToMenu(::QObject *plugin);
 
 signals:
   void start_game_signal();

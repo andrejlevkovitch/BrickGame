@@ -11,6 +11,9 @@
 namespace brick_game {
 class tetramino : public brick_game::abstractGame {
   Q_OBJECT
+  Q_INTERFACES(brick_game::abstractGame)
+  Q_PLUGIN_METADATA(IID abstractGame_ident FILE "abstractGame.json")
+
 public:
   static std::chrono::milliseconds BEGIN_TIME_DOWN();
   static unsigned short LINES_TO_NEXT_LEVEL();

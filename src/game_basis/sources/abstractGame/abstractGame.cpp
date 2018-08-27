@@ -26,6 +26,9 @@ brick_game::abstractGame::abstractGame(::QObject *parent)
   ::qDebug() << "create abstractGame";
 }
 
+brick_game::abstractGame::~abstractGame() {
+}
+
 bool brick_game::abstractGame::is_passible(const brick_game::point pos) const {
   if (pos < abstractGame::END_FIELD() && pos > REND_FIELD()) {
     return true;

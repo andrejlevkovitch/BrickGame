@@ -12,7 +12,7 @@ private:
   unsigned short level_;
 
 public:
-  level(::QObject *parent = nullptr);
+  explicit level(::QObject *parent = nullptr);
   operator unsigned short() const;
   level &operator=(int number);
   level &operator+=(int number);

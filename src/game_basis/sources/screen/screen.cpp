@@ -78,8 +78,6 @@ brick_game::screen::screen(::QWidget *parent)
 
     stacked_layout->addWidget(fon_wgt);
     stacked_layout->addWidget(field_wgt);
-    ::qDebug() << field_wgt->size();
-    ::qDebug() << fon_wgt->size();
   }
   auto retval = new ::QWidget;
   retval->setLayout(stacked_layout);

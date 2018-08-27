@@ -1,9 +1,8 @@
 // simplExempl.cpp
 
-#include "abstractGame/simplExempl.hpp"
+#include "simplExempl.hpp"
 #include "events/directionEvent.hpp"
 #include "events/pauseEvent.hpp"
-#include <vector>
 
 brick_game::point brick_game::simplExempl::BEGIN_POS() {
   static const brick_game::point retval{0, 0};

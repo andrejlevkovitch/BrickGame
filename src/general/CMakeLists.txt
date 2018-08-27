@@ -7,8 +7,8 @@ find_package(Qt5Xml REQUIRED)
 set(CMAKE_AUTOMOC ON)
 
 include_directories("../game_basis/include")
-include_directories("../snake/include")
-include_directories("../tetramino/include")
+
+configure_file(config.h.in "${CMAKE_CURRENT_SOURCE_DIR}/include/config.h")
 
 set(GWINDOW_LBR "generalWindow" CACHE STRING "library name" FORCE)
 file(GLOB GWINDOW_SRC "include/*.hpp" "sources/*.cpp")
