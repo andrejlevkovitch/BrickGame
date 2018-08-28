@@ -13,7 +13,6 @@ target_link_libraries(${SE_PLUGIN} Qt5::Widgets)
 target_include_directories(${SE_PLUGIN} PUBLIC "./include")
 target_include_directories(${SE_PLUGIN} PRIVATE "../game_basis/include")
 
-
 if(BUILD_TESTING)
   find_package(Boost COMPONENTS unit_test_framework)
   if (Boost_FOUND)

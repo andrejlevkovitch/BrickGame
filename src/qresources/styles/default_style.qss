@@ -4,7 +4,6 @@ brick_game--pix {
 }
 
 brick_game--pix:enabled {
-  color : white;
   background-color : rgba(255, 255, 255, 0);
   border-color : darkgray;
   border-width : 3px;
@@ -12,7 +11,6 @@ brick_game--pix:enabled {
 }
 
 brick_game--pix:disabled {
-  color : white;
   background-color : rgba(255, 255, 255, 0);
 /*border-color : darkgray;
   border-width : 3px;
@@ -25,5 +23,21 @@ QLabel {
 }
 
 QStatusBar {
+  font-size : 30px;
+}
+
+QLabel#pauseLog {
+  font : bold;
   font-size : 40px;
+}
+
+QWidget#miniField {
+  min-height : 80;
+  min-width : 80;
+  max-height : 95;
+  max-width : 95;
+}
+
+QWidget#generalField {
+  background-color : rgba(255, 255, 255, 0);
 }

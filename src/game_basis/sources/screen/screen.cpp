@@ -72,7 +72,7 @@ brick_game::screen::screen(::QWidget *parent)
     }
     auto field_wgt = new ::QWidget;
     field_wgt->setLayout(field_layout);
-    field_wgt->setStyleSheet("background-color : rgba(255, 255, 255, 0)");
+    field_wgt->setObjectName("generalField");
 
     auto fon_wgt = new brick_game::game_fon;
 
@@ -97,6 +97,7 @@ brick_game::screen::screen(::QWidget *parent)
   }
   auto retval = new ::QWidget;
   retval->setLayout(field_layout);
+  retval->setObjectName("miniField");
   retval->setFixedSize(retval->sizeHint());
   return retval;
 }

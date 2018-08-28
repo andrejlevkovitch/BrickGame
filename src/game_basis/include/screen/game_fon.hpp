@@ -3,6 +3,7 @@
 #include <QWidget>
 
 namespace brick_game {
+/// simple class, which set fon-image for screen
 class game_fon : public ::QWidget {
   Q_OBJECT
 private:

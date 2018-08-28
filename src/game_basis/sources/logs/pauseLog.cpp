@@ -12,6 +12,7 @@ brick_game::pauseLog::pauseLog(::QWidget *parent)
   auto general_layout = new ::QVBoxLayout;
   {
     auto pause_lbl = new ::QLabel{"PAUSE"};
+    pause_lbl->setObjectName("pauseLog");
     general_layout->addWidget(pause_lbl);
   }
   this->setLayout(general_layout);

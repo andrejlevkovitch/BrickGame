@@ -1,5 +1,7 @@
 # cmake
 
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib")
+
 find_package(Qt5Widgets REQUIRED)
 
 set(CMAKE_AUTORCC ON)

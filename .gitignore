@@ -4,4 +4,6 @@ compile_commands.json
 tags
 bin/
 lib/
+plugin/
+libs/
 plugins/

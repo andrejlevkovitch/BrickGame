@@ -12,7 +12,10 @@ brick_game::game_fon::game_fon(::QWidget *parent)
 }
 
 void brick_game::game_fon::paintEvent(::QPaintEvent *pevent) {
-  ::QPainter painter{this};
-  auto temp = fon_.scaled(this->width(), this->height(), Qt::IgnoreAspectRatio);
-  painter.drawImage(0, 0, temp);
+  if (!fon_.isNull()) {
+    ::QPainter painter{this};
+    auto temp =
+        fon_.scaled(this->width(), this->height(), Qt::IgnoreAspectRatio);
+    painter.drawImage(0, 0, temp);
+  }
 }

@@ -181,8 +181,8 @@ void brick_game::general_window::end_game(unsigned short level,
 }
 
 void brick_game::general_window::set_game(abstractGame *game) {
-  ::qDebug() << "begin connecting game";
   if (cur_game_) {
+    ::qDebug() << "begin disconnecting prev game";
     disconnect(this, SIGNAL(start_game_signal()), cur_game_,
                SLOT(start_game_slot()));
     disconnect(this, SIGNAL(finish_game_signal()), cur_game_,
@@ -220,7 +220,12 @@ void brick_game::general_window::set_game(abstractGame *game) {
                    screen_->dop_pixarr_[i][j], &pix::change);
       }
     }
+
+    /// for garanted finish game
+    cur_game_->finish_game_slot();
+    ::qDebug() << "end disconnecting";
   }
+  ::qDebug() << "begin connecting game";
   cur_game_ = game;
   player_->stop();
   player_->set_sounds(cur_game_->begin_theme_sound_, cur_game_->activity_sound_,
@@ -250,19 +255,10 @@ void brick_game::general_window::set_game(abstractGame *game) {
   connect(&cur_game_->level_, &brick_game::level::send_level, screen_,
           &brick_game::screen::set_level);
 
-  connect(cur_game_, &brick_game::abstractGame::pause_signal, pause_log_,
-          [=](bool status) {
-            if (status) {
-              ::qDebug() << "open pauseLog";
-              pause_log_->exec();
-            }
-          });
-  connect(cur_game_, &brick_game::abstractGame::end_game_signal, end_dialog_,
-          [=](unsigned short level, unsigned score) {
-            end_dialog_->setDate(level, score);
-            ::qDebug() << "open endDialog";
-            end_dialog_->exec();
-          });
+  connect(cur_game_, &brick_game::abstractGame::pause_signal, this,
+          &brick_game::general_window::pause);
+  connect(cur_game_, &brick_game::abstractGame::end_game_signal, this,
+          &brick_game::general_window::end_game);
 
   for (int i = 0; i < screen_->general_pixarr_.size(); ++i) {
     for (int j = 0; j < screen_->general_pixarr_[i].size(); ++j) {

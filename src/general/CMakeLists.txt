@@ -9,6 +9,8 @@ set(CMAKE_AUTOMOC ON)
 include_directories("../game_basis/include")
 
 configure_file(config.h.in "${CMAKE_CURRENT_SOURCE_DIR}/include/config.h")
+# in this order ONLY!!!
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib")
 
 set(GWINDOW_LBR "generalWindow" CACHE STRING "library name" FORCE)
 file(GLOB GWINDOW_SRC "include/*.hpp" "sources/*.cpp")
