@@ -3,6 +3,7 @@
 #define BOOST_TEST_MODULE test_module_tetramino
 #include <boost/test/included/unit_test.hpp>
 
+#include "test_slot.hpp"
 #include "tetramino.hpp"
 
 BOOST_AUTO_TEST_SUITE(tetramino)
@@ -49,7 +50,7 @@ BOOST_FIXTURE_TEST_CASE(gam_name, fixture_tetramino) {
 }
 
 BOOST_FIXTURE_TEST_CASE(set_next_brick, fixture_tetramino) {
-  fixture_tetramino::set_next_brick();
+  fixture_tetramino::reverse_next_brick();
   bool all_right{false};
   for (int i{}; i < mini_field_.size(); ++i) {
     for (auto &j : mini_field_[i]) {
@@ -64,7 +65,7 @@ BOOST_FIXTURE_TEST_CASE(set_next_brick, fixture_tetramino) {
   }
   BOOST_CHECK(all_right);
 
-  fixture_tetramino::cleare_next_brick();
+  fixture_tetramino::reverse_next_brick();
   all_right = true;
   for (int i{}; i < mini_field_.size(); ++i) {
     for (auto &j : mini_field_[i]) {
@@ -78,6 +79,45 @@ BOOST_FIXTURE_TEST_CASE(set_next_brick, fixture_tetramino) {
     }
   }
   BOOST_CHECK(all_right);
+}
+
+BOOST_FIXTURE_TEST_CASE(end_game_signal, fixture_tetramino) {
+  const int a = 1;
+  const int b = 500;
+
+  test_slot t_slot;
+  connect(&t_slot, &test_slot::test_signal, this,
+          &brick_game::abstractGame::finish_game_slot);
+  connect(this, &brick_game::abstractGame::end_game_signal, &t_slot,
+          &test_slot::test_date_slot);
+
+  fixture_tetramino::level_ = a;
+  fixture_tetramino::score_ = b;
+  emit t_slot.test_signal();
+
+  BOOST_CHECK(t_slot.is_connected());
+  BOOST_CHECK(t_slot.a_ = a);
+  BOOST_CHECK(t_slot.b_ = b);
+}
+
+BOOST_FIXTURE_TEST_CASE(start_game_signal, fixture_tetramino) {
+  for (int i = 0; i < 3; ++i) {
+    fixture_tetramino::start_game_slot();
+
+    bool all_right = false;
+    for (int i{}; i < mini_field_.size(); ++i) {
+      for (auto &j : mini_field_[i]) {
+        if (j != brick_game::Value::NONE) {
+          all_right = true;
+          break;
+        }
+        if (all_right) {
+          break;
+        }
+      }
+    }
+    BOOST_CHECK(all_right);
+  }
 }
 
 BOOST_AUTO_TEST_SUITE_END()

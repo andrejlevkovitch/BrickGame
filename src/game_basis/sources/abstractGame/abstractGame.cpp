@@ -18,7 +18,9 @@ brick_game::point brick_game::abstractGame::REND_FIELD() {
 
 brick_game::abstractGame::abstractGame(::QObject *parent)
     : ::QObject{parent}, field_{FIELD_SIZE.height(), FIELD_SIZE.width()},
-      mini_field_{MINI_FIELD_SIZE.height(), MINI_FIELD_SIZE.width()} {
+      mini_field_{MINI_FIELD_SIZE.height(), MINI_FIELD_SIZE.width()},
+      begin_theme_sound_{""}, activity_sound_{""}, score_sound_{""},
+      level_up_sound_{""} {
   connect(this, &brick_game::abstractGame::end_game_signal, this, [=]() {
     level_ = 0;
     score_ = 0;
@@ -26,8 +28,7 @@ brick_game::abstractGame::abstractGame(::QObject *parent)
   ::qDebug() << "create abstractGame";
 }
 
-brick_game::abstractGame::~abstractGame() {
-}
+brick_game::abstractGame::~abstractGame() {}
 
 bool brick_game::abstractGame::is_passible(const brick_game::point pos) const {
   if (pos < abstractGame::END_FIELD() && pos > REND_FIELD()) {

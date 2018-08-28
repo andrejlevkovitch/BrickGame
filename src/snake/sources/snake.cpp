@@ -34,6 +34,10 @@ int brick_game::snake::BEGIN_LEVEL_FOR_SCORE() {
 brick_game::snake::snake(::QObject *parent)
     : brick_game::abstractGame{parent}, time_interval_{}, is_avalible_{false},
       is_active_{false}, last_level_score_{} {
+  activity_sound_.setUrl("qrc:/audio/activity.mp3");
+  score_sound_.setUrl("qrc:/audio/score.mp3");
+  level_up_sound_.setUrl("qrc:/audio/level_up.mp3");
+
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)), this,
           SLOT(finish_game_slot()));
   connect(&timer_, &::QTimer::timeout, this, [=]() {
@@ -200,6 +204,7 @@ void brick_game::snake::start_game_slot() {
   field_.clear_all();
   snake_body_.clear();
   time_interval_ = BEGIN_TIME_INTERVAL();
+  last_level_score_ = 0;
 
   {
     std::uniform_int_distribution<int> dist{

@@ -34,6 +34,10 @@ brick_game::tetramino::tetramino(::QObject *parent)
     : brick_game::abstractGame{parent}, cur_brick_position_{BEG_POSITION()},
       time_interval_{BEGIN_TIME_DOWN()}, lines_{}, active_{true}, is_avalibale_{
                                                                       false} {
+  begin_theme_sound_.setUrl("qrc:/audio/tetramino_theme.mp3");
+  activity_sound_.setUrl("qrc:/audio/activity.mp3");
+  score_sound_.setUrl("qrc:/audio/score.mp3");
+  level_up_sound_.setUrl("qrc:/audio/level_up.mp3");
 
   connect(&timer_, &::QTimer::timeout, this, [=]() {
     directionEvent event(Direction::DOWN);
@@ -45,11 +49,12 @@ brick_game::tetramino::tetramino(::QObject *parent)
 
 void brick_game::tetramino::start_game_slot() {
   field_.clear_all();
+  mini_field_.clear_all();
   lines_ = 0;
 
   cur_brick_position_ = BEG_POSITION();
   reverse_cur_brick();
-  set_next_brick();
+  reverse_next_brick();
   active_ = true;
   is_avalibale_ = true;
   timer_.start(BEGIN_TIME_DOWN());
@@ -257,11 +262,11 @@ void brick_game::tetramino::set_brick_down() {
     } else {
       delete_solutions();
       cur_brick_position_ = BEG_POSITION();
-      cleare_next_brick();
+      reverse_next_brick();
       cur_brick_ = next_brick_;
       reverse_cur_brick();
       next_brick_ = brick{};
-      set_next_brick();
+      reverse_next_brick();
     }
   } else {
     reverse_cur_brick();
@@ -287,21 +292,13 @@ void brick_game::tetramino::set_brick_right() {
   reverse_cur_brick();
 }
 
-void brick_game::tetramino::set_next_brick() {
+void brick_game::tetramino::reverse_next_brick() {
   for (int i = 0; i < next_brick_.field_.size(); ++i) {
     for (int j = 0; j < next_brick_.field_[i].size(); ++j) {
       if (next_brick_.field_[i][j] != Value::NONE) {
-        mini_field_[i][j] = next_brick_.field_[i][j];
-      }
-    }
-  }
-}
-
-void brick_game::tetramino::cleare_next_brick() {
-  for (int i = 0; i < next_brick_.field_.size(); ++i) {
-    for (int j = 0; j < next_brick_.field_[i].size(); ++j) {
-      if (next_brick_.field_[i][j] != Value::NONE) {
-        mini_field_[i][j] = Value::NONE;
+        mini_field_[i][j] = (mini_field_[i][j] == Value::NONE)
+                                ? next_brick_.field_[i][j]
+                                : Value::NONE;
       }
     }
   }

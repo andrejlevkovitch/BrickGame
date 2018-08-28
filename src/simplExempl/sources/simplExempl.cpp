@@ -14,6 +14,7 @@ brick_game::simplExempl::simplExempl(::QObject *parent)
       cur_pos_{BEGIN_POS()} {}
 
 void brick_game::simplExempl::start_game_slot() {
+  activity_sound_.setUrl("qrc:/audio/activity.mp3");
   field_.clear_all();
   cur_pos_ = BEGIN_POS();
   field_(cur_pos_) = Value::ONE;

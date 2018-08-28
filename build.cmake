@@ -12,12 +12,14 @@ option(profiling "set profiling" 0)
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug AND leak_check)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+  message(STATUS "Leack check ON")
 endif()
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug AND profiling)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -pg")
   set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -pg")
   set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} -pg")
+  message(STATUS "Profiling ON")
 endif()
 
 message(STATUS "buid type    " ${CMAKE_BUILD_TYPE})

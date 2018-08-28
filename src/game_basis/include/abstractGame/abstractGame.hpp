@@ -8,6 +8,7 @@
 #include "abstractGame/score.hpp"
 #include "brick_game.hpp"
 #include <QObject>
+#include <QUrl>
 
 namespace brick_game {
 class general_window;
@@ -40,6 +41,15 @@ protected:
   /**\brief level of BrickGame
    * When you changed this value changed the value on the screen*/
   level level_;
+
+  /**\brief if you want listen any sound when game starting just add here url. default - ""*/
+  ::QUrl begin_theme_sound_;
+  /**\brief sound of any activity. default - ""*/
+  ::QUrl activity_sound_;
+  /**\brief sound of set score. default - ""*/
+  ::QUrl score_sound_;
+  /**\brief sound of level up. default - ""*/
+  ::QUrl level_up_sound_;
 
 public:
   /**\param parent pointer to parent*/
@@ -76,7 +86,7 @@ signals:
   /**\brief signal, which talk pause is active or not
    * \param status if pause active set true, if not - false*/
   void pause_signal(bool status) const;
-  /**\brief signal for player, send if want hear some sound*/
+  /**\brief signal for player, send if want hear activity_sound_*/
   void activity() const;
 };
 }; // namespace brick_game

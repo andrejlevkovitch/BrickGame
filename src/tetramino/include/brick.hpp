@@ -9,11 +9,13 @@
 
 namespace brick_game {
 class tetramino;
+/// just briek of tetramino
 class brick : public ::QObject {
   Q_OBJECT
   friend tetramino;
 
 public:
+  /// types of briecks
   enum BrickType {
     T_BRICK,
     O_BRICK,
@@ -24,6 +26,8 @@ public:
     I_BRICK,
     SIZE_BRICKS
   };
+  /**\return begin center of brieck.
+   * Always (0, 1)*/
   static point DEF_CENTER();
 
 private:
@@ -33,8 +37,11 @@ private:
 
 public:
   explicit brick(::QObject *parent = nullptr);
+  /**\brief function turn brick relative to the center
+   * \return true if turn was be, and false if not (last can be if brick dasn't
+   * turn - O_BRICK, exm)*/
   bool turn();
   brick &operator=(brick &&rhs);
   brick &operator=(const brick &rhs);
 };
-}; // namespace tetris
+}; // namespace brick_game

@@ -45,6 +45,12 @@ protected:
    * \param plugin input plugin*/
   void addToMenu(::QObject *plugin);
 
+protected slots:
+  /**\brief open pauseLog*/
+  void pause(bool status);
+  /**\brief open endDialog*/
+  void end_game(unsigned short level, unsigned score);
+
 signals:
   void start_game_signal();
   void finish_game_signal();

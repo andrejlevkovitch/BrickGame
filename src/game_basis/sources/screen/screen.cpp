@@ -97,5 +97,6 @@ brick_game::screen::screen(::QWidget *parent)
   }
   auto retval = new ::QWidget;
   retval->setLayout(field_layout);
+  retval->setFixedSize(retval->sizeHint());
   return retval;
 }
