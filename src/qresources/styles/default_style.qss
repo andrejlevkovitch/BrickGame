@@ -1,25 +1,22 @@
 brick_game--pix {
   min-height : 20px;
   min-width : 23px;
+  background-color : rgba(255, 255, 255, 0);
 }
 
 brick_game--pix:enabled {
-  background-color : rgba(255, 255, 255, 0);
   border-color : darkgray;
   border-width : 3px;
   border-style : outset;
 }
 
-brick_game--pix:disabled {
-  background-color : rgba(255, 255, 255, 0);
-/*border-color : darkgray;
-  border-width : 3px;
-  border-style : inset;*/
-}
-
-QLabel {
+QLabel#level_lbl {
   font : bold;
-  font-size : 20px;
+  font-size : 30px;
+}
+QLabel#score_lbl {
+  font : bold;
+  font-size : 30px;
 }
 
 QStatusBar {
@@ -32,10 +29,6 @@ QLabel#pauseLog {
 }
 
 QWidget#miniField {
-  min-height : 80;
-  min-width : 80;
-  max-height : 95;
-  max-width : 95;
 }
 
 QWidget#generalField {

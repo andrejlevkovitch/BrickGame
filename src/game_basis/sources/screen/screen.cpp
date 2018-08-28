@@ -28,12 +28,14 @@ brick_game::screen::screen(::QWidget *parent)
     auto rhs_layout = new ::QVBoxLayout;
     {
       auto level_lbl = new ::QLabel{"LEVEL"};
+      level_lbl->setObjectName("level_lbl");
       auto level_display = new ::QLCDNumber;
       level_display->setDigitCount(LEVEL_DIGIN_COUNT());
       connect(this, SIGNAL(set_level(int)), level_display, SLOT(display(int)));
       level_lbl->setBuddy(level_display);
 
       auto score_lbl = new ::QLabel{"SCORE"};
+      score_lbl->setObjectName("score_lbl");
       auto score_display = new ::QLCDNumber;
       score_display->setDigitCount(SCORE_DIGIN_COUNT());
       connect(this, SIGNAL(set_score(int)), score_display, SLOT(display(int)));
