@@ -9,6 +9,7 @@
 #include "brick_game.hpp"
 #include <QObject>
 #include <QUrl>
+#include <QPixmap>
 
 namespace brick_game {
 class general_window;
@@ -50,6 +51,9 @@ protected:
   ::QUrl score_sound_;
   /**\brief sound of level up. default - ""*/
   ::QUrl level_up_sound_;
+
+  /**\brief icon for game*/
+  ::QPixmap icon_;
 
 public:
   /**\param parent pointer to parent*/

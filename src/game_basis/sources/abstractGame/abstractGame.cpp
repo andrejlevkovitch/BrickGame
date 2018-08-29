@@ -20,7 +20,7 @@ brick_game::abstractGame::abstractGame(::QObject *parent)
     : ::QObject{parent}, field_{FIELD_SIZE.height(), FIELD_SIZE.width()},
       mini_field_{MINI_FIELD_SIZE.height(), MINI_FIELD_SIZE.width()},
       begin_theme_sound_{""}, activity_sound_{""}, score_sound_{""},
-      level_up_sound_{""} {
+      level_up_sound_{""}, icon_{} {
   connect(this, &brick_game::abstractGame::end_game_signal, this, [=]() {
     level_ = 0;
     score_ = 0;

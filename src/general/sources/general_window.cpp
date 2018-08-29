@@ -16,9 +16,10 @@
 #include <QDir>
 #include <QKeyEvent>
 #include <QMenu>
-#include <QMenuBar>
+#include <QToolBar>
 #include <QPluginLoader>
 #include <QStatusBar>
+#include <QMenuBar>
 
 #include <config.h>
 
@@ -40,17 +41,19 @@ brick_game::general_window::general_window(::QWidget *parent)
     status_bar_ = new ::QStatusBar;
     auto menu_bar = new ::QMenuBar;
     {
-      game_menu_ = new ::QMenu{"Games"};
-
+      game_menu_ = new ::QMenu{"&Games"};
+    }
+    auto tool_bar = new ::QToolBar;
+    {
       auto sound_action =
-          new ::QAction{::QPixmap{":/image/sound.png"}, "sound", menu_bar};
+          new ::QAction{::QPixmap{":/image/sound.png"}, "sound", tool_bar};
       sound_action->setWhatsThis("switch sound");
       {
         connect(sound_action, SIGNAL(triggered()), player_,
                 SLOT(remove_sound()));
       }
       auto record_table_action = new ::QAction{::QPixmap{":/image/list.png"},
-                                               "Record Table", menu_bar};
+                                               "Record Table", tool_bar};
       record_table_action->setWhatsThis("Record Table");
       {
         connect(record_table_action, &::QAction::triggered, this, [=]() {
@@ -61,10 +64,11 @@ brick_game::general_window::general_window(::QWidget *parent)
         });
       }
       menu_bar->addMenu(game_menu_);
-      menu_bar->addAction(sound_action);
-      menu_bar->addAction(record_table_action);
+      tool_bar->addAction(sound_action);
+      tool_bar->addAction(record_table_action);
     }
     general_layout->addWidget(menu_bar);
+    general_layout->addWidget(tool_bar);
     general_layout->addWidget(screen_);
     general_layout->addWidget(status_bar_);
   }
@@ -158,7 +162,7 @@ void brick_game::general_window::addToMenu(::QObject *plugin) {
   if (plugin) {
     auto game = qobject_cast<brick_game::abstractGame *>(plugin);
     if (game) {
-      auto game_action = new ::QAction{game->game_name(), plugin};
+      auto game_action = new ::QAction{game->icon_, game->game_name(), plugin};
       game_menu_->addAction(game_action);
       connect(game_action, &::QAction::triggered, this,
               [=]() { set_game(game); });

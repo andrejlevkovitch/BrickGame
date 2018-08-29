@@ -17,6 +17,7 @@ void brick_game::player::set_sounds(const ::QUrl &begin_theme,
   activity_ = activity;
   score_ = score;
   level_up_ = level_up;
+  player_->setMedia(::QUrl{""});
   ::qDebug() << "set next sounds:" << begin_theme_ << activity_ << score_
              << level_up_;
 }

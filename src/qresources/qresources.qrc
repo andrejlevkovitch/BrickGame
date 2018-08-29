@@ -3,6 +3,8 @@
     <file alias="sound.png">images/sound.png</file>
     <file alias="list.png">images/list.png</file>
     <file alias="paper.png">images/paper.png</file>
+    <file alias="snake.png">images/snake.png</file>
+    <file alias="tetramino.png">images/tetramino.png</file>
   </qresource>
   <qresource prefix="/audio">
     <file alias="tetramino_theme.mp3">audio/tetramino_begin_theme.mp3</file>

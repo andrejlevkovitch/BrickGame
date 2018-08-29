@@ -8,6 +8,7 @@ brick_game--pix:enabled {
   border-color : darkgray;
   border-width : 3px;
   border-style : outset;
+  border-radius : 3px;
 }
 
 QLabel#level_lbl {

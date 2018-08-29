@@ -38,6 +38,8 @@ brick_game::snake::snake(::QObject *parent)
   score_sound_.setUrl("qrc:/audio/score.mp3");
   level_up_sound_.setUrl("qrc:/audio/level_up.mp3");
 
+  icon_.load(":/image/snake.png");
+
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)), this,
           SLOT(finish_game_slot()));
   connect(&timer_, &::QTimer::timeout, this, [=]() {
@@ -102,7 +104,7 @@ void brick_game::snake::customEvent(::QEvent *event) {
 }
 
 void brick_game::snake::pause() {
-  if (is_active_) {
+  if (is_avalible_) {
     if (timer_.isActive()) {
       timer_.stop();
       is_active_ = false;

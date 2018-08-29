@@ -11,11 +11,11 @@ set(CMAKE_AUTOMOC ON)
 set(TETRAMINO_LBR "tetramino")
 file(GLOB TETRAMINO_SRC "include/*.hpp" "sources/*.cpp")
 
-add_library(${TETRAMINO_LBR} SHARED ${TETRAMINO_SRC})
+add_library(${TETRAMINO_LBR} MODULE ${TETRAMINO_SRC})
 
 target_link_libraries(${TETRAMINO_LBR} Qt5::Widgets)
 
-target_include_directories(${TETRAMINO_LBR} PUBLIC "./include")
+target_include_directories(${TETRAMINO_LBR} PRIVATE "./include")
 target_include_directories(${TETRAMINO_LBR} PRIVATE "../game_basis/include")
 
 if(BUILD_TESTING)
@@ -23,8 +23,10 @@ if(BUILD_TESTING)
     set(BOOST_TEST_TET "test_tetramino")
     set(BOOST_TEST_TET_SRC "tests/boost_test_tetramino.cpp" "tests/test_slot.hpp")
 
-    add_executable(${BOOST_TEST_TET} ${BOOST_TEST_TET_SRC})
-    target_link_libraries(${BOOST_TEST_TET} ${TETRAMINO_LBR} ${BRICKG_LBR} Qt5::Widgets)
+    add_executable(${BOOST_TEST_TET} ${BOOST_TEST_TET_SRC} ${TETRAMINO_SRC})
+    target_link_libraries(${BOOST_TEST_TET} ${BRICKG_LBR} Qt5::Widgets)
+
+    target_include_directories(${BOOST_TEST_TET} PRIVATE "./include")
 
     add_test(NAME ${BOOST_TEST_TET} COMMAND ${BOOST_TEST_TET})
   else()
