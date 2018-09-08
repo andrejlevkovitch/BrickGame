@@ -43,7 +43,8 @@ void brick_game::player::begin_theme() {
 
 void brick_game::player::activity() {
   if (!soundless_ && !activity_.isEmpty()) {
-    if (player_->state() != ::QMediaPlayer::State::PlayingState) {
+    if (player_->state() != ::QMediaPlayer::State::PlayingState ||
+        player_->media() == activity_) {
       player_->stop();
       player_->setMedia(activity_);
       player_->play();
@@ -53,7 +54,8 @@ void brick_game::player::activity() {
 
 void brick_game::player::score_changed() {
   if (!soundless_ && !score_.isEmpty()) {
-    if (player_->state() != ::QMediaPlayer::State::PlayingState) {
+    if (player_->state() != ::QMediaPlayer::State::PlayingState ||
+        (player_->media() != begin_theme_ && player_->media() != level_up_)) {
       player_->stop();
       player_->setMedia(score_);
       player_->play();
@@ -63,9 +65,12 @@ void brick_game::player::score_changed() {
 
 void brick_game::player::level_up() {
   if (!soundless_ && !level_up_.isEmpty()) {
-    player_->stop();
-    player_->setMedia(level_up_);
-    player_->play();
+    if (player_->state() != ::QMediaPlayer::State::PlayingState ||
+        player_->media() != begin_theme_) {
+      player_->stop();
+      player_->setMedia(level_up_);
+      player_->play();
+    }
   }
 }
 

@@ -56,8 +56,7 @@ int main(int argc, char *argv[]) {
   ::QFile file{":/style/default.qss"};
   if (file.open(::QFile::ReadOnly)) {
     ::qDebug() << "open style file";
-    ::QString style = ::QLatin1String{file.readAll()};
-    app.setStyleSheet(style);
+    app.setStyleSheet(file.readAll());
     file.close();
   }
 

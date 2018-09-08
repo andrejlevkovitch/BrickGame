@@ -8,7 +8,6 @@
 #include <QKeyEvent>
 #include <QLCDNumber>
 #include <QLabel>
-#include <QStackedLayout>
 
 #include <QDebug>
 
@@ -59,30 +58,18 @@ brick_game::screen::screen(::QWidget *parent)
 }
 
 ::QWidget *brick_game::screen::create_general_field() {
-  auto stacked_layout = new ::QStackedLayout;
-  stacked_layout->setStackingMode(::QStackedLayout::StackingMode::StackAll);
-  {
-    auto field_layout = new ::QGridLayout;
-    field_layout->setSpacing(0);
-    field_layout->setContentsMargins(0, 0, 0, 0);
-    for (int i = 0; i < FIELD_SIZE.height(); ++i) {
-      for (int j = 0; j < FIELD_SIZE.width(); ++j) {
-        general_pixarr_[i][j] = new brick_game::pix;
-        connect(this, &screen::clear_all, general_pixarr_[i][j], &pix::change);
-        field_layout->addWidget(general_pixarr_[i][j], i, j);
-      }
+  auto field_layout = new ::QGridLayout;
+  field_layout->setSpacing(0);
+  field_layout->setContentsMargins(0, 0, 0, 0);
+  for (int i = 0; i < FIELD_SIZE.height(); ++i) {
+    for (int j = 0; j < FIELD_SIZE.width(); ++j) {
+      general_pixarr_[i][j] = new brick_game::pix;
+      connect(this, &screen::clear_all, general_pixarr_[i][j], &pix::change);
+      field_layout->addWidget(general_pixarr_[i][j], i, j);
     }
-    auto field_wgt = new ::QWidget;
-    field_wgt->setLayout(field_layout);
-    field_wgt->setObjectName("generalField");
-
-    auto fon_wgt = new brick_game::game_fon;
-
-    stacked_layout->addWidget(fon_wgt);
-    stacked_layout->addWidget(field_wgt);
   }
-  auto retval = new ::QWidget;
-  retval->setLayout(stacked_layout);
+  auto retval = new brick_game::game_fon;
+  retval->setLayout(field_layout);
   return retval;
 }
 

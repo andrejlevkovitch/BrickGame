@@ -42,6 +42,7 @@ brick_game::general_window::general_window(::QWidget *parent)
     auto menu_bar = new ::QMenuBar;
     {
       game_menu_ = new ::QMenu{"&Games"};
+      menu_bar->addMenu(game_menu_);
     }
     auto tool_bar = new ::QToolBar;
     {
@@ -63,7 +64,6 @@ brick_game::general_window::general_window(::QWidget *parent)
           end_dialog.exec();
         });
       }
-      menu_bar->addMenu(game_menu_);
       tool_bar->addAction(sound_action);
       tool_bar->addAction(record_table_action);
     }

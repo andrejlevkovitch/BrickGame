@@ -22,6 +22,7 @@ if(BUILD_TESTING)
     target_link_libraries(${BOOST_TEST_SE} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
 
     target_include_directories(${BOOST_TEST_SE} PRIVATE "./include")
+    target_include_directories(${BOOST_TEST_SE} PRIVATE "../game_basis/include")
 
     add_test(NAME ${BOOST_TEST_SE} COMMAND ${BOOST_TEST_SE})
   else()

@@ -27,6 +27,7 @@ if(BUILD_TESTING)
     target_link_libraries(${BOOST_TEST_TET} ${BRICKG_LBR} Qt5::Widgets)
 
     target_include_directories(${BOOST_TEST_TET} PRIVATE "./include")
+    target_include_directories(${BOOST_TEST_TET} PRIVATE "../game_basis/include")
 
     add_test(NAME ${BOOST_TEST_TET} COMMAND ${BOOST_TEST_TET})
   else()
