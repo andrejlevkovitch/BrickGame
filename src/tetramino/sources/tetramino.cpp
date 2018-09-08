@@ -39,7 +39,7 @@ brick_game::tetramino::tetramino(::QObject *parent)
   score_sound_.setUrl("qrc:/audio/score.mp3");
   level_up_sound_.setUrl("qrc:/audio/level_up.mp3");
 
-  icon_.load(":/image/tetramino.png");
+  icon_ = ":/image/tetramino.png";
 
   connect(&timer_, &::QTimer::timeout, this, [=]() {
     directionEvent event(Direction::DOWN);

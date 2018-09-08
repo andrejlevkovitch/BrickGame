@@ -162,7 +162,7 @@ void brick_game::general_window::addToMenu(::QObject *plugin) {
   if (plugin) {
     auto game = qobject_cast<brick_game::abstractGame *>(plugin);
     if (game) {
-      auto game_action = new ::QAction{game->icon_, game->game_name(), plugin};
+      auto game_action = new ::QAction{::QPixmap{game->icon_}, game->game_name(), plugin};
       game_menu_->addAction(game_action);
       connect(game_action, &::QAction::triggered, this,
               [=]() { set_game(game); });

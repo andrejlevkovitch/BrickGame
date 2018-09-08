@@ -38,7 +38,7 @@ brick_game::snake::snake(::QObject *parent)
   score_sound_.setUrl("qrc:/audio/score.mp3");
   level_up_sound_.setUrl("qrc:/audio/level_up.mp3");
 
-  icon_.load(":/image/snake.png");
+  icon_ = ":/image/snake.png";
 
   connect(this, SIGNAL(end_game_signal(unsigned short, unsigned)), this,
           SLOT(finish_game_slot()));

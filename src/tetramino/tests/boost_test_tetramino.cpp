@@ -11,6 +11,7 @@ BOOST_AUTO_TEST_SUITE(tetramino)
 struct fixture_tetramino : public brick_game::tetramino {};
 
 BOOST_FIXTURE_TEST_CASE(delete_solutions, fixture_tetramino) {
+  std::cerr << "test starting";
   const int first_row{5};
   for (auto &i : field_[first_row]) {
     i = brick_game::Value::ONE;

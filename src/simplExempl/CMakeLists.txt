@@ -18,6 +18,7 @@ if(BUILD_TESTING)
   if (Boost_FOUND)
     set(BOOST_TEST_SE "test_simplExempl")
     file(GLOB BOOST_TEST_ABS_SE "tests/*")
+
     add_executable(${BOOST_TEST_SE} ${BOOST_TEST_ABS_SE} ${SE_SRC})
     target_link_libraries(${BOOST_TEST_SE} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
 

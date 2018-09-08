@@ -31,12 +31,14 @@ if(BUILD_TESTING)
   if (Boost_FOUND)
     set(BOOST_TEST_ABS "test_abstractGame")
     set(BOOST_TEST_ABS_SRC "tests/boost_test_abstractGame.cpp" "tests/test_slot.hpp")
+
     add_executable(${BOOST_TEST_ABS} ${BOOST_TEST_ABS_SRC})
     target_link_libraries(${BOOST_TEST_ABS} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
     add_test(NAME ${BOOST_TEST_ABS} COMMAND ${BOOST_TEST_ABS})
 
     set(BOOST_TEST_RT "test_rt")
     set(BOOST_TEST_RT_SRC "tests/boost_test_recordTable.cpp" "tests/test_slot.hpp")
+
     add_executable(${BOOST_TEST_RT} ${BOOST_TEST_RT_SRC})
     target_link_libraries(${BOOST_TEST_RT} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
     add_test(NAME ${BOOST_TEST_RT} COMMAND ${BOOST_TEST_RT})
