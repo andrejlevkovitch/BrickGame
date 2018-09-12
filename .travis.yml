@@ -9,6 +9,8 @@ befor_install:
   - docker run andrejlevkovitch/ubuntu_qt_boost:latest
 
 script:
+  - ls
+  - pwd
   - export PATH=$PATH:/opt/qt510/bin
   - mkdir build
   - cd build
