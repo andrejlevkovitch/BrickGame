@@ -1,5 +1,8 @@
 # BrickGame
 
+[![Build Status](https://travis-ci.org/andrejlevkovitch/BrickGame.svg?branch=master)](https://travis-ci.org/andrejlevkovitch/BrickGame)
+
+
 Реализация brick_game под Qt.
 
 Имеется документация doxygen.

@@ -1,0 +1,22 @@
+sudo:
+  - required
+
+services:
+  - docker
+
+befor_install:
+  - docker pull andrejlevkovitch/ubuntu_qt_boost:latest
+  - docker run andrejlevkovitch/ubuntu_qt_boost:latest
+
+script:
+  - export PATH=$PATH:/opt/qt510/bin
+  - mkdir build
+  - cd build
+  - cmake -DBUILD_SHARED_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
+  - cmake --build .
+  - make test
+  - make clean
+  - rm * -rf
+  - cmake -DCMAKE_CXX_COMPILER=clang++ -DBUILD_SHARED_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
+  - cmake --build .
+  - make test
