@@ -27,15 +27,15 @@ BOOST_FIXTURE_TEST_CASE(delete_solutions, fixture_tetramino) {
   score_ = level_ = 0;
   if (LINES_TO_NEXT_LEVEL() < field_.size()) {
     for (int i = 0; i < LINES_TO_NEXT_LEVEL() / 2; ++i) {
-      for (auto &i : field_[i]) {
-        i = brick_game::Value::ONE;
+      for (auto &j : field_[i]) {
+        j = brick_game::Value::ONE;
       }
     }
     fixture_tetramino::delete_solutions();
     for (int i = 0; i < LINES_TO_NEXT_LEVEL() - LINES_TO_NEXT_LEVEL() / 2;
          ++i) {
-      for (auto &i : field_[i]) {
-        i = brick_game::Value::ONE;
+      for (auto &j : field_[i]) {
+        j = brick_game::Value::ONE;
       }
     }
     fixture_tetramino::delete_solutions();

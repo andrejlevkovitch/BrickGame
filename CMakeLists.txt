@@ -13,7 +13,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/plugin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib")
 
 set(LIST_TARGETS CACHE STRING "list of targets" FORCE)
-set(LIST_SUBDIRS general snake tetramino game_basis simplExempl qresources main)
+set(LIST_SUBDIRS qresources general game_basis simplExempl snake tetramino main)
 
 include(build.cmake)
 

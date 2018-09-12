@@ -20,7 +20,7 @@ if(BUILD_TESTING)
     file(GLOB BOOST_TEST_ABS_SE "tests/*")
 
     add_executable(${BOOST_TEST_SE} ${BOOST_TEST_ABS_SE} ${SE_SRC})
-    target_link_libraries(${BOOST_TEST_SE} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
+    target_link_libraries(${BOOST_TEST_SE} ${BRICKG_LBR} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} Qt5::Widgets)
 
     target_include_directories(${BOOST_TEST_SE} PRIVATE "./include")
     target_include_directories(${BOOST_TEST_SE} PRIVATE "../game_basis/include")

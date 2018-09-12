@@ -23,7 +23,7 @@ void brick_game::simplExempl::start_game_slot() {
 void brick_game::simplExempl::finish_game_slot() {}
 
 ::QString brick_game::simplExempl::game_name() const {
-  return ::QString{"simpleGame"};
+  return ::QString{"simpleExemple"};
 }
 
 void brick_game::simplExempl::customEvent(::QEvent *event) {
