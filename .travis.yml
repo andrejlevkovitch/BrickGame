@@ -5,21 +5,8 @@ services:
   - docker
 
 befor_install:
-  - docker pull andrejlevkovitch/ubuntu_qt_boost:second
-  - docker run andrejlevkovitch/ubuntu_qt_boost:second
+  - docker pull andrejlevkovitch/ubuntu_qt_boost:latest
+  - docker run andrejlevkovitch/ubuntu_qt_boost:latest
 
 script:
-  - mkdir build
-  - cd build
-  - cmake -DBUILD_SHARED_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
-  - cmake --build .
-  - make test
-  - make clean
-  - rm * ../bin ../lib ../plugin -rf
-  - cmake -DCMAKE_CXX_COMPILER=clang++ -DBUILD_SHARED_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
-  - cmake --build .
-  - make test
-  - rm * ../bin ../lib ../plugin -rf
-  - cmake -DCMAKE_CXX_COMPILER=clang++ -DBUILD_STATIC_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
-  - cmake --build .
-  - make test
+  - docker build -t test_docker .
