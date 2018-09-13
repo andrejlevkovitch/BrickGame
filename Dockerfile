@@ -1,4 +1,4 @@
-FROM andrejlevkovitch/ubuntu_qt_boost:second
+FROM andrejlevkovitch/ubuntu_qt_boost
 
 ADD . /app
 
