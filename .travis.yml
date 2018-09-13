@@ -5,8 +5,8 @@ services:
   - docker
 
 before_install:
-  - docker pull andrejlevkovitch/ubuntu_qt_boost:latest
-  - docker run andrejlevkovitch/ubuntu_qt_boost:latest
+  - docker pull andrejlevkovitch/ubuntu_qt_boost:second
+  - docker run andrejlevkovitch/ubuntu_qt_boost:second
 
 script:
   - docker build -t test_docker .
