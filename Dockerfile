@@ -2,11 +2,9 @@ FROM andrejlevkovitch/ubuntu_qt_boost:second
 
 ADD . /app
 
-WORKDIR /app
+RUN mkdir /app/build
 
-RUN mkdir build
-
-WORKDIR build
+WORKDIR /app/build
 
 RUN cmake -DBUILD_SHARED_LIBS=1 -DCMAKE_BUILD_TYPE=Release ..
 RUN cmake --build .

@@ -1,6 +1,6 @@
 # BrickGame
 
-[![Build Status](https://travis-ci.org/andrejlevkovitch/BrickGame.svg?branch=master)](https://travis-ci.org/andrejlevkovitch/BrickGame)
+[![](https://dockerbuildbadges.quelltext.eu/status.svg?organization=niccokunzmann&repository=dockerhub-build-status-image)](https://hub.docker.com/r/andrejlevkovitch/brickgame/builds/) 
 
 
 Реализация brick_game под Qt.
