@@ -4,7 +4,7 @@ sudo:
 services:
   - docker
 
-befor_install:
+before_install:
   - docker pull andrejlevkovitch/ubuntu_qt_boost:latest
   - docker run andrejlevkovitch/ubuntu_qt_boost:latest
 
